@@ -2,6 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- In dem Code gibt es Orte, an denen die Internetverfügbarkeit überprüfen würden,
+     bevor Anrufe getätigt werden, damit die App nicht zur Laufzeit abstürzt.
+     Dafür muss ich auf den "NETZWERKSTAAT" zugreifen, der die Erlaubnis erfordert: -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Und wenn das Internet verfügbar ist, kommuniziert den Gerät mit dem Server über das "INTERNET",
+     das die Erlaubnis erfordert: -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
