@@ -20,4 +20,8 @@
         android:name="com.example.beautynetwork.ui.PasswordResetFragment"
         android:label="fragment_password_reset"
         tools:layout="@layout/fragment_password_reset" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.beautynetwork.ui.ProfileFragment"
+        android:label="ProfileFragment" />
 </navigation>
