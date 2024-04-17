@@ -3,16 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:layout_marginBottom="16dp"
-        android:text="BEAUTY\nNETWORK"
-        android:textColor="#9C27B0"
+        android:layout_marginBottom="8dp"
+        android:text="BEAUTY NETWORK"
+        android:textColor="#4CAF50"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/appIcon"
@@ -66,9 +67,11 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="50dp"
         android:text="Sign in"
+        android:backgroundTint="#4CAF50"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
+        android:textColor="@color/white"/>
 
     <Button
         android:id="@+id/registerBTN"
@@ -80,7 +83,11 @@
         android:text="Register"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginBTN" />
+        app:layout_constraintTop_toBottomOf="@+id/loginBTN"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:textColor="#4CAF50"
+        app:iconTint="#4CAF50"
+        app:strokeColor="#4CAF50"/>
 
     <TextView
         android:id="@+id/text_password_reset"
@@ -95,12 +102,12 @@
 
     <ImageView
         android:id="@+id/appIcon"
-        android:layout_width="167dp"
-        android:layout_height="122dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/white_test" />
+        android:layout_width="191dp"
+        android:layout_height="157dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:srcCompat="@drawable/logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

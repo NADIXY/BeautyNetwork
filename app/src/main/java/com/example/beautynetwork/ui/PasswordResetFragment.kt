@@ -28,6 +28,8 @@ class PasswordResetFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        /*
+
         // Button um Passwort-Vergessen Mail zu senden
         // Email wird aus den Input-Feldern geholt
         // Wenn Email kein leerer String ist wird die sendPasswordResetFunktion im ViewModel aufgerufen
@@ -43,6 +45,8 @@ class PasswordResetFragment : Fragment() {
         binding.textBackToLogin.setOnClickListener {
             findNavController().navigate(R.id.signInFragment)
         }
+
+         */
 
     }
 

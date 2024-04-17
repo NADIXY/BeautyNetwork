@@ -28,6 +28,8 @@ class SignInFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        /*
+
         // Button um User einzuloggen
         // Erst werden email und passwort aus den Eingabefeldern geholt
         // Wenn beide nicht leer sind rufen wir die login Funktion im ViewModel auf
@@ -58,6 +60,8 @@ class SignInFragment : Fragment() {
                 //findNavController().navigate(R.id.homeFragment)
             }
         }
+
+         */
     }
 
 }

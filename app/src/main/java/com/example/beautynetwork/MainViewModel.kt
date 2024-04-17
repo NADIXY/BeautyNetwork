@@ -12,6 +12,8 @@ import com.example.beautynetwork.data.model.Profile
 //ViewModel-Klasse, die von AndroidViewModel erbt und eine Referenz auf die Anwendung enthält.
 class MainViewModel(application: Application) : AndroidViewModel(application) {
 
+    /*
+
     // Instanz von Firebase Authentication
     // Ersetzt in diesem Fall ein Repository
     val auth = Firebase.auth
@@ -140,6 +142,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             )
         )
     }
+
+     */
 
     private val repository  = Repository()
 

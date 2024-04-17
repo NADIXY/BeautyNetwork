@@ -2,8 +2,17 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.BeautyNetwork" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/verde</item>
+        <item name="colorPrimaryVariant">@color/verde</item>
+        <item name="colorOnPrimary">@color/verde</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+    </style>
+    <style name="Theme.BeautyNetwork" parent="Base.Theme.BeautyNetwork" />
+
+    <style name="Theme.App.BeautyNetwork" parent="Theme.BeautyNetwork">
+        <item name="windowSplashScreenBackground">@color/verde</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/logo</item>
+        <item name="postSplashScreenTheme">@style/Base.Theme.BeautyNetwork</item>
     </style>
 
-    <style name="Theme.BeautyNetwork" parent="Base.Theme.BeautyNetwork" />
 </resources>
