@@ -9,10 +9,10 @@
     </style>
     <style name="Theme.BeautyNetwork" parent="Base.Theme.BeautyNetwork" />
 
-    <style name="Theme.App.BeautyNetwork" parent="Theme.BeautyNetwork">
+    <style name="Theme.App.BeautyNetwork.SplashScreen" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/verde</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/logo</item>
-        <item name="postSplashScreenTheme">@style/Base.Theme.BeautyNetwork</item>
+        <item name="postSplashScreenTheme">@style/Theme.BeautyNetwork</item>
     </style>
 
 </resources>
