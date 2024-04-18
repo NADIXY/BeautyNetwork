@@ -34,8 +34,6 @@ class RegisterFragment : Fragment() {
             findNavController().navigate(R.id.signInFragment)
         }
 
-        /*
-
         // Button um User zu registrieren
         // Erst werden email und passwort aus den Eingabefeldern geholt
         // Wenn beide nicht leer sind rufen wir die register Funktion im ViewModel auf
@@ -61,11 +59,9 @@ class RegisterFragment : Fragment() {
         viewModel.user.observe(viewLifecycleOwner) { user ->
             if (user != null) {
                 isLoggedIn = true
-                //findNavController().navigate(R.id.homeFragment)
+                findNavController().navigate(R.id.homeFragment)
             }
         }
-
-         */
 
     }
 

@@ -26,7 +26,7 @@ class ProfileFragment : Fragment() {
         registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
             if (uri != null) {
                 //Uri bezieht sich auf das Bild
-                //viewModel.uploadProfilePicture(uri)
+                viewModel.uploadProfilePicture(uri)
             }
         }
 
@@ -47,8 +47,6 @@ class ProfileFragment : Fragment() {
             getContent.launch("image/*")
         }
 
-        /*
-
         // Snapshot Listener: Hört auf Änderungen in dem Firestore Document, das beobachtet wird
         // Hier: Referenz auf Profil wird beobachtet
         viewModel.profileRef?.addSnapshotListener { value, error ->
@@ -66,7 +64,7 @@ class ProfileFragment : Fragment() {
         }
 
         binding.continueText.setOnClickListener {
-            //findNavController().navigate(R.id.homeFragment)
+            findNavController().navigate(R.id.homeFragment)
 
         }
 
@@ -77,8 +75,6 @@ class ProfileFragment : Fragment() {
                 findNavController().navigate(R.id.signInFragment)
             }
         }
-
-         */
 
         // Neue Profil-Daten in Firestore speichern
         binding.btSave.setOnClickListener {
@@ -94,7 +90,7 @@ class ProfileFragment : Fragment() {
 
                 if (firstName != "" && lastName != "" && number != "" && email != "") {
                     val newProfile = Profile(firstName, lastName, number, email)
-                    //viewModel.updateProfile(newProfile)
+                    viewModel.updateProfile(newProfile)
 
                 }
                 Toast.makeText(requireContext(), "Saved", Toast.LENGTH_SHORT).show()

@@ -10,12 +10,16 @@ import androidx.lifecycle.viewModelScope
 import com.example.beautynetwork.data.Repository
 import com.example.beautynetwork.data.model.Profile
 import com.example.beautynetwork.data.remote.BeautyApi
+import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.auth
+import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.firestore
+import com.google.firebase.storage.storage
 import kotlinx.coroutines.launch
 
 //ViewModel-Klasse, die von AndroidViewModel erbt und eine Referenz auf die Anwendung enthält.
 class MainViewModel(application: Application) : AndroidViewModel(application) {
-
-    /*
 
     // Instanz von Firebase Authentication
     // Ersetzt in diesem Fall ein Repository
@@ -146,7 +150,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         )
     }
 
-     */
 
     private val repository = Repository(BeautyApi)
 
@@ -163,6 +166,5 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
 
     }
-
 
 }
