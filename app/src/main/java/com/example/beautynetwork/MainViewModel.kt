@@ -6,8 +6,11 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.example.beautynetwork.data.Repository
 import com.example.beautynetwork.data.model.Profile
+import com.example.beautynetwork.data.remote.BeautyApi
+import kotlinx.coroutines.launch
 
 //ViewModel-Klasse, die von AndroidViewModel erbt und eine Referenz auf die Anwendung enthält.
 class MainViewModel(application: Application) : AndroidViewModel(application) {
@@ -145,6 +148,21 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
      */
 
-    private val repository  = Repository()
+    private val repository = Repository(BeautyApi)
+
+    val beauty = repository.beauty
+
+    init {
+        loadBeauty()
+
+    }
+
+    fun loadBeauty(){
+        viewModelScope.launch {
+            repository.getBeauty()
+        }
+
+    }
+
 
 }
