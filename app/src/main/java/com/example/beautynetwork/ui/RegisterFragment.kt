@@ -44,7 +44,7 @@ class RegisterFragment : Fragment() {
             if (email != "" && password.length >= 12) {
                 viewModel.register(email, password)
             } else {
-                // Password must contain at least 8 characters
+                // Password must contain at least 12 characters
                 if (password.length < 12) {
                     // Fehlermeldung anzeigen
                     binding.passwordRegister.error = "Password must contain at least 12 characters"

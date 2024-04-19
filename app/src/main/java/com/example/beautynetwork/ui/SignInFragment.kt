@@ -31,7 +31,7 @@ class SignInFragment : Fragment() {
         // Button um User einzuloggen
         // Erst werden email und passwort aus den Eingabefeldern geholt
         // Wenn beide nicht leer sind rufen wir die login Funktion im ViewModel auf
-        binding.loginBTN.setOnClickListener {
+        binding.signInBTN.setOnClickListener {
             val email = binding.emailET.text.toString()
             val password = binding.passwordET.text.toString()
 

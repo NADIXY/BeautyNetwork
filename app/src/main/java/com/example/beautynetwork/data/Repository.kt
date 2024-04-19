@@ -17,12 +17,10 @@ class Repository(private val api: BeautyApi) {
 
     suspend fun getBeauty(){
         try {
-
         } catch (e : Exception) {
             Log.d("Repo", "$e")
         }
 
     }
-
 
 }

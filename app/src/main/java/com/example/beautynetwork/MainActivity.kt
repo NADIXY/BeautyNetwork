@@ -1,8 +1,12 @@
 package com.example.beautynetwork
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupWithNavController
 import com.example.beautynetwork.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -21,11 +25,24 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         //Legt die Ansicht der Aktivität auf die Wurzelansicht des Binding-Objekts fest.
         setContentView(binding.root)
+
+        val navHost =
+            supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+
+        navHost.navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.id == R.id.homeFragment || destination.id == R.id.profileFragment
+            ) {
+                binding.bottomNavigationView.visibility = View.VISIBLE
+                binding.bottomNavigationView.setupWithNavController(navHost.navController)
+                binding.bottomNavigationView.setOnItemSelectedListener {
+                    NavigationUI.onNavDestinationSelected(it, navHost.navController)
+                    navHost.navController.popBackStack(it.itemId, false)
+                    true
+                }
+            } else {
+                binding.bottomNavigationView.visibility = View.GONE
+            }
+        }
+
     }
-
 }
-
-
-
-
-

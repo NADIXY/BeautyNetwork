@@ -6,7 +6,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import retrofit2.http.GET
+
 
 // Die Konstante enthält die URL der API
 const val BASE_URL = "http://makeup-api.herokuapp.com/api/v1/products.json"
@@ -34,15 +34,6 @@ private val retrofit = Retrofit.Builder()
 
 // Das Interface bestimmt, wie mit dem Server kommuniziert wird
 interface BeautyApiService {
-
-    //@GET("brand=maybelline")
-    //suspend fun
-
-    //@GET("brand=covergirl&product_type=lipstick")
-    //suspend fun
-
-
-
 }
 
 // Das Objekt dient als Zugangspunkt für den Rest der App und stellt den API Service zur Verfügung

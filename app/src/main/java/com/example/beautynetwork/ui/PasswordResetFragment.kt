@@ -32,6 +32,7 @@ class PasswordResetFragment : Fragment() {
         // Email wird aus den Input-Feldern geholt
         // Wenn Email kein leerer String ist wird die sendPasswordResetFunktion im ViewModel aufgerufen
         binding.btSendEmailPasswordReset.setOnClickListener {
+
             val email = binding.tietEmailPasswordReset.text.toString()
 
             if (email != "") {
@@ -40,7 +41,7 @@ class PasswordResetFragment : Fragment() {
         }
 
         // Button um zurück zum SignInFragment zu navigieren
-        binding.textBackToLogin.setOnClickListener {
+        binding.textBackToSignIn.setOnClickListener {
             findNavController().navigate(R.id.signInFragment)
         }
 
