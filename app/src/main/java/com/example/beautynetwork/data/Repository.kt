@@ -15,11 +15,17 @@ class Repository(private val api: BeautyApi) {
     val beauty : LiveData<List<BeautyItem>>
         get() = _beauty
 
+    //Diese Funktion ruft Beautydaten von der API ab und aktualisiert den Wert des LiveData-Objekts _beauty
+
     suspend fun getBeauty(){
-        try {
+        /*try {
+            _beauty.postValue(api.retrofitService.getBeauty())
+            Log.d(TAG, "${_beauty.value}")
         } catch (e : Exception) {
-            Log.d("Repo", "$e")
+            Log.e(TAG, "$e")
         }
+
+         */
 
     }
 

@@ -29,4 +29,34 @@
         android:name="com.example.beautynetwork.ui.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/makeUpFragment"
+        android:name="com.example.beautynetwork.ui.MakeUpFragment"
+        android:label="fragment_make_up"
+        tools:layout="@layout/fragment_make_up" />
+    <fragment
+        android:id="@+id/makeUpDetailFragment"
+        android:name="com.example.beautynetwork.ui.MakeUpDetailFragment"
+        android:label="fragment_make_up_detail"
+        tools:layout="@layout/fragment_make_up_detail" />
+    <fragment
+        android:id="@+id/schedulerFragment"
+        android:name="com.example.beautynetwork.ui.SchedulerFragment"
+        android:label="fragment_scheduler"
+        tools:layout="@layout/fragment_scheduler" />
+    <fragment
+        android:id="@+id/schedulerDetailFragment"
+        android:name="com.example.beautynetwork.ui.SchedulerDetailFragment"
+        android:label="fragment_scheduler_detail"
+        tools:layout="@layout/fragment_scheduler_detail" />
+    <fragment
+        android:id="@+id/servicesFragment"
+        android:name="com.example.beautynetwork.ui.ServicesFragment"
+        android:label="fragment_services"
+        tools:layout="@layout/fragment_services" />
+    <fragment
+        android:id="@+id/servicesDetailFragment"
+        android:name="com.example.beautynetwork.ui.ServicesDetailFragment"
+        android:label="fragment_services_detail"
+        tools:layout="@layout/fragment_services_detail" />
 </navigation>
