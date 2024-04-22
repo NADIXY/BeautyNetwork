@@ -7,8 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.example.beautynetwork.MainViewModel
-import com.example.beautynetwork.R
-import com.example.beautynetwork.databinding.FragmentSchedulerBinding
 import com.example.beautynetwork.databinding.FragmentSchedulerDetailBinding
 
 class SchedulerDetailFragment : Fragment() {

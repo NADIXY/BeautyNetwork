@@ -18,6 +18,11 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        externalNativeBuild {
+            cmake {
+                cppFlags += ""
+            }
+        }
     }
 
     buildTypes {
@@ -38,6 +43,12 @@ android {
     }
     buildFeatures {
         viewBinding = true
+    }
+    externalNativeBuild {
+        cmake {
+            path = file("src/main/cpp/CMakeLists.txt")
+            version = "3.22.1"
+        }
     }
 }
 
@@ -78,6 +89,7 @@ dependencies {
     //splashscreen
     implementation("androidx.core:core-splashscreen:1.0.0")
 
+    //OkHttp
     implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
 
 }

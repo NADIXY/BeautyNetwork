@@ -16,7 +16,7 @@
         android:id="@+id/makeUpFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:icon="@drawable/baseline_spa_24"
+        android:icon="@drawable/baseline_face_2_24"
         android:title="MakeUp" />
     <item
         android:id="@+id/schedulerFragment"

@@ -1,6 +1,6 @@
 package com.example.beautynetwork.data.remote
 
-import com.example.beautynetwork.data.model.Beauty
+import com.example.beautynetwork.data.model.BeautyItem
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
@@ -8,10 +8,10 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Query
 
-
-// Die Konstante enthält die URL der API
-const val BASE_URL = "http://makeup-api.herokuapp.com/api/v1/products.json"
+// Die Konstante enthält die URL der API-Endpunkt
+const val BASE_URL = "http://makeup-api.herokuapp.com/api/v1/"
 
 // Moshi konvertiert Serverantworten in Kotlin Objekte
 private val moshi = Moshi.Builder()
@@ -34,19 +34,15 @@ private val retrofit = Retrofit.Builder()
     .baseUrl(BASE_URL)
     .build()
 
-// Das Interface bestimmt, wie mit dem Server kommuniziert wird
+// Das Interface definiert unsere API Calls und bestimmt, wie mit dem Server kommuniziert wird
 interface BeautyApiService {
 
-    /*@GET("brand=maybelline")
-    suspend fun getMaybelline(): Beauty
+    @GET("products.json?brand=")
+    suspend fun getMaybelline(@Query("brand")brand:String): List<BeautyItem>
 
-    @GET("brand=covergirl")
-    suspend fun getCovergirl(): Beauty
+    @GET("products.json?product_type=")
+    suspend fun getBeautyProduct(@Query("product_type")product_type:String): List<BeautyItem>
 
-    @GET("brand=covergirl&product_type=lipstick")
-    suspend fun getBeauty(): Beauty
-
-     */
 }
 
 // Das Objekt dient als Zugangspunkt für den Rest der App und stellt den API Service zur Verfügung
