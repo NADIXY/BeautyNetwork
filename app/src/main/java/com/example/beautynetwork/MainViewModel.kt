@@ -8,6 +8,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.beautynetwork.data.Repository
+import com.example.beautynetwork.data.model.BeautyItem
 import com.example.beautynetwork.data.model.Profile
 import com.example.beautynetwork.data.remote.BeautyApi
 import com.google.firebase.Firebase
@@ -166,6 +167,15 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         viewModelScope.launch {
             repository.getBeauty()
         }
+
+    }
+    private var _setSelectedProduct = MutableLiveData<BeautyItem>()
+    val setSelectedProduct: LiveData<BeautyItem>
+        get() = _setSelectedProduct
+
+    fun setSelectedProduct(product: BeautyItem) {
+
+        _setSelectedProduct.value = product
 
     }
 

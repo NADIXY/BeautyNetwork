@@ -29,7 +29,7 @@ class MakeUpFragment : Fragment() {
         viewModel.loadBeauty()
 
         viewModel.beauty.observe(viewLifecycleOwner){
-            binding.rvMakeUpList.adapter = MakeUpAdapter(it)
+            binding.rvMakeUpList.adapter = MakeUpAdapter(it,viewModel)
         }
 
     }

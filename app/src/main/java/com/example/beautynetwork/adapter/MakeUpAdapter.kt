@@ -2,13 +2,18 @@ package com.example.beautynetwork.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.example.beautynetwork.MainViewModel
+import com.example.beautynetwork.R
 import com.example.beautynetwork.data.model.BeautyItem
 import com.example.beautynetwork.databinding.ListItemMakeUpBinding
 
-class MakeUpAdapter(private val items: List<BeautyItem>) :
-    RecyclerView.Adapter<MakeUpAdapter.MyViewHolder>() {
+class MakeUpAdapter(
+    private val items: List<BeautyItem>,
+    private val viewModel: MainViewModel
+) : RecyclerView.Adapter<MakeUpAdapter.MyViewHolder>() {
 
     class MyViewHolder(val binding: ListItemMakeUpBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -30,6 +35,12 @@ class MakeUpAdapter(private val items: List<BeautyItem>) :
         //binding.txtPrice.text = "${data.price} €"
         binding.imgProductView.load(data.image_link)
 
+        /*binding.beautyProducts.setOnClickListener {
+            viewModel.setSelectedProduct(product)
+            holder.binding.beautyProducts.findNavController().navigate(R.id.makeUpDetailFragment)
+        }
+
+         */
 
     }
 
@@ -37,3 +48,4 @@ class MakeUpAdapter(private val items: List<BeautyItem>) :
         return items.size
     }
 }
+
