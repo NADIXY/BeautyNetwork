@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import coil.load
@@ -35,11 +36,23 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentProfileBinding.inflate(inflater, container, false)
+
         return binding.root
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+        binding.tietNumber.doOnTextChanged { text, start, before, count ->
+            if (text!!.length > 10) {
+                binding.numberTextInputLayout.error = "No More!"
+            }else if (text.length > 10) {
+                binding.numberTextInputLayout.error = null
+            }
+
+        }
 
         // Funktion um Bild vom Gerät auszuwählen
         // Startet den Ressource-Picker und zeigt uns alle Bilder auf dem Gerät an
@@ -100,6 +113,11 @@ class ProfileFragment : Fragment() {
             dialog.show()
         }
 
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        //binding = null
     }
 
 }

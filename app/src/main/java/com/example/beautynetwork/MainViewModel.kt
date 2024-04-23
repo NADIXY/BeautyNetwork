@@ -116,7 +116,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun logout() {
-
         auth.signOut()
 
         // Danach wird der Wert der currentUser LiveData auf den aktuellen Wert des Firebase-CurrentUser gesetzt

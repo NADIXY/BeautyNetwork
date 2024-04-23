@@ -10,11 +10,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:layout_marginBottom="8dp"
         android:fontFamily="@font/stalinist_one"
         android:text="PROFILE"
         android:textColor="#F48FB1"
         android:textSize="30sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/iv_profile_pic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -100,12 +102,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:srcCompat="@drawable/baseline_account_box_24" />
 
     <TextView
         android:id="@+id/continueText"
-        android:layout_width="58dp"
-        android:layout_height="38dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Continue"
         android:textColor="#2196F3"
@@ -114,12 +117,24 @@
         app:layout_constraintTop_toBottomOf="@+id/bt_save" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout6"
-        android:layout_width="0dp"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:id="@+id/numberTextInputLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
+        android:hint="Number"
+        app:startIconDrawable="@drawable/ic_phone"
+        app:prefixText="+49"
+        app:prefixTextColor="#4003AB"
+        app:endIconMode="clear_text"
+        app:errorEnabled="true"
+        app:errorIconDrawable="@drawable/baseline_error_24"
+        app:helperText="Required"
+        app:helperTextTextColor="@color/verde"
+        app:counterEnabled="true"
+        app:counterMaxLength="20"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout5"
@@ -129,7 +144,6 @@
             android:id="@+id/tiet_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Number"
             android:inputType="phone"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -143,7 +157,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout6"
+        app:layout_constraintTop_toBottomOf="@+id/numberTextInputLayout"
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText

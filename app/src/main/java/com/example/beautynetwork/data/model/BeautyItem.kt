@@ -1,7 +1,7 @@
 package com.example.beautynetwork.data.model
 
 data class BeautyItem(
-    val api_featured_image: String,//
+    val api_featured_image: String,
     val brand: String,
     val category: String?,
     val created_at: String,
@@ -12,12 +12,12 @@ data class BeautyItem(
     val name: String,
     val price: String?,
     val price_sign: String?,
-    val product_api_url: String,//
+    val product_api_url: String,
     val product_colors: List<ProductColor>,
     val product_link: String,
-    val product_type: String,//
+    val product_type: String,
     val rating: Double?,
     val tag_list: List<String>,
-    val updated_at: String,//
+    val updated_at: String,
     val website_link: String
 )
