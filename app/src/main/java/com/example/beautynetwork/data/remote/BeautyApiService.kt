@@ -37,10 +37,10 @@ private val retrofit = Retrofit.Builder()
 // Das Interface definiert unsere API Calls und bestimmt, wie mit dem Server kommuniziert wird
 interface BeautyApiService {
 
-    @GET("products.json?brand=")
+    @GET("products.json")
     suspend fun getMaybelline(@Query("brand")brand:String): List<BeautyItem>
 
-    @GET("products.json?product_type=")
+    @GET("products.json")
     suspend fun getBeautyProduct(@Query("product_type")product_type:String): List<BeautyItem>
 
 }
