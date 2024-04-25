@@ -21,7 +21,8 @@ private val moshi = Moshi.Builder()
 //Dies ist eine private Variable, die einen HttpLoggingInterceptor-Objekt enthält.
 //Setzt das Level des HttpLoggingInterceptor auf BODY, um den gesamten Body der HTTP-Anfragen und -Antworten zu loggen.
 private val logger: HttpLoggingInterceptor = HttpLoggingInterceptor().apply {
-    level = HttpLoggingInterceptor.Level.BODY //BASIC oder HEADERS (Andere verfügbare Optionen sind BASIC und HEADERS)
+    level =
+        HttpLoggingInterceptor.Level.BODY //BASIC oder HEADERS (Andere verfügbare Optionen sind BASIC und HEADERS)
 }
 
 private val httpClient = OkHttpClient.Builder() //Erstellt einen neuen OkHttpClient Builder.
@@ -30,18 +31,19 @@ private val httpClient = OkHttpClient.Builder() //Erstellt einen neuen OkHttpCli
 
 // Retrofit übernimmt die Kommunikation und übersetzt die Antwort
 private val retrofit = Retrofit.Builder()
-    .addConverterFactory(MoshiConverterFactory.create(moshi)).client(httpClient)//Fügt einen Konverter hinzu, der Moshi zur Serialisierung und Deserialisierung verwendet.
+    .addConverterFactory(MoshiConverterFactory.create(moshi))
+    .client(httpClient)//Fügt einen Konverter hinzu, der Moshi zur Serialisierung und Deserialisierung verwendet.
     .baseUrl(BASE_URL)
     .build()
 
 // Das Interface definiert unsere API Calls und bestimmt, wie mit dem Server kommuniziert wird
 interface BeautyApiService {
 
-    @GET("products.json?")
-    suspend fun getMaybelline(@Query("brand")brand:String): List<BeautyItem>
-
-    @GET("products.json?")
-    suspend fun getBeautyProduct(@Query("product_type")product_type:String): List<BeautyItem>
+    @GET("products.json")
+    suspend fun getBeautyProduct(
+        @Query("brand") brand: String,
+        //@Query("product_type") product_type: String
+    ): List<BeautyItem>
 
 }
 

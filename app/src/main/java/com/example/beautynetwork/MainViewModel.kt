@@ -154,14 +154,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val repository = Repository(BeautyApi)
 
     val beauty = repository.beauty
-    val brand = repository.brand
-
-    fun loadBeautyBrand() {
-        viewModelScope.launch {
-            repository.getBeautyBrand()
-        }
-
-    }
 
     fun loadBeauty() {
         viewModelScope.launch {
