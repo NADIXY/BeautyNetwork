@@ -6,8 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.example.beautynetwork.MainViewModel
-import com.example.beautynetwork.adapter.MakeUpAdapter
+import com.example.beautynetwork.R
 import com.example.beautynetwork.databinding.FragmentMakeUpDetailBinding
 
 class MakeUpDetailFragment : Fragment() {
@@ -29,6 +30,12 @@ class MakeUpDetailFragment : Fragment() {
         viewModel.loadBeauty()
 
         viewModel.setSelectedProduct.observe(viewLifecycleOwner) {
+
+            binding.textview.text= it.description
+        }
+
+        binding.button.setOnClickListener {
+            findNavController().navigate(R.id.makeUpFragment)
         }
 
 

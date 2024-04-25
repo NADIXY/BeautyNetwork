@@ -36,7 +36,7 @@ class MakeUpAdapter(
         binding.imgProductView.load(data.image_link)
 
         binding.beautyProducts.setOnClickListener {
-            //viewModel.setSelectedProduct(items)
+            viewModel.setSelectedProduct(items)
             holder.binding.beautyProducts.findNavController().navigate(R.id.makeUpDetailFragment)
         }
 
