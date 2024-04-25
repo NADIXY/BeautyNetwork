@@ -34,6 +34,7 @@ class MakeUpDetailFragment : Fragment() {
 
         viewModel.setSelectedProduct.observe(viewLifecycleOwner) {
 
+
         }
 
 

@@ -150,7 +150,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         )
     }
 
-
     private val repository = Repository(BeautyApi)
 
     val beauty = repository.beauty
@@ -161,13 +160,14 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
 
     }
+
     private var _setSelectedProduct = MutableLiveData<BeautyItem>()
     val setSelectedProduct: LiveData<BeautyItem>
         get() = _setSelectedProduct
 
-    fun setSelectedProduct(product: BeautyItem) {
+    fun setSelectedProduct(items: BeautyItem) {
 
-        _setSelectedProduct.value = product
+        _setSelectedProduct.value = items
 
     }
 

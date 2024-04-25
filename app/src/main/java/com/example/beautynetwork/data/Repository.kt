@@ -20,7 +20,6 @@ class Repository(private val api: BeautyApi) {
         get() = _brand
 
     //Diese Funktion ruft Beautydaten von der API ab und aktualisiert den Wert des LiveData-Objekts _beauty
-
     suspend fun getBeauty() {
         try {
             _beauty.postValue(api.retrofitService.getBeautyProduct("clinique"))
