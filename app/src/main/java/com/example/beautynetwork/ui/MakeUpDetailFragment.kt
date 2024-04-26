@@ -1,5 +1,7 @@
 package com.example.beautynetwork.ui
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -22,6 +24,12 @@ class MakeUpDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentMakeUpDetailBinding.inflate(layoutInflater)
+
+        binding.txtWebsiteLink.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.well.ca"))
+            startActivity(intent)
+        }
+
         return binding.root
     }
 
@@ -32,15 +40,15 @@ class MakeUpDetailFragment : Fragment() {
 
         viewModel.setSelectedProduct.observe(viewLifecycleOwner) {
 
-            binding.txtTitle.text= it.name
-            binding.txtDescription.text= it.description
+            binding.txtTitle.text = it.name
+            binding.txtDescription.text = it.description
             binding.imgProductView.load(it.image_link)
-            binding.txtCategory.text= it.category
-            binding.txtPrice.text=  "${it.price} USD $"
-            binding.txtCurrency.text= it.currency
-            binding.txtRating.text= it.rating.toString()
-            binding.txtTagList.text= it.tag_list.toString()
-            binding.txtWebsiteLink.text= it.website_link
+            binding.txtCategory.text = it.category
+            binding.txtPrice.text =  "${it.price} USD $"
+            binding.txtCurrency.text = it.product_type
+            binding.txtRating.text = "Rating ${it.rating.toString()}"
+            binding.txtTagList.text = it.product_colors.toString()
+            binding.txtWebsiteLink.text = it.website_link
         }
 
         binding.button.setOnClickListener {

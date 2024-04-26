@@ -22,7 +22,7 @@
         android:theme="@style/Theme.BeautyNetwork"
         tools:targetApi="31"
         android:usesCleartextTraffic="true">
-        <!-- android:usesCleartextTraffic="true" -->
+
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.App.BeautyNetwork.SplashScreen"

@@ -40,10 +40,8 @@ class ProfileFragment : Fragment() {
         return binding.root
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
 
         binding.tietNumber.doOnTextChanged { text, start, before, count ->
             if (text!!.length > 10) {
@@ -76,7 +74,7 @@ class ProfileFragment : Fragment() {
             }
         }
 
-        binding.continueText.setOnClickListener {
+        binding.home.setOnClickListener {
             findNavController().navigate(R.id.homeFragment)
 
         }
