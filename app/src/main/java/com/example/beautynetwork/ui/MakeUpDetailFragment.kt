@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import coil.load
 import com.example.beautynetwork.MainViewModel
 import com.example.beautynetwork.R
 import com.example.beautynetwork.databinding.FragmentMakeUpDetailBinding
@@ -31,14 +32,20 @@ class MakeUpDetailFragment : Fragment() {
 
         viewModel.setSelectedProduct.observe(viewLifecycleOwner) {
 
-            binding.textview.text= it.description
+            binding.txtTitle.text= it.name
+            binding.txtDescription.text= it.description
+            binding.imgProductView.load(it.image_link)
+            binding.txtCategory.text= it.category
+            binding.txtPrice.text=  "${it.price} USD $"
+            binding.txtCurrency.text= it.currency
+            binding.txtRating.text= it.rating.toString()
+            binding.txtTagList.text= it.tag_list.toString()
+            binding.txtWebsiteLink.text= it.website_link
         }
 
         binding.button.setOnClickListener {
             findNavController().navigate(R.id.makeUpFragment)
         }
-
-
 
     }
 

@@ -11,7 +11,7 @@ import com.example.beautynetwork.data.model.BeautyItem
 import com.example.beautynetwork.databinding.ListItemMakeUpBinding
 
 class MakeUpAdapter(
-    private val items: List<BeautyItem>,
+    private val dataset: List<BeautyItem>,
     private val viewModel: MainViewModel
 ) : RecyclerView.Adapter<MakeUpAdapter.MyViewHolder>() {
 
@@ -27,23 +27,21 @@ class MakeUpAdapter(
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val data = items[position]
+        val item = dataset[position]
         val binding = holder.binding
 
-        binding.txtTitle.text = data.name
-        binding.txtDescription.text = data.description
-        //binding.txtPrice.text = "${data.price} €"
-        binding.imgProductView.load(data.image_link)
+        binding.txtTitle.text = item.name
+        binding.txtDescription.text = item.description
+        binding.imgProductView.load(item.image_link)
 
         binding.beautyProducts.setOnClickListener {
-            viewModel.setSelectedProduct(items)
+            viewModel.setSelectedProduct(item)
             holder.binding.beautyProducts.findNavController().navigate(R.id.makeUpDetailFragment)
         }
 
     }
 
     override fun getItemCount(): Int {
-        return items.size
+        return dataset.size
     }
 }
-

@@ -165,9 +165,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     val setSelectedProduct: LiveData<BeautyItem>
         get() = _setSelectedProduct
 
-    fun setSelectedProduct(items: BeautyItem) {
+    fun setSelectedProduct(item: BeautyItem) {
 
-        _setSelectedProduct.value = items
+        _setSelectedProduct.value = item
 
     }
 

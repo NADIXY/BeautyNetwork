@@ -10,8 +10,8 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-// Die Konstante enthält die URL der API-Endpunkt
-const val BASE_URL = "http://makeup-api.herokuapp.com/api/v1/"
+// Die Konstante enthält die URL der API
+const val BASE_URL = "http://makeup-api.herokuapp.com/"
 
 // Moshi konvertiert Serverantworten in Kotlin Objekte
 private val moshi = Moshi.Builder()
@@ -39,7 +39,7 @@ private val retrofit = Retrofit.Builder()
 // Das Interface definiert unsere API Calls und bestimmt, wie mit dem Server kommuniziert wird
 interface BeautyApiService {
 
-    @GET("products.json")
+    @GET("api/v1/products.json")
     suspend fun getBeautyProduct(
         @Query("brand") brand: String,
         //@Query("product_type") product_type: String
