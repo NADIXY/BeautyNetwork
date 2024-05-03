@@ -42,7 +42,6 @@ interface BeautyApiService {
     @GET("products.json")
     suspend fun getBeautyProduct(
         @Query("brand") brand: String,
-        //@Query("product_type") product_type: String
     ): List<BeautyItem>
 
 }

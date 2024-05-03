@@ -17,10 +17,6 @@ class Repository(private val api: BeautyApi) {
     val beauty : LiveData<List<BeautyItem>>
         get() = _beauty
 
-    private val _brand = MutableLiveData<List<BeautyItem>>()
-    val brand : LiveData<List<BeautyItem>>
-        get() = _brand
-
     //Diese Funktion ruft Beautydaten von der API ab und aktualisiert den Wert des LiveData-Objekts _beauty
     suspend fun getBeauty() {
         try {
