@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.beautynetwork.MainViewModel
 import com.example.beautynetwork.R
-import com.example.beautynetwork.data.model.BeautyItem
+import com.example.beautynetwork.data.model.beautyapi.BeautyItem
 import com.example.beautynetwork.databinding.ListItemMakeUpBinding
 
 class MakeUpAdapter(

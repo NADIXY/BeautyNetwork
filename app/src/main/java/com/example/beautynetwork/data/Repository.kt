@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.beautynetwork.R
-import com.example.beautynetwork.data.model.BeautyItem
+import com.example.beautynetwork.data.model.beautyapi.BeautyItem
 import com.example.beautynetwork.data.model.Services
 import com.example.beautynetwork.data.remote.BeautyApi
 import java.lang.Exception

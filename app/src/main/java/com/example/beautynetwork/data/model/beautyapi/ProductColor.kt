@@ -1,4 +1,4 @@
-package com.example.beautynetwork.data.model
+package com.example.beautynetwork.data.model.beautyapi
 
 data class ProductColor(
     val colour_name: String?,

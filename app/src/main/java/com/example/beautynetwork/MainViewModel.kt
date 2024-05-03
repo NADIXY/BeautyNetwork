@@ -8,7 +8,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.beautynetwork.data.Repository
-import com.example.beautynetwork.data.model.BeautyItem
+import com.example.beautynetwork.data.model.beautyapi.BeautyItem
 import com.example.beautynetwork.data.model.Profile
 import com.example.beautynetwork.data.model.Services
 import com.example.beautynetwork.data.remote.BeautyApi
@@ -178,6 +178,5 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private var _items: MutableLiveData<List<Services>> = MutableLiveData(allBeautyServices)
     val items: LiveData<List<Services>>
         get() = _items
-
 
 }

@@ -1,6 +1,6 @@
 package com.example.beautynetwork.data.remote
 
-import com.example.beautynetwork.data.model.BeautyItem
+import com.example.beautynetwork.data.model.beautyapi.BeautyItem
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
@@ -11,7 +11,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 // Die Konstante enthält die URL der API
-const val BASE_URL = "http://makeup-api.herokuapp.com/"
+const val BASE_URL = "http://makeup-api.herokuapp.com/api/v1/"
 
 // Moshi konvertiert Serverantworten in Kotlin Objekte
 private val moshi = Moshi.Builder()
@@ -39,7 +39,7 @@ private val retrofit = Retrofit.Builder()
 // Das Interface definiert unsere API Calls und bestimmt, wie mit dem Server kommuniziert wird
 interface BeautyApiService {
 
-    @GET("api/v1/products.json")
+    @GET("products.json")
     suspend fun getBeautyProduct(
         @Query("brand") brand: String,
         //@Query("product_type") product_type: String
