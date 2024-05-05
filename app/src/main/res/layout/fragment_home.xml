@@ -22,14 +22,12 @@
         android:id="@+id/etUserInput"
         android:layout_width="match_parent"
         android:layout_height="64dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:background="#F6DEE6"
         android:ems="10"
         android:hint="search services"
-
         android:inputType="text"
-
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
         app:layout_constraintBottom_toTopOf="@+id/rv_services_list"
@@ -55,9 +53,11 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="413dp"
-        android:layout_height="141dp"
+        android:layout_width="380dp"
+        android:layout_height="123dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="32dp"
         android:clipToPadding="false"
         android:orientation="horizontal"
@@ -66,20 +66,25 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rv_services_list"
-        app:layout_constraintVertical_bias="0.571"
+        app:layout_constraintVertical_bias="0.0"
         tools:listitem="@layout/list_item_recommended" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="227dp"
-        android:layout_height="144dp"
+        android:layout_width="267dp"
+        android:layout_height="218dp"
         android:layout_marginStart="16dp"
-        android:src="@drawable/logo"
+        android:layout_marginEnd="16dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/picture"
+        app:layout_constraintBottom_toTopOf="@+id/etUserInput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.111" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

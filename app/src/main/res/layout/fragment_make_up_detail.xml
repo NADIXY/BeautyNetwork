@@ -17,14 +17,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/main_page_button"
-            android:textColor="@color/white"
             app:layout_constraintBottom_toTopOf="@id/textview"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:textColor="#F48FB1"
+            app:strokeColor="#F48FB1"/>
 
         <TextView
             android:id="@+id/textview"
+            android:fontFamily="@font/stalinist_one"
+            android:textAlignment="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -90,17 +94,19 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/txt_category" />
 
         <TextView
-            android:id="@+id/txt_currency"
+            android:id="@+id/txt_product_type"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:textSize="16sp"
+            android:textColor="@color/verde"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/txt_price" />
@@ -112,12 +118,13 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txt_currency" />
+            app:layout_constraintTop_toBottomOf="@id/txt_product_type" />
 
         <TextView
-            android:id="@+id/txt_tag_list"
+            android:id="@+id/txt_product_colors_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -134,9 +141,10 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:textSize="16sp"
+            android:textColor="@color/verde"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txt_tag_list" />
+            app:layout_constraintTop_toBottomOf="@id/txt_product_colors_list" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

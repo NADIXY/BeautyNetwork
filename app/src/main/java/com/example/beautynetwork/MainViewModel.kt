@@ -179,4 +179,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     val items: LiveData<List<Services>>
         get() = _items
 
+    // Funktion um Suche zu filtern
+    fun filterItems(input: String) {
+        val filteredItems =
+            allBeautyServices.filter { it.title.lowercase().contains(input.lowercase()) }
+        _items.value = filteredItems
+    }
 }
