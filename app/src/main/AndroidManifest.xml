@@ -25,6 +25,7 @@
 
         <activity
             android:name=".MainActivity"
+            android:windowSoftInputMode="adjustNothing"
             android:theme="@style/Theme.App.BeautyNetwork.SplashScreen"
             android:exported="true">
             <intent-filter>

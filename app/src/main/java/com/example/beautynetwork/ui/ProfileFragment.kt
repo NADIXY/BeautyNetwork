@@ -9,13 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import coil.load
 import com.example.beautynetwork.MainViewModel
 import com.example.beautynetwork.R
-import com.example.beautynetwork.data.model.Profile
+import com.example.beautynetwork.data.model.user.Profile
 import com.example.beautynetwork.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {
@@ -43,15 +42,6 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.tietNumber.doOnTextChanged { text, start, before, count ->
-            if (text!!.length > 10) {
-                binding.numberTextInputLayout.error = "No More!"
-            }else if (text.length > 10) {
-                binding.numberTextInputLayout.error = null
-            }
-
-        }
-
         // Funktion um Bild vom Gerät auszuwählen
         // Startet den Ressource-Picker und zeigt uns alle Bilder auf dem Gerät an
         binding.ivProfilePic.setOnClickListener {
@@ -67,7 +57,8 @@ class ProfileFragment : Fragment() {
                 binding.tietFirstName.setText(myProfile?.firstName)
                 binding.tietLastName.setText(myProfile?.lastName)
                 binding.tietNumber.setText(myProfile?.number)
-                binding.tietEmail.setText(myProfile?.number)
+                binding.tietEmail.setText(myProfile?.email)
+                binding.adressTietAdresse.setText(myProfile?.adress)
                 binding.ivProfilePic.load(myProfile?.profilePicture) {
                     error(R.drawable.baseline_account_box_24)
                 }
@@ -93,14 +84,15 @@ class ProfileFragment : Fragment() {
             val lastName = binding.tietLastName.text.toString()
             val number = binding.tietNumber.text.toString()
             val email = binding.tietEmail.text.toString()
+            val adress = binding.adressTietAdresse.text.toString()
 
             val builder = AlertDialog.Builder(requireContext())
             builder.setTitle("Save")
             builder.setMessage("Do you want to save?")
             builder.setPositiveButton("Yes") { dialog, which ->
 
-                if (firstName != "" && lastName != "" && number != "" && email != "") {
-                    val newProfile = Profile(firstName, lastName, number, email)
+                if (firstName != "" && lastName != "" && number != "" && email != "" && adress != "") {
+                    val newProfile = Profile(firstName, lastName, number, email, adress)
                     viewModel.updateProfile(newProfile)
 
                 }

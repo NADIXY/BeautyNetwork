@@ -1,4 +1,4 @@
-package com.example.beautynetwork.data.model.beautyapi
+package com.example.beautynetwork.data.model.makeupapi
 
 data class BeautyItem(
     val api_featured_image: String,

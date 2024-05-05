@@ -25,13 +25,30 @@
             android:padding="8dp">
 
             <TextView
-                android:id="@+id/text_title_service"
+                android:id="@+id/text_title_detail_service"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/text_description_detail_service"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/text_preis_detail_service"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/text_info_detail_service"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="16sp" />
 
             <ImageView
-                android:id="@+id/image_service"
+                android:id="@+id/image_detail_service"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_marginTop="8dp"

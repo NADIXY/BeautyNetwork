@@ -8,8 +8,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.beautynetwork.data.Repository
-import com.example.beautynetwork.data.model.beautyapi.BeautyItem
-import com.example.beautynetwork.data.model.Profile
+import com.example.beautynetwork.data.model.makeupapi.BeautyItem
+import com.example.beautynetwork.data.model.user.Profile
 import com.example.beautynetwork.data.model.Services
 import com.example.beautynetwork.data.remote.BeautyApi
 import com.google.firebase.Firebase
@@ -146,7 +146,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 "firstName" to profile.firstName,
                 "lastName" to profile.lastName,
                 "number" to profile.number,
-                "email" to profile.email
+                "email" to profile.email,
+                "adress" to profile.adress
             )
         )
     }
@@ -154,7 +155,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val repository = Repository(BeautyApi)
 
     val beauty = repository.beauty
-
 
     fun loadBeauty() {
         viewModelScope.launch {

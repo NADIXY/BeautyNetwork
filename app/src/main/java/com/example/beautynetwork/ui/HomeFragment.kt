@@ -1,8 +1,7 @@
 package com.example.beautynetwork.ui
 
 import android.app.AlertDialog
-import android.content.Intent
-import android.net.Uri
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,6 +12,8 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.beautynetwork.MainViewModel
 import com.example.beautynetwork.R
+import com.example.beautynetwork.adapter.RecomendedAdapter
+import com.example.beautynetwork.adapter.ServicesAdapter
 import com.example.beautynetwork.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -43,6 +44,16 @@ class HomeFragment : Fragment() {
             builder.setNegativeButton("Cancel") { dialog, which -> }
             val dialog: AlertDialog = builder.create()
             dialog.show()
+        }
+
+        viewModel.loadBeauty()
+        viewModel.beauty.observe(viewLifecycleOwner) {
+            binding.recyclerView.adapter = RecomendedAdapter(it,viewModel)
+
+        }
+
+        viewModel.items.observe(viewLifecycleOwner) {
+            binding.rvServicesList.adapter = ServicesAdapter(it, viewModel)
         }
     }
 

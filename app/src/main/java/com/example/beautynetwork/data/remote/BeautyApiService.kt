@@ -1,6 +1,6 @@
 package com.example.beautynetwork.data.remote
 
-import com.example.beautynetwork.data.model.beautyapi.BeautyItem
+import com.example.beautynetwork.data.model.makeupapi.BeautyItem
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient

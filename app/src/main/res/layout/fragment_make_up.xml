@@ -21,8 +21,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_make_up_list"
         android:layout_width="411dp"
-        android:layout_height="616dp"
-        android:layout_marginTop="16dp"
+        android:layout_height="692dp"
+        android:layout_marginTop="7dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

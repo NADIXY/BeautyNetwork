@@ -15,7 +15,6 @@ class RegisterFragment : Fragment() {
 
     private val viewModel: MainViewModel by activityViewModels()
     private lateinit var binding: FragmentRegisterBinding
-    private var isLoggedIn = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -58,7 +57,6 @@ class RegisterFragment : Fragment() {
         // Wenn User nicht gleich null (also der User eingeloggt ist) wird zum HomeFragment navigiert
         viewModel.user.observe(viewLifecycleOwner) { user ->
             if (user != null) {
-                isLoggedIn = true
                 findNavController().navigate(R.id.homeFragment)
             }
         }

@@ -20,7 +20,6 @@ class ServicesAdapter(
             ListItemServicesBinding.inflate(
                 LayoutInflater.from(parent.context), parent, false
             )
-
         )
     }
 
@@ -30,5 +29,11 @@ class ServicesAdapter(
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val items = dataset[position]
+        val binding = holder.binding
+
+        binding.imageService.setImageResource(items.imageId)
+        binding.textTitleService.text = items.title
+        binding.services
     }
+
 }
