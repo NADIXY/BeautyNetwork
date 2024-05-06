@@ -63,4 +63,8 @@
         android:id="@+id/general_QuestionnaireFragment"
         android:name="com.example.beautynetwork.ui.General_QuestionnaireFragment"
         android:label="General_QuestionnaireFragment" />
+    <fragment
+        android:id="@+id/generalQuestionnaire2BlankFragment"
+        android:name="com.example.beautynetwork.ui.GeneralQuestionnaire2Fragment"
+        android:label="GeneralQuestionnaire2BlankFragment" />
 </navigation>

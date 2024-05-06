@@ -17,7 +17,6 @@ class ServicesAdapter(
     class MyViewHolder(val binding: ListItemServicesBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-
         return MyViewHolder(
             ListItemServicesBinding.inflate(
                 LayoutInflater.from(parent.context), parent, false
@@ -38,7 +37,8 @@ class ServicesAdapter(
         binding.services
 
         binding.services.setOnClickListener {
-
+            viewModel.setSelectedServices(items)
+            holder.binding.services.findNavController().navigate(R.id.servicesDetailFragment)
         }
     }
 

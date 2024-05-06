@@ -27,7 +27,6 @@ class MakeUpFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.loadBeauty()
-
         viewModel.beauty.observe(viewLifecycleOwner){
             binding.rvMakeUpList.adapter = MakeUpAdapter(it,viewModel)
         }

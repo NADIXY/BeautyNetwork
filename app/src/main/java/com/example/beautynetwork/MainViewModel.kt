@@ -168,7 +168,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         get() = _setSelectedProduct
 
     fun setSelectedProduct(item: BeautyItem) {
-
         _setSelectedProduct.value = item
 
     }
@@ -184,5 +183,14 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         val filteredItems =
             allBeautyServices.filter { it.title.lowercase().contains(input.lowercase()) }
         _items.value = filteredItems
+    }
+
+    private var _setSelectedServices = MutableLiveData<Services>()
+    val setSelectedServices: LiveData<Services>
+        get() = _setSelectedServices
+
+    fun setSelectedServices(items: Services) {
+        _setSelectedServices.value = items
+
     }
 }
