@@ -74,6 +74,11 @@ class HomeFragment : Fragment() {
             }
         })
 
+        binding.recommended.setOnClickListener {
+            findNavController().navigate(R.id.makeUpFragment)
+
+        }
+
     }
 
 }

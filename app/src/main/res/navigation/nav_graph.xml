@@ -59,4 +59,8 @@
         android:name="com.example.beautynetwork.ui.ServicesDetailFragment"
         android:label="fragment_services_detail"
         tools:layout="@layout/fragment_services_detail" />
+    <fragment
+        android:id="@+id/general_QuestionnaireFragment"
+        android:name="com.example.beautynetwork.ui.General_QuestionnaireFragment"
+        android:label="General_QuestionnaireFragment" />
 </navigation>

@@ -2,9 +2,11 @@ package com.example.beautynetwork.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.beautynetwork.MainViewModel
+import com.example.beautynetwork.R
 import com.example.beautynetwork.data.model.makeupapi.BeautyItem
 import com.example.beautynetwork.databinding.ListItemRecommendedBinding
 
@@ -29,6 +31,11 @@ class RecomendedAdapter(
         val binding = holder.binding
 
         binding.recomendedImageView.load(item.image_link)
+
+        binding.recomendedCardView.setOnClickListener {
+            viewModel.setSelectedProduct(item)
+            holder.binding.recomendedCardView.findNavController().navigate(R.id.makeUpDetailFragment)
+        }
     }
 
 }

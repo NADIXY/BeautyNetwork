@@ -2,8 +2,10 @@ package com.example.beautynetwork.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.beautynetwork.MainViewModel
+import com.example.beautynetwork.R
 import com.example.beautynetwork.data.model.Services
 import com.example.beautynetwork.databinding.ListItemServicesBinding
 
@@ -34,6 +36,10 @@ class ServicesAdapter(
         binding.imageService.setImageResource(items.imageId)
         binding.textTitleService.text = items.title
         binding.services
+
+        binding.services.setOnClickListener {
+
+        }
     }
 
 }
