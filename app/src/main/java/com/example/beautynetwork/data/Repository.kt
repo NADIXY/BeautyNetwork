@@ -28,7 +28,7 @@ class Repository(private val api: BeautyApi) {
 
     }
 
-    val beautyServices: List<Services> = listOf(
+    val myBeautyServices: List<Services> = listOf(
         Services("FIRST TIME TREATMENT","Für Ihren ersten Besuch im Medical Beauty Institut. Gesicht + Hals + Dekolleté *ausführliche computergestützt Hautanalyse mittels Skin Alyzer med7 Pro \n*aktuelles Hautbedürfnis und Pflegekonzept besprechen *Mikrodermabrasion oder Ultraschall *Wirkstoff Versorgung und Abschlusspflege 120min ", R.drawable.proxy,"160 EUR","*einmalig buchbar"),
         Services("Hautanalyse by Skin Alyzer med7 pro","",R.drawable.proxy,"60 EUR","30min"),
         Services("Anti-Age CARE","Gesicht + Hals + Dekolleté *High Performance Treatment: Eine Premium-Behandlung für die anspruchsvolle Kundin mit Zeichen von Hautalterung und Verzuckerung, Verjüngung auf höchstem Niveau für jeden Hauttyp geeignet 150min\n *Anti Age Treatment: Optimal für regenerationsbedürftige Haut mit moderaten bis deutlich ausgeprägten Zeichen der Hautalterung",R.drawable.proxy,"280 EUR","*Inkl. Mikrodermabrasion & Ultraschall"),
@@ -39,6 +39,6 @@ class Repository(private val api: BeautyApi) {
     )
 
     fun getItems(): List<Services> {
-        return beautyServices
+        return myBeautyServices
     }
 }

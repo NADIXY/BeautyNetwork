@@ -19,6 +19,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
+            android:background="@drawable/gradient"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -28,8 +29,7 @@
                 android:id="@+id/text_title_service"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/verde"
-                android:textStyle="bold"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <ImageView
