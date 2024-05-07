@@ -30,9 +30,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:hint="Are you taking medication on a regular Basis?\nYes/ no. If so, wich ones?"
+            android:hint="@string/question_1"
             app:endIconMode="clear_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -54,7 +54,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:hint="2"
+            android:hint="@string/question_2"
             app:endIconMode="clear_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -81,7 +81,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout6"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout7"
             app:strokeColor="#F48FB1" />
 
         <TextView
@@ -104,9 +104,8 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:hint="3"
+            android:hint="@string/question_3"
             app:endIconMode="clear_text"
-            app:errorIconDrawable="@drawable/baseline_error_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
@@ -137,7 +136,7 @@
                 android:id="@+id/tiet_4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="4"
+                android:hint="@string/question_4"
                 android:inputType="textShortMessage" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -158,7 +157,7 @@
                 android:id="@+id/tiet_5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="5"
+                android:hint="@string/question_5"
                 android:inputType="textShortMessage" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -179,7 +178,7 @@
                 android:id="@+id/tiet_6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="6"
+                android:hint="@string/question_6"
                 android:inputType="textShortMessage" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -188,13 +187,33 @@
             android:layout_width="363dp"
             android:layout_height="51dp"
             android:layout_marginStart="50dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="50dp"
             android:text="@string/info"
             android:textColor="#42A5F5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            app:endIconMode="clear_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout6">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tiet_7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/question_7"
+                android:inputType="textShortMessage" />
+        </com.google.android.material.textfield.TextInputLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
