@@ -27,6 +27,7 @@ class ServicesDetailFragment : Fragment() {
 
         viewModel.setSelectedServices.observe(viewLifecycleOwner){
 
+
         }
 
     }

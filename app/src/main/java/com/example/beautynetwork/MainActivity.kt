@@ -32,7 +32,8 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
 
         navHost.navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.homeFragment || destination.id == R.id.profileFragment || destination.id == R.id.makeUpFragment || destination.id == R.id.schedulerFragment
+            if (destination.id == R.id.homeFragment || destination.id == R.id.profileFragment || destination.id == R.id.makeUpFragment
+                || destination.id == R.id.schedulerFragment || destination.id == R.id.generalQuestionnaireFragment
             ) {
                 binding.bottomNavigationView.visibility = View.VISIBLE
                 binding.bottomNavigationView.setupWithNavController(navHost.navController)
