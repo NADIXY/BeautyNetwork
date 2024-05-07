@@ -26,6 +26,11 @@ class ServicesDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.setSelectedServices.observe(viewLifecycleOwner){
+            binding.imageDetailService.setImageResource(it.imageId)
+            binding.textTitleDetailService.text = it.title
+            binding.textDescriptionDetailService.text = it.description
+            binding.textInfoDetailService.text = it.info
+            binding.textPreisDetailService.text = it.preis
 
 
         }
