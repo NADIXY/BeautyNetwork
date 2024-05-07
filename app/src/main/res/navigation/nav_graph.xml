@@ -60,11 +60,11 @@
         android:label="fragment_services_detail"
         tools:layout="@layout/fragment_services_detail" />
     <fragment
-        android:id="@+id/general_QuestionnaireFragment"
-        android:name="com.example.beautynetwork.ui.GeneralQuestionnaireFragment"
-        android:label="General_QuestionnaireFragment" />
-    <fragment
         android:id="@+id/generalQuestionnaire2Fragment"
         android:name="com.example.beautynetwork.ui.GeneralQuestionnaire2Fragment"
         android:label="GeneralQuestionnaire2Fragment" />
+    <fragment
+        android:id="@+id/generalQuestionnaireFragment"
+        android:name="com.example.beautynetwork.ui.GeneralQuestionnaireFragment"
+        android:label="GeneralQuestionnaireFragment" />
 </navigation>

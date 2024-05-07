@@ -66,7 +66,7 @@ class ProfileFragment : Fragment() {
         }
 
         binding.next.setOnClickListener {
-            findNavController().navigate(R.id.general_QuestionnaireFragment)
+            findNavController().navigate(R.id.generalQuestionnaireFragment)
 
         }
 
