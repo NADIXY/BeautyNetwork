@@ -50,11 +50,6 @@
         android:label="fragment_scheduler_detail"
         tools:layout="@layout/fragment_scheduler_detail" />
     <fragment
-        android:id="@+id/servicesFragment"
-        android:name="com.example.beautynetwork.ui.ServicesFragment"
-        android:label="fragment_services"
-        tools:layout="@layout/fragment_services" />
-    <fragment
         android:id="@+id/servicesDetailFragment"
         android:name="com.example.beautynetwork.ui.ServicesDetailFragment"
         android:label="fragment_services_detail"
@@ -67,4 +62,9 @@
         android:id="@+id/generalQuestionnaireFragment"
         android:name="com.example.beautynetwork.ui.GeneralQuestionnaireFragment"
         android:label="GeneralQuestionnaireFragment" />
+    <fragment
+        android:id="@+id/priceListFragment"
+        android:name="com.example.beautynetwork.ui.PriceListFragment"
+        android:label="fragment_price_list"
+        tools:layout="@layout/fragment_price_list" />
 </navigation>

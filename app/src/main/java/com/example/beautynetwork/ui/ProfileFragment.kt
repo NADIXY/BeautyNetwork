@@ -42,6 +42,20 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Beim Klick auf Logout, wird die Logout Funktion im ViewModel aufgerufen
+        binding.logout.setOnClickListener {
+            val builder = AlertDialog.Builder(requireContext())
+            builder.setTitle("Log out")
+            builder.setMessage("Do you want to log out?")
+            builder.setPositiveButton("Yes") { dialog, which ->
+                viewModel.logout()
+                Toast.makeText(requireContext(), "You are logged out", Toast.LENGTH_SHORT).show()
+            }
+            builder.setNegativeButton("Cancel") { dialog, which -> }
+            val dialog: AlertDialog = builder.create()
+            dialog.show()
+        }
+
         // Funktion um Bild vom Gerät auszuwählen
         // Startet den Ressource-Picker und zeigt uns alle Bilder auf dem Gerät an
         binding.ivProfilePic.setOnClickListener {

@@ -7,7 +7,7 @@
     tools:context=".ui.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/homeDetailAppbar"
+        android:id="@+id/homeAppbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/gradient"
@@ -35,7 +35,7 @@
             android:id="@+id/homeTitleLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Welcome!"
+            android:text="@string/home"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -60,19 +60,18 @@
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
         android:background="#2342A5F5"
         android:ems="10"
-        android:hint="search services"
+        android:hint="@string/search_services"
         android:inputType="text"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
         app:layout_constraintBottom_toTopOf="@+id/rv_services_list"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_services_list"
@@ -80,12 +79,11 @@
         android:layout_height="274dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="176dp"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etUserInput"
         app:spanCount="2"
         tools:listitem="@layout/list_item_services" />
 
@@ -94,17 +92,17 @@
         android:layout_width="380dp"
         android:layout_height="123dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="32dp"
         android:clipToPadding="false"
         android:orientation="horizontal"
         android:paddingStart="0dp"
         android:paddingEnd="0dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recommended"
         tools:listitem="@layout/list_item_recommended" />
 
     <TextView
@@ -112,25 +110,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="8dp"
         android:text="@string/recommended"
         android:textColor="#2196F3"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rv_services_list"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/rv_services_list" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="218dp"
         android:layout_height="132dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="16dp"
         android:scaleType="centerInside"
         android:src="@drawable/logo"
-        app:layout_constraintBottom_toTopOf="@+id/etUserInput"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homeDetailAppbar" />
+        app:layout_constraintTop_toBottomOf="@+id/homeAppbar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

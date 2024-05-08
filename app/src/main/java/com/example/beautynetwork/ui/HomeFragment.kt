@@ -7,8 +7,10 @@ import android.text.Editable
 import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -34,21 +36,13 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        /*binding.logoutFloatingActionButton.setOnClickListener {
-            val builder = AlertDialog.Builder(requireContext())
-            builder.setTitle("Log out")
-            builder.setMessage("Do you want to log out?")
-            builder.setPositiveButton("Yes") { dialog, which ->
-                viewModel.logout()
-                findNavController().navigate(R.id.signInFragment)
-                Toast.makeText(requireContext(), "You are logged out", Toast.LENGTH_SHORT).show()
-            }
-            builder.setNegativeButton("Cancel") { dialog, which -> }
-            val dialog: AlertDialog = builder.create()
-            dialog.show()
+        binding.menu.setOnClickListener {
+            showPopupMenu(it)
         }
 
-         */
+        binding.account.setOnClickListener {
+            findNavController().navigate(R.id.profileFragment)
+        }
 
         viewModel.loadBeauty()
         viewModel.beauty.observe(viewLifecycleOwner) {
@@ -81,6 +75,40 @@ class HomeFragment : Fragment() {
 
         }
 
+    }
+
+    private fun showPopupMenu(view: View) {
+        val popup = PopupMenu(requireContext(), view)
+        val inflater: MenuInflater = popup.menuInflater
+        inflater.inflate(
+            R.menu.home_menu,
+            popup.menu
+        )
+        popup.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.preicelist -> {
+                    findNavController().navigate(R.id.priceListFragment)
+                    true
+
+                }
+                R.id.close -> {
+                    val builder = AlertDialog.Builder(requireContext())
+                    builder.setTitle("Close")
+                    builder.setMessage("Do you want to close?")
+                    builder.setPositiveButton("Yes") { dialog, which ->
+                        activity?.finish()
+                        Toast.makeText(requireContext(), "closed", Toast.LENGTH_SHORT).show()
+                    }
+                    builder.setNegativeButton("Cancel") { dialog, which -> }
+                    val dialog: AlertDialog = builder.create()
+                    dialog.show()
+
+                    true
+                }
+                else -> true
+            }
+        }
+        popup.show()
     }
 
 }
