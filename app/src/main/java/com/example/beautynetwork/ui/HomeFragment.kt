@@ -34,7 +34,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.logoutFloatingActionButton.setOnClickListener {
+        /*binding.logoutFloatingActionButton.setOnClickListener {
             val builder = AlertDialog.Builder(requireContext())
             builder.setTitle("Log out")
             builder.setMessage("Do you want to log out?")
@@ -47,6 +47,8 @@ class HomeFragment : Fragment() {
             val dialog: AlertDialog = builder.create()
             dialog.show()
         }
+
+         */
 
         viewModel.loadBeauty()
         viewModel.beauty.observe(viewLifecycleOwner) {

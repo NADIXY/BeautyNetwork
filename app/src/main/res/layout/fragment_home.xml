@@ -6,17 +6,54 @@
     android:layout_height="match_parent"
     tools:context=".ui.HomeFragment">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/logout_floatingActionButton"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/homeDetailAppbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="@color/verde"
-        android:clickable="true"
-        android:src="@drawable/baseline_logout_24"
+        android:background="@drawable/gradient"
+        android:paddingStart="12dp"
+        android:paddingTop="8dp"
+        android:paddingRight="12dp"
+        android:paddingBottom="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:padding="8dp"
+            android:src="@drawable/baseline_more_horiz_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/homeTitleLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome!"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.432" />
+
+        <ImageView
+            android:id="@+id/account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:padding="8dp"
+            android:src="@drawable/baseline_account_box_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <EditText
         android:id="@+id/etUserInput"
@@ -25,7 +62,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
-        android:background="#F6DEE6"
+        android:background="#2342A5F5"
         android:ems="10"
         android:hint="search services"
         android:inputType="text"
@@ -80,71 +117,20 @@
         android:textColor="#2196F3"
         app:layout_constraintBottom_toTopOf="@+id/recyclerView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rv_services_list" />
+        app:layout_constraintTop_toBottomOf="@+id/rv_services_list"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="230dp"
-        android:layout_height="189dp"
+        android:layout_width="218dp"
+        android:layout_height="132dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:scaleType="centerInside"
-        android:src="@drawable/picture"
+        android:src="@drawable/logo"
         app:layout_constraintBottom_toTopOf="@+id/etUserInput"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.615" />
-
-    <!--
-
-<androidx.constraintlayout.widget.ConstraintLayout
-android:id="@+id/homeDetailAppbar"
-android:background="@drawable/gradient"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:paddingStart="12dp"
-android:paddingTop="8dp"
-android:paddingRight="12dp"
-android:paddingBottom="8dp"
-app:layout_constraintEnd_toEndOf="parent"
-app:layout_constraintHorizontal_bias="0.0"
-app:layout_constraintStart_toStartOf="parent"
-app:layout_constraintTop_toTopOf="parent">
-
-<ImageView
-    android:id="@+id/menu"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="@null"
-    android:padding="8dp"
-    android:src="@drawable/baseline_more_horiz_24"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
-
-<TextView
-    android:id="@+id/homeTitleLayout"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Welcome!"
-    android:textColor="@color/white"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.498"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.432" />
-
-<ImageView
-    android:id="@+id/account"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="@null"
-    android:padding="8dp"
-    android:src="@drawable/baseline_account_box_24"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
-
--->
+        app:layout_constraintTop_toBottomOf="@+id/homeDetailAppbar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
