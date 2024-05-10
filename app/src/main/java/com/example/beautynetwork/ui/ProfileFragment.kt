@@ -73,15 +73,11 @@ class ProfileFragment : Fragment() {
                 binding.tietNumber.setText(myProfile?.number)
                 binding.tietEmail.setText(myProfile?.email)
                 binding.adressTietAdresse.setText(myProfile?.adress)
+                binding.tietDateOfBirth.setText(myProfile?.dateOfBirth)
                 binding.ivProfilePic.load(myProfile?.profilePicture) {
                     error(R.drawable.baseline_account_box_24)
                 }
             }
-        }
-
-        binding.next.setOnClickListener {
-            findNavController().navigate(R.id.generalQuestionnaireFragment)
-
         }
 
         // User LiveData aus dem ViewModel wird beobachtet
@@ -99,15 +95,17 @@ class ProfileFragment : Fragment() {
             val number = binding.tietNumber.text.toString()
             val email = binding.tietEmail.text.toString()
             val adress = binding.adressTietAdresse.text.toString()
+            val dateOfBirth = binding.tietDateOfBirth.text.toString()
 
             val builder = AlertDialog.Builder(requireContext())
             builder.setTitle("Save")
             builder.setMessage("Do you want to save?")
             builder.setPositiveButton("Yes") { dialog, which ->
 
-                if (firstName != "" && lastName != "" && number != "" && email != "" && adress != "") {
-                    val newProfile = Profile(firstName, lastName, number, email, adress)
+                if (firstName != "" && lastName != "" && number != "" && email != "" && adress != "" && dateOfBirth != "") {
+                    val newProfile = Profile(firstName, lastName, number, email, adress, dateOfBirth)
                     viewModel.updateProfile(newProfile)
+                    findNavController().navigate(R.id.generalQuestionnaireFragment)
 
                 }
                 Toast.makeText(requireContext(), "Saved", Toast.LENGTH_SHORT).show()
@@ -115,6 +113,8 @@ class ProfileFragment : Fragment() {
             builder.setNegativeButton("Cancel") { dialog, which -> }
             val dialog: AlertDialog = builder.create()
             dialog.show()
+
+            findNavController().navigate(R.id.profileFragment)
         }
 
     }

@@ -147,7 +147,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 "lastName" to profile.lastName,
                 "number" to profile.number,
                 "email" to profile.email,
-                "adress" to profile.adress
+                "adress" to profile.adress,
+                "dateOfBirth" to profile.dateOfBirth
             )
         )
     }

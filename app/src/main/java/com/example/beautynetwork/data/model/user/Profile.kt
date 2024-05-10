@@ -6,5 +6,6 @@ data class Profile(
     val number: String = "",
     val email: String = "",
     val adress: String = "",
+    val dateOfBirth: String = "",
     val profilePicture: String = ""
 )
