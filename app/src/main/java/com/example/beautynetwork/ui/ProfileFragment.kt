@@ -90,6 +90,7 @@ class ProfileFragment : Fragment() {
 
         // Neue Profil-Daten in Firestore speichern
         binding.btSave.setOnClickListener {
+
             val firstName = binding.tietFirstName.text.toString()
             val lastName = binding.tietLastName.text.toString()
             val number = binding.tietNumber.text.toString()
@@ -105,6 +106,7 @@ class ProfileFragment : Fragment() {
                 if (firstName != "" && lastName != "" && number != "" && email != "" && adress != "" && dateOfBirth != "") {
                     val newProfile = Profile(firstName, lastName, number, email, adress, dateOfBirth)
                     viewModel.updateProfile(newProfile)
+
                     findNavController().navigate(R.id.generalQuestionnaireFragment)
 
                 }

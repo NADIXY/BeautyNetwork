@@ -1,7 +1,10 @@
 package com.example.beautynetwork.adapter
 
+import android.app.AlertDialog
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
@@ -38,6 +41,43 @@ class MakeUpAdapter(
             viewModel.setSelectedProduct(item)
             holder.binding.beautyProducts.findNavController().navigate(R.id.makeUpDetailFragment)
         }
+
+        if (holder is MakeUpAdapter.MyViewHolder) {
+            holder.binding.imgProductView.load(item.image_link)
+            holder.binding.txtTitle.text = item.name
+            holder.binding.txtDescription.text = item.description
+        }
+
+        holder.binding.imgProductView.setOnClickListener {
+            showSavedAlertDialog(item, holder.itemView.context)
+
+        }
+
+    }
+
+    private fun showSavedAlertDialog(beautyItem: BeautyItem , context: Context?) {
+
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle("Save")
+        builder.setMessage("Save?")
+        builder.setIcon(android.R.drawable.ic_dialog_alert)
+
+        builder.setPositiveButton("Yes") { dialogInterface, which ->
+            viewModel.myFavoriteMakeUp(beautyItem)
+            Toast.makeText(context, "The Make-Up has been saved", Toast.LENGTH_LONG)
+                .show()
+            dialogInterface.dismiss()
+        }
+
+        builder.setNeutralButton("Cancel") { dialogInterface, which ->
+            Toast.makeText(context, "", Toast.LENGTH_LONG)
+                .show()
+            dialogInterface.dismiss()
+        }
+
+        val alertDialog: AlertDialog = builder.create()
+        alertDialog.setCancelable(false)
+        alertDialog.show()
 
     }
 

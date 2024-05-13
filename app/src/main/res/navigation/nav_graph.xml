@@ -67,4 +67,9 @@
         android:name="com.example.beautynetwork.ui.PriceListFragment"
         android:label="fragment_price_list"
         tools:layout="@layout/fragment_price_list" />
+    <fragment
+        android:id="@+id/favoriteMakeUpFragment"
+        android:name="com.example.beautynetwork.ui.FavoriteMakeUpFragment"
+        android:label="fragment_favorite_make_up"
+        tools:layout="@layout/fragment_favorite_make_up" />
 </navigation>

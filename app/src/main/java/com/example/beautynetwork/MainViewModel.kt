@@ -8,9 +8,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.beautynetwork.data.Repository
-import com.example.beautynetwork.data.model.makeupapi.BeautyItem
-import com.example.beautynetwork.data.model.user.Profile
+import com.example.beautynetwork.data.local.getDatabase
 import com.example.beautynetwork.data.model.Services
+import com.example.beautynetwork.data.model.makeupapi.BeautyItem
+import com.example.beautynetwork.data.model.user.GeneralQuestionnaire
+import com.example.beautynetwork.data.model.user.Profile
+import com.example.beautynetwork.data.model.user.favorite.FavoriteMakeUp
 import com.example.beautynetwork.data.remote.BeautyApi
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseUser
@@ -18,6 +21,7 @@ import com.google.firebase.auth.auth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.firestore
 import com.google.firebase.storage.storage
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 //ViewModel-Klasse, die von AndroidViewModel erbt und eine Referenz auf die Anwendung enthält.
@@ -43,8 +47,11 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     //Das profile Document enthält ein einzelnes Profil(das des eingeloggten Users)
     //Document ist wie ein Objekt
-    //lateinit var profileRef: DocumentReference
+
     var profileRef: DocumentReference? = null
+
+    //var generalQuestionnaireRef: DocumentReference? = null
+    var generalQuestionnaireRef = firestore.collection("profiles").document("questionnaire1")
 
     init {
         setupUserEnv()
@@ -58,9 +65,17 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             if (profileRef == null) {
 
                 profileRef = firestore.collection("profiles").document(firebaseUser.uid)
+
+                generalQuestionnaireRef = firestore.collection("questionnaire1").document(firebaseUser.uid)
             }
         }
     }
+
+
+    ////fun generalQuestionnaire(generalQuestionnaire: GeneralQuestionnaire, completion: () -> Unit) {
+    //// Mit add fügen wir ein komplett neues Dokument einer Sammlung hinzu, für dieses wird eine eigene Id generiert
+    ////generalQuestionnaireRef.add(generalQuestionnaire).addOnSuccessListener { completion() }
+    ////}
 
     // Funktion um neuen User zu erstellen
     fun register(email: String, password: String) {
@@ -74,6 +89,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 profileRef = firestore.collection("profiles").document(auth.currentUser!!.uid)
                 // Ein neues, leeres Profil wird für jeden User erstellt der zum ersten mal einen Account für die App anlegt
                 profileRef!!.set(Profile())
+
+                generalQuestionnaireRef = firestore.collection("questionnaire1").document(auth.currentUser!!.uid)
+                generalQuestionnaireRef!!.set(GeneralQuestionnaire())
+
                 // Danach führen wir logout Funktion aus, da beim Erstellen eines Users dieser sofort eingeloggt wird
                 logout()
             } else {
@@ -96,6 +115,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
                     // Die Profil-Referenz wird jetzt gesetzt, da diese vom aktuellen User abhängt
                     profileRef = firestore.collection("profiles").document(auth.currentUser!!.uid)
+
+                    generalQuestionnaireRef =
+                        firestore.collection("questionnaire1").document(auth.currentUser!!.uid)
 
                     _user.value = auth.currentUser
                 } else {
@@ -148,12 +170,26 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 "number" to profile.number,
                 "email" to profile.email,
                 "adress" to profile.adress,
-                "dateOfBirth" to profile.dateOfBirth
+                "dateOfBirth" to profile.dateOfBirth,
             )
         )
     }
 
-    private val repository = Repository(BeautyApi)
+    fun updateGeneralQuestionnaire(generalQuestionnaire: GeneralQuestionnaire) {
+        generalQuestionnaireRef?.update(
+            mapOf(
+                "question1" to generalQuestionnaire.question1,
+                "question1" to generalQuestionnaire.question2,
+                "question1" to generalQuestionnaire.question3,
+                "question1" to generalQuestionnaire.question4,
+                "question1" to generalQuestionnaire.question5,
+            )
+        )
+    }
+
+    //Repository Bereich
+
+    private val repository = Repository(BeautyApi, getDatabase(application))
 
     val beauty = repository.beauty
 
@@ -194,4 +230,21 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         _setSelectedServices.value = items
 
     }
+
+
+    val favorites = repository.favoriteMakeUp
+
+    fun myFavoriteMakeUp(beautyItem: BeautyItem) {
+        val newFavoriteMakeUp = FavoriteMakeUp(0, beautyItem.name, beautyItem.description)
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.saveFavoriteMakeUp(newFavoriteMakeUp)
+        }
+    }
+
+    fun my(favoriteMakeUp: FavoriteMakeUp) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteFavoriteMakeUp(favoriteMakeUp)
+        }
+    }
+
 }

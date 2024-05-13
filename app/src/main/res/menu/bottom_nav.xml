@@ -25,4 +25,11 @@
         android:icon="@drawable/ic_stats"
         android:title="Scheduler" />
 
+    <item
+        android:id="@+id/favoriteMakeUpFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/ic_star_outline"
+        android:title="Favorites" />
+
 </menu>

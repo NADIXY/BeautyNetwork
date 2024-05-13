@@ -4,14 +4,16 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.beautynetwork.R
+import com.example.beautynetwork.data.local.FavoriteMakeUpDatabase
 import com.example.beautynetwork.data.model.makeupapi.BeautyItem
 import com.example.beautynetwork.data.model.Services
+import com.example.beautynetwork.data.model.user.favorite.FavoriteMakeUp
 import com.example.beautynetwork.data.remote.BeautyApi
 import java.lang.Exception
 
 const val TAG = "Repository"
 
-class Repository(private val api: BeautyApi) {
+class Repository(private val api: BeautyApi, private val database: FavoriteMakeUpDatabase) {
 
     private val _beauty = MutableLiveData<List<BeautyItem>>()
     val beauty : LiveData<List<BeautyItem>>
@@ -27,6 +29,19 @@ class Repository(private val api: BeautyApi) {
         }
 
     }
+
+    val favoriteMakeUp = database.dao.getFavoriteMakeUp()
+
+    suspend fun saveFavoriteMakeUp(beautyItem: FavoriteMakeUp) {
+        database.dao.insertFavoriteMakeUp(beautyItem)
+
+    }
+
+    suspend fun deleteFavoriteMakeUp(beautyItem: FavoriteMakeUp) {
+        database.dao.delete(beautyItem)
+
+    }
+
 
     val myBeautyServices: List<Services> = listOf(
         Services("FIRST TIME TREATMENT","Für Ihren ersten Besuch im Medical Beauty Institut. Gesicht + Hals + Dekolleté *ausführliche computergestützt Hautanalyse mittels Skin Alyzer med7 Pro. \n*aktuelles Hautbedürfnis und Pflegekonzept besprechen *Mikrodermabrasion oder Ultraschall *Wirkstoff Versorgung und Abschlusspflege 120min ", R.drawable.proxy,"160 EUR","*einmalig buchbar"),

@@ -7,5 +7,5 @@ data class Profile(
     val email: String = "",
     val adress: String = "",
     val dateOfBirth: String = "",
-    val profilePicture: String = ""
+    val profilePicture: String = "",
 )

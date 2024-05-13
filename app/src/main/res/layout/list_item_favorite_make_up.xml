@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/services"
+        android:id="@+id/beauty_products"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -25,36 +25,28 @@
             android:padding="8dp">
 
             <TextView
-                android:id="@+id/text_title_detail_service"
+                android:id="@+id/txt_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/text_description_detail_service"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/text_preis_detail_service"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="16sp" />
-            <TextView
-                android:id="@+id/text_info_detail_service"
+                android:id="@+id/txt_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="16sp" />
 
             <ImageView
-                android:id="@+id/image_detail_service"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:id="@+id/img_productView"
+                android:layout_width="240dp"
+                android:layout_height="210dp"
+
+                android:layout_marginLeft="65dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginRight="65dp"
                 android:layout_marginBottom="8dp"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/proxy" />
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/baseline_spa_24" />
 
         </LinearLayout>
 
