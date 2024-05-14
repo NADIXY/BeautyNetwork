@@ -1,12 +1,11 @@
 package com.example.beautynetwork.ui
 
-import android.app.AlertDialog
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.beautynetwork.MainViewModel
@@ -30,43 +29,44 @@ class GeneralQuestionnaireFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.generalQuestionnaireRef?.addSnapshotListener { value, error ->
-            if (error == null && value != null) {
-                // Umwandeln des Snapshots in eine Klassen-Instanz von der Klasse Profil und setzen der Felder
-                val myGeneralQuestionnaire = value.toObject(GeneralQuestionnaire::class.java)
-                binding.tiet1.setText(myGeneralQuestionnaire?.question1)
-                binding.tiet2.setText(myGeneralQuestionnaire?.question2)
-                binding.tiet3.setText(myGeneralQuestionnaire?.question3)
-                binding.tiet4.setText(myGeneralQuestionnaire?.question4)
-                binding.tiet5.setText(myGeneralQuestionnaire?.question5)
+        viewModel.generalQuestionnaireRef?.addSnapshotListener { snapshot, error ->
+            snapshot?.let {
+                // Umwandeln des Snapshots in eine Klassen-Instanz von der Klasse GeneralQuestionnaire und setzen der Felder
+                val myGeneralQuestionnaire: List<GeneralQuestionnaire> =
+                    snapshot.toObjects(GeneralQuestionnaire::class.java)
+                Log.d(
+                    "GeneralQuestionnaire", "${
+                        myGeneralQuestionnaire.map { myGeneralQuestionnaire ->
+                            "{${myGeneralQuestionnaire.question1} - ${myGeneralQuestionnaire.question2} - ${myGeneralQuestionnaire.question3} -${myGeneralQuestionnaire.question4}" +
+                                    " - ${myGeneralQuestionnaire.question5} - ${myGeneralQuestionnaire.question6} - ${myGeneralQuestionnaire.question7} - ${myGeneralQuestionnaire.question8}}"
+                        }
+                    }"
+                )
             }
         }
 
         binding.btSave.setOnClickListener {
-            val question1 = binding.tiet1.text.toString()
-            val question2 = binding.tiet2.text.toString()
-            val question3 = binding.tiet3.text.toString()
-            val question4 = binding.tiet4.text.toString()
-            val question5 = binding.tiet5.text.toString()
+            viewModel.setGeneralQuestionnaire(
+                binding.tiet1.text.toString(),
+                binding.tiet2.text.toString(),
+                binding.tiet3.text.toString(),
+                binding.tiet4.text.toString(),
+                binding.tiet5.text.toString(),
+                binding.tiet6.text.toString(),
+                binding.tiet7.text.toString(),
+                binding.tiet8.text.toString(),
+            )
 
-            val builder = AlertDialog.Builder(requireContext())
-            builder.setTitle("Save")
-            builder.setMessage("Do you want to save?")
-            builder.setPositiveButton("Yes") { dialog, which ->
+            binding.tiet1.setText("")
+            binding.tiet2.setText("")
+            binding.tiet3.setText("")
+            binding.tiet4.setText("")
+            binding.tiet5.setText("")
+            binding.tiet6.setText("")
+            binding.tiet7.setText("")
+            binding.tiet8.setText("")
 
-                if (question1 != "" && question2 != "" && question3 != "" && question4 != "" && question5 != "" ) {
-                    val newGeneralQuestionnaire = GeneralQuestionnaire(question1, question2, question3, question4, question5)
-                    viewModel.updateGeneralQuestionnaire(newGeneralQuestionnaire)
-                    findNavController().navigate(R.id.generalQuestionnaire2Fragment)
-
-                }
-                Toast.makeText(requireContext(), "Saved", Toast.LENGTH_SHORT).show()
-            }
-            builder.setNegativeButton("Cancel") { dialog, which -> }
-            val dialog: AlertDialog = builder.create()
-            dialog.show()
-
-            findNavController().navigate(R.id.generalQuestionnaireFragment)
+            findNavController().navigate(R.id.homeFragment)
         }
 
     }

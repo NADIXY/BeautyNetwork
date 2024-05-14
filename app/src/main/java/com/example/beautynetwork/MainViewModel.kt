@@ -18,6 +18,7 @@ import com.example.beautynetwork.data.remote.BeautyApi
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.auth
+import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.firestore
 import com.google.firebase.storage.storage
@@ -49,9 +50,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     //Document ist wie ein Objekt
 
     var profileRef: DocumentReference? = null
-
-    //var generalQuestionnaireRef: DocumentReference? = null
-    var generalQuestionnaireRef = firestore.collection("profiles").document("questionnaire1")
+    var generalQuestionnaireRef: CollectionReference? = null
 
     init {
         setupUserEnv()
@@ -63,19 +62,13 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
         auth.currentUser?.let { firebaseUser ->
             if (profileRef == null) {
-
                 profileRef = firestore.collection("profiles").document(firebaseUser.uid)
-
-                generalQuestionnaireRef = firestore.collection("questionnaire1").document(firebaseUser.uid)
+                generalQuestionnaireRef =
+                    firestore.collection("profiles").document(firebaseUser.uid)
+                        .collection("generalQuestionnaire")
             }
         }
     }
-
-
-    ////fun generalQuestionnaire(generalQuestionnaire: GeneralQuestionnaire, completion: () -> Unit) {
-    //// Mit add fügen wir ein komplett neues Dokument einer Sammlung hinzu, für dieses wird eine eigene Id generiert
-    ////generalQuestionnaireRef.add(generalQuestionnaire).addOnSuccessListener { completion() }
-    ////}
 
     // Funktion um neuen User zu erstellen
     fun register(email: String, password: String) {
@@ -89,9 +82,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 profileRef = firestore.collection("profiles").document(auth.currentUser!!.uid)
                 // Ein neues, leeres Profil wird für jeden User erstellt der zum ersten mal einen Account für die App anlegt
                 profileRef!!.set(Profile())
-
-                generalQuestionnaireRef = firestore.collection("questionnaire1").document(auth.currentUser!!.uid)
-                generalQuestionnaireRef!!.set(GeneralQuestionnaire())
 
                 // Danach führen wir logout Funktion aus, da beim Erstellen eines Users dieser sofort eingeloggt wird
                 logout()
@@ -115,11 +105,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
                     // Die Profil-Referenz wird jetzt gesetzt, da diese vom aktuellen User abhängt
                     profileRef = firestore.collection("profiles").document(auth.currentUser!!.uid)
-
-                    generalQuestionnaireRef =
-                        firestore.collection("questionnaire1").document(auth.currentUser!!.uid)
-
                     _user.value = auth.currentUser
+
                 } else {
                     // Wenn User zwar exisitiert und Eingaben stimmen aber User seine Email noch nicht bestätigt hat
                     // wird User wieder ausgeloggt und eine Fehlermeldung ausgegeben
@@ -175,17 +162,30 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         )
     }
 
-    fun updateGeneralQuestionnaire(generalQuestionnaire: GeneralQuestionnaire) {
-        generalQuestionnaireRef?.update(
-            mapOf(
-                "question1" to generalQuestionnaire.question1,
-                "question1" to generalQuestionnaire.question2,
-                "question1" to generalQuestionnaire.question3,
-                "question1" to generalQuestionnaire.question4,
-                "question1" to generalQuestionnaire.question5,
-            )
+    fun setGeneralQuestionnaire(
+        question1: String,
+        question2: String,
+        question3: String,
+        question4: String,
+        question5: String,
+        question6: String,
+        question7: String,
+        question8: String
+    ) {
+
+        val setQuestions = GeneralQuestionnaire(
+            question1 = question1,
+            question2 = question2,
+            question3 = question3,
+            question4 = question4,
+            question5 = question5,
+            question6 = question6,
+            question7 = question7,
+            question8 = question8,
         )
+        generalQuestionnaireRef?.add(setQuestions)
     }
+
 
     //Repository Bereich
 
@@ -209,6 +209,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     }
 
+    //Services
+
     private val allBeautyServices = repository.getItems()
 
     private var _items: MutableLiveData<List<Services>> = MutableLiveData(allBeautyServices)
@@ -231,6 +233,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     }
 
+    //Services Enderegion
+
+
+    //Favorites
 
     val favorites = repository.favoriteMakeUp
 
@@ -246,5 +252,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             repository.deleteFavoriteMakeUp(favoriteMakeUp)
         }
     }
+
+    //Favorites Enderegion
 
 }

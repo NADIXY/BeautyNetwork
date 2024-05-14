@@ -19,10 +19,10 @@ This questionnaire helps us treat you in the very best way.</string>
     <string name="question_3">Do you have any allergies, allergic reaction? To certain materials, medicines, aliments?</string>
     <string name="question_4">Do you have a pacemaker?</string>
     <string name="question_5">Do or did you have one of the following diseases? Contagious diseases? (i.e. Tuberculosis, Hepatitis, Aids)?</string>
-    <string name="question_6">Do or did you have one of the following diseases? High blood pressure or low blood pressure? </string>
-    <string name="question_7">Do or did you have one of the following diseases? Spasm attacks? Thyroid diseases? Diabetes? Blood diseases?</string>
+    <string name="question_6">Do or did you have one of the following diseases? Heart disease? High blood pressure or low blood pressure? </string>
+    <string name="question_7">Do or did you have one of the following diseases? Nerve diseases? Spasm attacks? Thyroid diseases? Diabetes? Blood diseases?</string>
+    <string name="question_8">For women: Are you pregnant? If so, which month?</string>
 
-    <string name="question_8">question_7</string>
     <string name="question_9">question_7</string>
     <string name="question_10">question_7</string>
     <string name="question_11">question_7</string>

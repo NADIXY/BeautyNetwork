@@ -30,8 +30,7 @@ class ServicesDetailFragment : Fragment() {
             binding.textTitleDetailService.text = it.title
             binding.textDescriptionDetailService.text = it.description
             binding.textInfoDetailService.text = it.info
-            binding.textPreisDetailService.text = it.preis
-
+            binding.textPreisDetailService.text = it.preice
 
         }
 

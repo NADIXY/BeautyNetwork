@@ -4,7 +4,7 @@ class Services(
     var title: String,
     var description: String,
     var imageId: Int,
-    var preis: String,
+    var preice: String,
     var info: String
 
 )
