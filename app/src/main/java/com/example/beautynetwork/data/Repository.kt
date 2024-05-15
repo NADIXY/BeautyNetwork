@@ -22,7 +22,7 @@ class Repository(private val api: BeautyApi, private val database: FavoriteMakeU
     //Diese Funktion ruft Beautydaten von der API ab und aktualisiert den Wert des LiveData-Objekts _beauty
     suspend fun getBeauty() {
         try {
-            _beauty.postValue(api.retrofitService.getBeautyProduct("maybelline"))
+            _beauty.postValue(api.retrofitService.getBeautyProduct("clinique"))
             Log.d(TAG, "${_beauty.value}")
         } catch (e : Exception) {
             Log.e(TAG, "$e")
@@ -30,6 +30,7 @@ class Repository(private val api: BeautyApi, private val database: FavoriteMakeU
 
     }
 
+    //Favorite Liste, speichert das Ergebnis der getFavoriteMakeUp Anfrange des Dao
     val favoriteMakeUp = database.dao.getFavoriteMakeUp()
 
     suspend fun saveFavoriteMakeUp(beautyItem: FavoriteMakeUp) {

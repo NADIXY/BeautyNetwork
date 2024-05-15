@@ -26,8 +26,9 @@ class MakeUpDetailFragment : Fragment() {
         binding = FragmentMakeUpDetailBinding.inflate(layoutInflater)
 
         binding.txtWebsiteLink.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.well.ca"))
-            startActivity(intent)
+            val urlIntent = Intent("android.intent.action.VIEW", Uri.parse("https://www.clinique.com"))
+
+            startActivity(urlIntent)
         }
 
         return binding.root
@@ -44,7 +45,7 @@ class MakeUpDetailFragment : Fragment() {
             binding.txtDescription.text = it.description
             binding.imgProductView.load(it.image_link)
             binding.txtCategory.text = it.category
-            binding.txtPrice.text =  "${it.price} USD $"
+            binding.txtPrice.text =  "$${it.price} USD"
             binding.txtProductType.text = it.product_type
             binding.txtRating.text = "Rating ${it.rating.toString()}"
             binding.txtProductColorsList.text = it.product_colors.toString()

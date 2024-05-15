@@ -62,7 +62,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
         auth.currentUser?.let { firebaseUser ->
             if (profileRef == null) {
+
                 profileRef = firestore.collection("profiles").document(firebaseUser.uid)
+
                 generalQuestionnaireRef =
                     firestore.collection("profiles").document(firebaseUser.uid)
                         .collection("generalQuestionnaire")
@@ -105,6 +107,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
                     // Die Profil-Referenz wird jetzt gesetzt, da diese vom aktuellen User abhängt
                     profileRef = firestore.collection("profiles").document(auth.currentUser!!.uid)
+
                     _user.value = auth.currentUser
 
                 } else {

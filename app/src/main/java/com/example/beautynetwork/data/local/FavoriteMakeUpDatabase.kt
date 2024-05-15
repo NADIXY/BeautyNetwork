@@ -4,7 +4,9 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.beautynetwork.data.model.makeupapi.BeautyItem
 import com.example.beautynetwork.data.model.user.favorite.FavoriteMakeUp
+
 
 @Database(entities = [FavoriteMakeUp::class], version = 1)
 abstract class FavoriteMakeUpDatabase : RoomDatabase() {

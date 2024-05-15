@@ -1,6 +1,8 @@
 package com.example.beautynetwork.ui
 
 import android.app.AlertDialog
+import android.content.Intent
+import android.net.Uri
 
 import android.os.Bundle
 import android.text.Editable
@@ -30,6 +32,19 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(layoutInflater)
+
+        binding.webBt.setOnClickListener {
+            val urlIntent = Intent("android.intent.action.VIEW", Uri.parse("https://www.ueberdiemanspricht.de/medical_beauty_institut_nadia_baptista-14828.html"))
+
+            startActivity(urlIntent)
+        }
+
+        binding.treatwellBt.setOnClickListener {
+            val urlIntent = Intent("android.intent.action.VIEW", Uri.parse("https://www.treatwell.de/ort/medical-beauty-institut-leopoldstrasse/"))
+
+            startActivity(urlIntent)
+        }
+
         return binding.root
     }
 
