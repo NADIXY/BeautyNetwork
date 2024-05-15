@@ -244,7 +244,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     val favorites = repository.favoriteMakeUp
 
     fun myFavoriteMakeUp(beautyItem: BeautyItem) {
-        val newFavoriteMakeUp = FavoriteMakeUp(0, beautyItem.name, beautyItem.description)
+        val newFavoriteMakeUp = FavoriteMakeUp(0, beautyItem.name, beautyItem.description, beautyItem.image_link)
         viewModelScope.launch(Dispatchers.IO) {
             repository.saveFavoriteMakeUp(newFavoriteMakeUp)
         }

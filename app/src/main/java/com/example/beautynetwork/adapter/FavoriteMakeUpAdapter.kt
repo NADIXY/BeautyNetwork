@@ -11,7 +11,6 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.beautynetwork.MainViewModel
-import com.example.beautynetwork.data.model.makeupapi.BeautyItem
 import com.example.beautynetwork.data.model.user.favorite.FavoriteMakeUp
 import com.example.beautynetwork.databinding.ListItemFavoriteMakeUpBinding
 
@@ -39,18 +38,18 @@ class FavoriteMakeUpAdapter(
     override fun onBindViewHolder(holder: FavoriteMakeUpViewHolder, position: Int) {
         val item = dataset[position]
 
-        holder.binding.txtTitle.text = item.name
-        holder.binding.txtDescription.text = item.description
-        holder.binding.imageProductView.load(item.id)
+        holder.binding.title.text = item.name
+        holder.binding.description.text = item.description
+        holder.binding.ImageView.load(item.image_link)
 
-        val hCard = holder.binding.beautyProducts
+        val hCard = holder.binding.CardView
 
         // ScaleY = Stretchen oben unten           AnimationsTyp, Start, Ende
         val animator = ObjectAnimator.ofFloat(hCard, View.SCALE_Y, 0f, 1f)
         animator.duration = 800
         animator.start()
 
-        holder.binding.beautyProducts.setOnClickListener {
+        holder.binding.CardView.setOnClickListener {
             showDeleteAlertDialog(item, holder.itemView.context)
 
             // RotationY = object horizontal rotieren                  Start, Ende
@@ -63,7 +62,7 @@ class FavoriteMakeUpAdapter(
             set.start()
         }
 
-        holder.binding.imageProductView.setOnClickListener {
+        holder.binding.ImageView.setOnClickListener {
             showDeleteAlertDialog(item, holder.itemView.context)
 
         }

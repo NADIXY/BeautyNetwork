@@ -45,7 +45,7 @@ class MakeUpDetailFragment : Fragment() {
             binding.txtDescription.text = it.description
             binding.imgProductView.load(it.image_link)
             binding.txtCategory.text = it.category
-            binding.txtPrice.text =  "$${it.price} USD"
+            binding.txtPrice.text = "$${it.price} USD"
             binding.txtProductType.text = it.product_type
             binding.txtRating.text = "Rating ${it.rating.toString()}"
             binding.txtProductColorsList.text = it.product_colors.toString()

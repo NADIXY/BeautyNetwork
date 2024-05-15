@@ -138,29 +138,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/homeAppbar" />
 
-    <TextView
+    <Button
         android:id="@+id/webBt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="193dp"
+        android:layout_height="44dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
         android:text="web"
-        android:textColor="@color/verde"
+        android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homeAppbar" />
+        app:layout_constraintTop_toBottomOf="@+id/homeAppbar"
+        android:backgroundTint="#F48FB1"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
 
-    <TextView
+    <Button
         android:id="@+id/treatwellBt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="169dp"
+        android:layout_width="187dp"
+        android:layout_height="44dp"
         android:layout_marginEnd="16dp"
         android:text="treatwell"
-        android:textColor="@color/verde"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homeAppbar" />
+        app:layout_constraintTop_toBottomOf="@+id/homeAppbar"
+        android:textColor="#F48FB1"
+        app:strokeColor="#F48FB1"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

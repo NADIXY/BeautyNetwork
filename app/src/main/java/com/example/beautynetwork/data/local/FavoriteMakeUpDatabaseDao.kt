@@ -6,7 +6,6 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.beautynetwork.data.model.makeupapi.BeautyItem
 import com.example.beautynetwork.data.model.user.favorite.FavoriteMakeUp
 
 

@@ -43,6 +43,7 @@ class MakeUpAdapter(
         }
 
         if (holder is MakeUpAdapter.MyViewHolder) {
+
             holder.binding.imgProductView.load(item.image_link)
             holder.binding.txtTitle.text = item.name
             holder.binding.txtDescription.text = item.description
