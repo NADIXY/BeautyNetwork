@@ -8,7 +8,6 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.beautynetwork.data.model.user.favorite.FavoriteMakeUp
 
-
 @Dao
 interface FavoriteMakeUpDatabaseDao {
 
@@ -20,4 +19,7 @@ interface FavoriteMakeUpDatabaseDao {
 
     @Delete
     suspend fun delete(favoriteMakeUp: FavoriteMakeUp)
+
+    @Query("DELETE FROM FavoriteMakeUp ")
+    suspend fun deleteAll()
 }

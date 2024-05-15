@@ -43,6 +43,14 @@ class Repository(private val api: BeautyApi, private val database: FavoriteMakeU
 
     }
 
+    suspend fun deleteAllFavoriteMakeUps() {
+        try {
+            database.dao.deleteAll()
+        } catch (e: Exception) {
+            Log.e(TAG, "Deleting all FavoriteMakeUps from database: $e")
+        }
+    }
+
     val myBeautyServices: List<Services> = listOf(
         Services("FIRST TIME TREATMENT","Für Ihren ersten Besuch im Medical Beauty Institut. Gesicht + Hals + Dekolleté *ausführliche computergestützt Hautanalyse mittels Skin Alyzer med7 Pro. \n*aktuelles Hautbedürfnis und Pflegekonzept besprechen *Mikrodermabrasion oder Ultraschall *Wirkstoff Versorgung und Abschlusspflege 120min ", R.drawable.proxy,"160 EUR","*einmalig buchbar"),
         Services("Hautanalyse by Skin Alyzer med7 pro","Der SkinAlyzermed7 von REVIDERM findet exakt heraus, was Ihrer Haut fehlt und wie Sie ihren Zustand nachhaltig verbessern.\nDafür misst und dokumentiert die computergestützte Hautanalyse jede Partie Ihrer Haut. In Farbbildern zeigt Ihnen die Kamera des Geräts alle Anomalien – und damit Abweichungen von gesunder und schöner Haut.",R.drawable.proxy,"60 EUR","30min"),

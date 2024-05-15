@@ -164,6 +164,5 @@
         app:strokeColor="#F48FB1"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

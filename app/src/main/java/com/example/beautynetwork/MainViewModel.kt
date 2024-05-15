@@ -250,11 +250,21 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun my(favoriteMakeUp: FavoriteMakeUp) {
+    fun myDeletedFavoriteMakeUp(favoriteMakeUp: FavoriteMakeUp) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.deleteFavoriteMakeUp(favoriteMakeUp)
         }
     }
+
+    fun allDeleted() {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteAllFavoriteMakeUps()
+        }
+    }
+
+
+
+
 
     //Favorites Enderegion
 

@@ -75,7 +75,7 @@ class FavoriteMakeUpAdapter(
         builder.setIcon(android.R.drawable.ic_dialog_alert)
 
         builder.setPositiveButton("Yes") { dialogInterface, which ->
-            viewModel.my(favoriteMakeUp)
+            viewModel.myDeletedFavoriteMakeUp(favoriteMakeUp)
             Toast.makeText(context, "Deleted", Toast.LENGTH_LONG)
                 .show()
             dialogInterface.dismiss()
