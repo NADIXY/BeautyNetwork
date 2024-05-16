@@ -59,7 +59,6 @@ class MainActivity : AppCompatActivity() {
             binding.floatingActionButton.setOnClickListener {
                 findNavController(R.id.fragmentContainerView).navigate(R.id.profileFragment)
             }
-
         }
 
         onBackPressedDispatcher.addCallback(object : OnBackPressedCallback(true) {
