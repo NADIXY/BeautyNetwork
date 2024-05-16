@@ -101,8 +101,18 @@ class HomeFragment : Fragment() {
         )
         popup.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
+                R.id.about -> {
+                    findNavController().navigate(R.id.aboutFragment)
+                    true
+
+                }
                 R.id.preicelist -> {
                     findNavController().navigate(R.id.priceListFragment)
+                    true
+
+                }
+                R.id.impressum -> {
+                    findNavController().navigate(R.id.impressumFragment)
                     true
 
                 }

@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/about"
+        android:title="About Medical Beauty Institut Nadia Baptista"
+        android:icon="@drawable/baseline_more_horiz_24"
+        app:showAsAction="never" />
     <item
         android:id="@+id/preicelist"
         android:title="Preicelist"
+        android:icon="@drawable/baseline_more_horiz_24"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/impressum"
+        android:title="Impressum"
         android:icon="@drawable/baseline_more_horiz_24"
         app:showAsAction="never" />
 

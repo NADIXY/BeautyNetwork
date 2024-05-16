@@ -8,7 +8,6 @@ data class Profile(
     val adress: String = "",
     val dateOfBirth: String = "",
     val profilePicture: String = "",
-
     val question1: String = "",
     val question2: String = "",
     val question3: String = "",
