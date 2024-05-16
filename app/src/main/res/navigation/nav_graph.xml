@@ -59,9 +59,9 @@
         android:name="com.example.beautynetwork.ui.GeneralQuestionnaire2Fragment"
         android:label="GeneralQuestionnaire2Fragment" />
     <fragment
-        android:id="@+id/generalQuestionnaireFragment"
-        android:name="com.example.beautynetwork.ui.GeneralQuestionnaireFragment"
-        android:label="GeneralQuestionnaireFragment" />
+        android:id="@+id/appointmentFragment"
+        android:name="com.example.beautynetwork.ui.AppointmentFragment"
+        android:label="AppointmentFragment" />
     <fragment
         android:id="@+id/priceListFragment"
         android:name="com.example.beautynetwork.ui.PriceListFragment"

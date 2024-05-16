@@ -7,38 +7,38 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.fragment.findNavController
 import com.example.beautynetwork.MainViewModel
 import com.example.beautynetwork.R
-import com.example.beautynetwork.data.model.user.GeneralQuestionnaire
-import com.example.beautynetwork.databinding.FragmentGeneralQuestionnaireBinding
+import com.example.beautynetwork.data.model.user.Appointment
+import com.example.beautynetwork.databinding.FragmentAppointmentBinding
+import androidx.navigation.fragment.findNavController
 
-class GeneralQuestionnaireFragment : Fragment() {
+class AppointmentFragment : Fragment() {
 
     private val viewModel: MainViewModel by activityViewModels()
-    private lateinit var binding: FragmentGeneralQuestionnaireBinding
+    private lateinit var binding: FragmentAppointmentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentGeneralQuestionnaireBinding.inflate(inflater, container, false)
+        binding = FragmentAppointmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.generalQuestionnaireRef?.addSnapshotListener { snapshot, error ->
+        viewModel.appointmentRef?.addSnapshotListener { snapshot, error ->
             snapshot?.let {
-                // Umwandeln des Snapshots in eine Klassen-Instanz von der Klasse GeneralQuestionnaire und setzen der Felder
-                val myGeneralQuestionnaire: List<GeneralQuestionnaire> =
-                    snapshot.toObjects(GeneralQuestionnaire::class.java)
+                // Umwandeln des Snapshots in eine Klassen-Instanz von der Klasse Appointment und setzen der Felder
+                val myAppointments: List<Appointment> =
+                    snapshot.toObjects(Appointment::class.java)
                 Log.d(
-                    "GeneralQuestionnaire", "${
-                        myGeneralQuestionnaire.map { myGeneralQuestionnaire ->
-                            "{${myGeneralQuestionnaire.question1} - ${myGeneralQuestionnaire.question2} - ${myGeneralQuestionnaire.question3} -${myGeneralQuestionnaire.question4}" +
-                                    " - ${myGeneralQuestionnaire.question5} - ${myGeneralQuestionnaire.question6} - ${myGeneralQuestionnaire.question7} - ${myGeneralQuestionnaire.question8}}"
+                    "Appointment", "${
+                        myAppointments.map { myAppointments ->
+                            "{${myAppointments.question1} - ${myAppointments.question2} - ${myAppointments.question3} -${myAppointments.question4}" +
+                                    " - ${myAppointments.question5} - ${myAppointments.question6} - ${myAppointments.question7} - ${myAppointments.question8}}"
                         }
                     }"
                 )
@@ -46,7 +46,7 @@ class GeneralQuestionnaireFragment : Fragment() {
         }
 
         binding.btSave.setOnClickListener {
-            viewModel.setGeneralQuestionnaire(
+            viewModel.setAppointment(
                 binding.tiet1.text.toString(),
                 binding.tiet2.text.toString(),
                 binding.tiet3.text.toString(),

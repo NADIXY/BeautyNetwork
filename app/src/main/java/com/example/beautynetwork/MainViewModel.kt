@@ -11,7 +11,7 @@ import com.example.beautynetwork.data.Repository
 import com.example.beautynetwork.data.local.getDatabase
 import com.example.beautynetwork.data.model.Services
 import com.example.beautynetwork.data.model.makeupapi.BeautyItem
-import com.example.beautynetwork.data.model.user.GeneralQuestionnaire
+import com.example.beautynetwork.data.model.user.Appointment
 import com.example.beautynetwork.data.model.user.Profile
 import com.example.beautynetwork.data.model.user.favorite.FavoriteMakeUp
 import com.example.beautynetwork.data.remote.BeautyApi
@@ -50,7 +50,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     //Document ist wie ein Objekt
 
     var profileRef: DocumentReference? = null
-    var generalQuestionnaireRef: CollectionReference? = null
+    var appointmentRef: CollectionReference? = null
 
     init {
         setupUserEnv()
@@ -65,7 +65,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
                 profileRef = firestore.collection("profiles").document(firebaseUser.uid)
 
-                generalQuestionnaireRef =
+                appointmentRef =
                     firestore.collection("profiles").document(firebaseUser.uid)
                         .collection("generalQuestionnaire")
             }
@@ -161,11 +161,19 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 "email" to profile.email,
                 "adress" to profile.adress,
                 "dateOfBirth" to profile.dateOfBirth,
+                "question1" to profile.question1,
+                "question2" to profile.question2,
+                "question3" to profile.question3,
+                "question4" to profile.question4,
+                "question5" to profile.question5,
+                "question6" to profile.question6,
+                "question7" to profile.question7,
+                "question8" to profile.question8,
             )
         )
     }
 
-    fun setGeneralQuestionnaire(
+    fun setAppointment(
         question1: String,
         question2: String,
         question3: String,
@@ -176,7 +184,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         question8: String
     ) {
 
-        val setQuestions = GeneralQuestionnaire(
+        val setAppointment = Appointment(
             question1 = question1,
             question2 = question2,
             question3 = question3,
@@ -186,7 +194,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             question7 = question7,
             question8 = question8,
         )
-        generalQuestionnaireRef?.add(setQuestions)
+        appointmentRef?.add(setAppointment)
     }
 
 

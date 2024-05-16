@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.example.beautynetwork.databinding.ActivityMainBinding
@@ -33,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 
         navHost.navController.addOnDestinationChangedListener { _, destination, _ ->
             if (destination.id == R.id.homeFragment || destination.id == R.id.profileFragment || destination.id == R.id.makeUpFragment
-                || destination.id == R.id.schedulerFragment || destination.id == R.id.generalQuestionnaireFragment || destination.id == R.id.favoriteMakeUpFragment
+                || destination.id == R.id.schedulerFragment || destination.id == R.id.appointmentFragment || destination.id == R.id.favoriteMakeUpFragment
             ) {
                 binding.bottomNavigationView.visibility = View.VISIBLE
                 binding.bottomNavigationView.setupWithNavController(navHost.navController)
@@ -45,6 +46,20 @@ class MainActivity : AppCompatActivity() {
             } else {
                 binding.bottomNavigationView.visibility = View.GONE
             }
+
+            if (destination.id == R.id.homeFragment || destination.id == R.id.makeUpFragment
+                || destination.id == R.id.schedulerFragment || destination.id == R.id.appointmentFragment || destination.id == R.id.favoriteMakeUpFragment
+
+            ) {
+                binding.floatingActionButton.visibility = View.VISIBLE
+        } else {
+            binding.floatingActionButton.visibility = View.GONE
+        }
+
+            binding.floatingActionButton.setOnClickListener {
+                findNavController(R.id.fragmentContainerView).navigate(R.id.profileFragment)
+            }
+
         }
 
         onBackPressedDispatcher.addCallback(object : OnBackPressedCallback(true) {

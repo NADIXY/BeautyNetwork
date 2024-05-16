@@ -140,6 +140,7 @@
 
     <Button
         android:id="@+id/webBt"
+        android:drawableStart="@drawable/baseline_spa_24"
         android:layout_width="193dp"
         android:layout_height="44dp"
         android:layout_marginStart="16dp"
@@ -164,17 +165,7 @@
         app:strokeColor="#F48FB1"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="636dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="#87CCEC"
-        android:clickable="true"
-        android:src="@drawable/baseline_chat_bubble_outline_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homeAppbar" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

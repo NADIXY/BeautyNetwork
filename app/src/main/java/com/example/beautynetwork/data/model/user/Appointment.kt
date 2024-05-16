@@ -1,6 +1,6 @@
 package com.example.beautynetwork.data.model.user
 
-data class GeneralQuestionnaire(
+data class Appointment(
     val question1: String = "",
     val question2: String = "",
     val question3: String = "",
