@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:id="@+id/slideCardView"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:layout_width="wrap_content"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="8dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ConstraintLayout"
+        android:layout_width="358dp"
+        android:layout_height="325dp"
+        android:background="#2342A5F5"
+        android:padding="12dp">
+
+        <ImageView
+            android:id="@+id/slideImageView"
+            android:layout_width="326dp"
+            android:layout_height="289dp"
+            android:scaleType="fitStart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.491"
+            tools:srcCompat="@tools:sample/avatars" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
+
+<!-- android:scaleType="centerInside" "android:scaleType="fitXY" -->

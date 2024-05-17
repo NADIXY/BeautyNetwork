@@ -6,7 +6,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.beautynetwork.MainViewModel
 import com.example.beautynetwork.R
-import com.example.beautynetwork.data.model.Services
+import com.example.beautynetwork.data.model.management.Services
 import com.example.beautynetwork.databinding.ListItemServicesBinding
 
 class ServicesAdapter(

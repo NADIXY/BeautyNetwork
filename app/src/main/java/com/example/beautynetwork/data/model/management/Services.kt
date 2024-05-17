@@ -1,4 +1,4 @@
-package com.example.beautynetwork.data.model
+package com.example.beautynetwork.data.model.management
 
 class Services(
     var title: String,

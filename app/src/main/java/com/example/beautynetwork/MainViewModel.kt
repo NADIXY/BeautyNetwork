@@ -9,8 +9,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.beautynetwork.data.Repository
 import com.example.beautynetwork.data.local.getDatabase
-import com.example.beautynetwork.data.model.Services
+import com.example.beautynetwork.data.model.management.Services
 import com.example.beautynetwork.data.model.makeupapi.BeautyItem
+import com.example.beautynetwork.data.model.management.SlidePics
 import com.example.beautynetwork.data.model.user.Appointment
 import com.example.beautynetwork.data.model.user.Profile
 import com.example.beautynetwork.data.model.user.favorite.FavoriteMakeUp
@@ -200,6 +201,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     //Repository Bereich
 
+    //Beauty Api
+
     private val repository = Repository(BeautyApi, getDatabase(application))
 
     val beauty = repository.beauty
@@ -219,6 +222,19 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         _setSelectedProduct.value = item
 
     }
+
+    //Beauty Api Endregion
+
+    //SlidePics
+
+    private val allSlidePics = repository.getSlidePics()
+
+    private var _slidePics: MutableLiveData<List<SlidePics>> = MutableLiveData(allSlidePics)
+    val slidePics: LiveData<List<SlidePics>>
+        get() = _slidePics
+
+    //SlidePics Endregion
+
 
     //Services
 
@@ -244,7 +260,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     }
 
-    //Services Enderegion
+    //Services Endregion
 
 
     //Favorites
@@ -270,6 +286,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    //Favorites Enderegion
+    //Favorites Endregion
 
 }

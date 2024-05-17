@@ -19,12 +19,18 @@ import com.example.beautynetwork.MainViewModel
 import com.example.beautynetwork.R
 import com.example.beautynetwork.adapter.RecomendedAdapter
 import com.example.beautynetwork.adapter.ServicesAdapter
+import com.example.beautynetwork.adapter.SlidePicsAdapter
 import com.example.beautynetwork.databinding.FragmentHomeBinding
+import java.util.Timer
+import java.util.TimerTask
 
 class HomeFragment : Fragment() {
 
     private val viewModel: MainViewModel by activityViewModels()
     private lateinit var binding: FragmentHomeBinding
+
+    private var currentPageCurrency = 0
+    private var timerCurrency: Timer? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -63,6 +69,11 @@ class HomeFragment : Fragment() {
         viewModel.beauty.observe(viewLifecycleOwner) {
             binding.recyclerView.adapter = RecomendedAdapter(it,viewModel)
 
+        }
+
+        viewModel.slidePics.observe(viewLifecycleOwner) {
+            binding.rvSlide.adapter = SlidePicsAdapter(it, viewModel)
+            startAutoScrollCurrency()
         }
 
         viewModel.items.observe(viewLifecycleOwner) {
@@ -134,6 +145,24 @@ class HomeFragment : Fragment() {
             }
         }
         popup.show()
+    }
+
+    //Die Funktion startet einen Timer, der alle 5 Sekunden das RecyclerView automatisch scrollt.
+    private fun startAutoScrollCurrency() {
+        timerCurrency = Timer() //Erstellt einen neuen Timer
+        timerCurrency?.schedule(object : TimerTask() { //Der Timer wird gestartet und führt alle 5 sec. aus.
+            override fun run() {//Definiert die Aktion, die alle 5 Sekunden ausgeführt werden soll.
+                activity?.runOnUiThread { // Führt den Code auf dem UI-Thread aus.
+                    //Überprüft, ob die aktuelle Seite gleich der Anzahl der slidePics ist und setzt sie gegebenenfalls auf 0 zurück
+                    if (currentPageCurrency == viewModel.slidePics.value?.size) {
+                        currentPageCurrency = 0
+                    }
+                    //Scrollt die RecyclerView zur aktuellen Position und erhöht dann
+                    // die Position um eins für den nächsten Durchlauf des Timers.
+                    binding.rvSlide.smoothScrollToPosition(currentPageCurrency++)
+                }
+            }
+        }, 0, 5000) // Ändern Sie das Intervall nach Bedarf für die RecyclerView
     }
 
 }

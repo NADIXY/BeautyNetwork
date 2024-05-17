@@ -61,12 +61,28 @@
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_slide"
+        android:layout_width="379dp"
+        android:layout_height="274dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/webBt"
+        tools:listitem="@layout/slide_item"
+        android:clipToPadding="false"
+        android:orientation="horizontal"
+        android:paddingStart="0dp"
+        android:paddingEnd="0dp"/>
+
     <EditText
         android:id="@+id/etUserInput"
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:background="#2342A5F5"
         android:ems="10"
@@ -78,7 +94,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/rv_slide" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_services_list"
@@ -125,19 +141,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rv_services_list" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="218dp"
-        android:layout_height="132dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginBottom="8dp"
-        android:scaleType="centerInside"
-        android:src="@drawable/logo"
-        app:layout_constraintBottom_toTopOf="@+id/etUserInput"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homeAppbar" />
-
     <Button
         android:id="@+id/webBt"
         android:drawableStart="@drawable/baseline_spa_24"
@@ -165,6 +168,17 @@
         app:strokeColor="#F48FB1"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
 
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="176dp"
+        android:layout_marginEnd="177dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/rv_slide"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/treatwellBt" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
