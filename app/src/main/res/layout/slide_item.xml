@@ -13,7 +13,7 @@
         android:id="@+id/ConstraintLayout"
         android:layout_width="358dp"
         android:layout_height="325dp"
-        android:background="#2342A5F5"
+        android:background="@drawable/gradient"
         android:padding="12dp">
 
         <ImageView
