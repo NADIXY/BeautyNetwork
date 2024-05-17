@@ -66,9 +66,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
                 profileRef = firestore.collection("profiles").document(firebaseUser.uid)
 
-                appointmentRef =
-                    firestore.collection("profiles").document(firebaseUser.uid)
-                        .collection("generalQuestionnaire")
             }
         }
     }
@@ -173,31 +170,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             )
         )
     }
-
-    fun setAppointment(
-        question1: String,
-        question2: String,
-        question3: String,
-        question4: String,
-        question5: String,
-        question6: String,
-        question7: String,
-        question8: String
-    ) {
-
-        val setAppointment = Appointment(
-            question1 = question1,
-            question2 = question2,
-            question3 = question3,
-            question4 = question4,
-            question5 = question5,
-            question6 = question6,
-            question7 = question7,
-            question8 = question8,
-        )
-        appointmentRef?.add(setAppointment)
-    }
-
 
     //Repository Bereich
 
