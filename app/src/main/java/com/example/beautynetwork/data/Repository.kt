@@ -54,7 +54,7 @@ class Repository(private val api: BeautyApi, private val database: FavoriteMakeU
 
     val mySlidePics: List<SlidePics> = listOf(
         SlidePics(R.drawable.logo),
-        SlidePics(R.drawable.picture),
+        //SlidePics(R.drawable.picture),
         SlidePics(R.drawable.pic9),
         SlidePics(R.drawable.pic10),
         SlidePics(R.drawable.pic5),
