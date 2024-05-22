@@ -37,6 +37,15 @@ class SignInFragment : Fragment() {
 
             if (email != "" && password != "") {
                 viewModel.login(email, password)
+            } else {
+                if (email == "") {
+                    binding.emailET.error = "Enter your email"
+
+                }
+                if (password.length < 12) {
+                    // Fehlermeldung anzeigen
+                    binding.passwordET.error = "Password must contain at least 12 characters"
+                }
             }
         }
 

@@ -46,10 +46,7 @@ class MainActivity : AppCompatActivity() {
                 binding.bottomNavigationView.visibility = View.GONE
             }
 
-            if (destination.id == R.id.homeFragment || destination.id == R.id.makeUpFragment
-                || destination.id == R.id.schedulerFragment || destination.id == R.id.appointmentFragment || destination.id == R.id.favoriteMakeUpFragment
-
-            ) {
+            if (destination.id == R.id.homeFragment) {
                 binding.floatingActionButton.visibility = View.VISIBLE
         } else {
             binding.floatingActionButton.visibility = View.GONE

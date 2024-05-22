@@ -56,6 +56,8 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.textView14.text= "Welcome" //, $name
+
 
         binding.menu.setOnClickListener {
             showPopupMenu(it)
