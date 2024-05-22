@@ -12,7 +12,6 @@ import com.example.beautynetwork.data.local.getDatabase
 import com.example.beautynetwork.data.model.management.Services
 import com.example.beautynetwork.data.model.makeupapi.BeautyItem
 import com.example.beautynetwork.data.model.management.SlidePics
-import com.example.beautynetwork.data.model.user.Appointment
 import com.example.beautynetwork.data.model.user.Profile
 import com.example.beautynetwork.data.model.user.favorite.FavoriteMakeUp
 import com.example.beautynetwork.data.remote.BeautyApi
