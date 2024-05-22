@@ -1,5 +1,6 @@
 package com.example.beautynetwork.ui
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.beautynetwork.MainViewModel
 import com.example.beautynetwork.R
 import com.example.beautynetwork.databinding.FragmentRegisterBinding
+import com.google.android.material.snackbar.Snackbar
 
 class RegisterFragment : Fragment() {
 
@@ -40,10 +42,14 @@ class RegisterFragment : Fragment() {
             val email = binding.emailRegister.text.toString()
             val password = binding.passwordRegister.text.toString()
 
-            if (email != "" && password.length >= 12) {
+            if (email != "" && email != "" && password.length >= 12) {
                 viewModel.register(email, password)
+                findNavController().navigate(R.id.signInFragment)
             } else {
-                // Password must contain at least 12 characters
+                if (email == "") {
+                    binding.emailRegister.error = "Enter your email"
+
+                }
                 if (password.length < 12) {
                     // Fehlermeldung anzeigen
                     binding.passwordRegister.error = "Password must contain at least 12 characters"
@@ -51,7 +57,9 @@ class RegisterFragment : Fragment() {
                 // Vorgang abbrechen
                 return@setOnClickListener
             }
+
         }
+
 
         // User LiveData aus dem ViewModel wird beobachtet
         // Wenn User nicht gleich null (also der User eingeloggt ist) wird zum HomeFragment navigiert
