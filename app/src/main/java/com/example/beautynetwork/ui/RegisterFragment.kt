@@ -61,6 +61,7 @@ class RegisterFragment : Fragment() {
         }
 
 
+
         // User LiveData aus dem ViewModel wird beobachtet
         // Wenn User nicht gleich null (also der User eingeloggt ist) wird zum HomeFragment navigiert
         viewModel.user.observe(viewLifecycleOwner) { user ->
