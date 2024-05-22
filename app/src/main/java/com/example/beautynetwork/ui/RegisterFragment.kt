@@ -1,6 +1,5 @@
 package com.example.beautynetwork.ui
 
-import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,7 +10,6 @@ import androidx.navigation.fragment.findNavController
 import com.example.beautynetwork.MainViewModel
 import com.example.beautynetwork.R
 import com.example.beautynetwork.databinding.FragmentRegisterBinding
-import com.google.android.material.snackbar.Snackbar
 
 class RegisterFragment : Fragment() {
 
@@ -58,9 +56,8 @@ class RegisterFragment : Fragment() {
                 return@setOnClickListener
             }
 
+
         }
-
-
 
         // User LiveData aus dem ViewModel wird beobachtet
         // Wenn User nicht gleich null (also der User eingeloggt ist) wird zum HomeFragment navigiert

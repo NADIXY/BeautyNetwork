@@ -125,10 +125,10 @@ class ProfileFragment : Fragment() {
                         question1, question2, question3, question4, question5, question6, question7, question8)
                     viewModel.updateProfile(newProfile)
 
-                    //findNavController().navigate(R.id.appointmentFragment)
-
                 }
                 Toast.makeText(requireContext(), "Saved", Toast.LENGTH_SHORT).show()
+
+                findNavController().navigate(R.id.schedulerFragment)
             }
             builder.setNegativeButton("Cancel") { dialog, which -> }
             val dialog: AlertDialog = builder.create()
