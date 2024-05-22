@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.example.beautynetwork.MainViewModel
+import com.example.beautynetwork.R
 import com.example.beautynetwork.databinding.FragmentPriceListBinding
 
 class PriceListFragment : Fragment() {
@@ -24,5 +26,9 @@ class PriceListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.backStack.setOnClickListener {
+            findNavController().navigate(R.id.homeFragment)
+        }
     }
 }

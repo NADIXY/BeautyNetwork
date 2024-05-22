@@ -71,7 +71,7 @@ class MakeUpAdapter(
         }
 
         builder.setNeutralButton("Cancel") { dialogInterface, which ->
-            Toast.makeText(context, "", Toast.LENGTH_LONG)
+            Toast.makeText(context, "Cancelled", Toast.LENGTH_LONG)
                 .show()
             dialogInterface.dismiss()
         }

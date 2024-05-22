@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.example.beautynetwork.MainViewModel
+import com.example.beautynetwork.R
 import com.example.beautynetwork.databinding.FragmentServicesDetailBinding
 
 class ServicesDetailFragment : Fragment() {
@@ -24,6 +26,10 @@ class ServicesDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.backStack.setOnClickListener {
+            findNavController().navigate(R.id.homeFragment)
+        }
 
         viewModel.setSelectedServices.observe(viewLifecycleOwner){
             binding.imageDetailService.setImageResource(it.imageId)

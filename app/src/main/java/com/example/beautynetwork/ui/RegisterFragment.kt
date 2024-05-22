@@ -40,7 +40,7 @@ class RegisterFragment : Fragment() {
             val email = binding.emailRegister.text.toString()
             val password = binding.passwordRegister.text.toString()
 
-            if (email != "" && email != "" && password.length >= 12) {
+            if (email != "" && password.length >= 12) {
                 viewModel.register(email, password)
                 findNavController().navigate(R.id.signInFragment)
             } else {
@@ -55,7 +55,6 @@ class RegisterFragment : Fragment() {
                 // Vorgang abbrechen
                 return@setOnClickListener
             }
-
 
         }
 

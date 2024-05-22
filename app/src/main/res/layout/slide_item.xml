@@ -10,7 +10,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/ConstraintLayout"
+        android:id="@+id/constraintLayout"
         android:layout_width="358dp"
         android:layout_height="325dp"
         android:background="@color/white"

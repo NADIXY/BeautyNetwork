@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView android:id="@+id/CardView"
+<androidx.cardview.widget.CardView android:id="@+id/cardView"
 android:layout_height="wrap_content"
 android:layout_margin="8dp"
 android:layout_width="wrap_content"
@@ -8,13 +8,13 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/ConstraintLayout"
+        android:id="@+id/constraintLayout"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:padding="12dp">
 
         <ImageView
-            android:id="@+id/ImageView"
+            android:id="@+id/imageView"
             android:layout_width="122dp"
             android:layout_height="127dp"
             android:layout_marginStart="8dp"

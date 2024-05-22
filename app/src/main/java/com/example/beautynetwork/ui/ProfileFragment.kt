@@ -46,10 +46,10 @@ class ProfileFragment : Fragment() {
         binding.logout.setOnClickListener {
             val builder = AlertDialog.Builder(requireContext())
             builder.setTitle("Log out")
-            builder.setMessage("Do you want to log out?")
+            builder.setMessage("Are you sure you want to log out?")
             builder.setPositiveButton("Yes") { dialog, which ->
                 viewModel.logout()
-                Toast.makeText(requireContext(), "You are logged out", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Logged out", Toast.LENGTH_SHORT).show()
             }
             builder.setNegativeButton("Cancel") { dialog, which -> }
             val dialog: AlertDialog = builder.create()
@@ -117,7 +117,7 @@ class ProfileFragment : Fragment() {
 
             val builder = AlertDialog.Builder(requireContext())
             builder.setTitle("Save")
-            builder.setMessage("Do you want to save?")
+            builder.setMessage("Are you sure you want to save?")
             builder.setPositiveButton("Yes") { dialog, which ->
 
                 if (firstName != "" && lastName != "" && number != "" && email != "" && adress != "" && dateOfBirth != "" && question1 != "" && question2 != "" && question3 != "" && question4 != "" && question5 != "" && question6 != "" && question7 != "" && question8 != "") {

@@ -56,7 +56,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.textView14.text= "Welcome" //, $name
+        binding.textView14.text= "Welcome" //$name
 
 
         binding.menu.setOnClickListener {
@@ -132,7 +132,7 @@ class HomeFragment : Fragment() {
                 R.id.close -> {
                     val builder = AlertDialog.Builder(requireContext())
                     builder.setTitle("Close")
-                    builder.setMessage("Do you want to close?")
+                    builder.setMessage("Are you sure you want to close?")
                     builder.setPositiveButton("Yes") { dialog, which ->
                         activity?.finish()
                         Toast.makeText(requireContext(), "closed", Toast.LENGTH_SHORT).show()

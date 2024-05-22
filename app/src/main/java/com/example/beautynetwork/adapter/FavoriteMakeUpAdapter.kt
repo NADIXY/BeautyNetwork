@@ -40,16 +40,16 @@ class FavoriteMakeUpAdapter(
 
         holder.binding.title.text = item.name
         holder.binding.description.text = item.description
-        holder.binding.ImageView.load(item.image_link)
+        holder.binding.imageView.load(item.image_link)
 
-        val hCard = holder.binding.CardView
+        val hCard = holder.binding.cardView
 
         // ScaleY = Stretchen oben unten           AnimationsTyp, Start, Ende
         val animator = ObjectAnimator.ofFloat(hCard, View.SCALE_Y, 0f, 1f)
         animator.duration = 800
         animator.start()
 
-        holder.binding.CardView.setOnClickListener {
+        holder.binding.cardView.setOnClickListener {
             showDeleteAlertDialog(item, holder.itemView.context)
 
             // RotationY = object horizontal rotieren                  Start, Ende
@@ -62,7 +62,7 @@ class FavoriteMakeUpAdapter(
             set.start()
         }
 
-        holder.binding.ImageView.setOnClickListener {
+        holder.binding.imageView.setOnClickListener {
             showDeleteAlertDialog(item, holder.itemView.context)
 
         }
@@ -71,7 +71,7 @@ class FavoriteMakeUpAdapter(
     private fun showDeleteAlertDialog(favoriteMakeUp: FavoriteMakeUp, context: Context) {
         val builder = AlertDialog.Builder(context)
         builder.setTitle("Delete")
-        builder.setMessage("Do you want to delete this Make-Up?")
+        builder.setMessage("Are you sure you want to delete this Make-Up?")
         builder.setIcon(android.R.drawable.ic_dialog_alert)
 
         builder.setPositiveButton("Yes") { dialogInterface, which ->
@@ -82,7 +82,7 @@ class FavoriteMakeUpAdapter(
         }
 
         builder.setNeutralButton("Cancel") { dialogInterface, which ->
-            Toast.makeText(context, "", Toast.LENGTH_LONG)
+            Toast.makeText(context, "Cancelled", Toast.LENGTH_LONG)
                 .show()
             dialogInterface.dismiss()
         }

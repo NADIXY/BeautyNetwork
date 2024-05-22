@@ -52,7 +52,7 @@ class MakeUpDetailFragment : Fragment() {
             binding.txtWebsiteLink.text = it.website_link
         }
 
-        binding.button.setOnClickListener {
+        binding.backStack.setOnClickListener {
             findNavController().navigate(R.id.makeUpFragment)
         }
 

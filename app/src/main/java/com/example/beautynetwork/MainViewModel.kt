@@ -233,7 +233,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     //Services Endregion
 
-
     //Favorites
 
     val favorites = repository.favoriteMakeUp

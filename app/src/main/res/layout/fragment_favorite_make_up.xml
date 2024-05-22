@@ -7,7 +7,7 @@
     android:background="@drawable/gradient">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/Appbar"
+        android:id="@+id/appbar"
         android:background="@drawable/gradient"
         android:layout_width="match_parent"
         android:layout_height="55dp"
@@ -44,7 +44,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Appbar"
+        app:layout_constraintTop_toBottomOf="@+id/appbar"
         tools:listitem="@layout/list_item_favorite_make_up"
         app:spanCount="2"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
