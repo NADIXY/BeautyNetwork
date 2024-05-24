@@ -12,6 +12,7 @@ import com.example.beautynetwork.data.local.getDatabase
 import com.example.beautynetwork.data.model.management.Services
 import com.example.beautynetwork.data.model.makeupapi.BeautyItem
 import com.example.beautynetwork.data.model.management.SlidePics
+import com.example.beautynetwork.data.model.user.Appointment
 import com.example.beautynetwork.data.model.user.Profile
 import com.example.beautynetwork.data.model.user.favorite.FavoriteMakeUp
 import com.example.beautynetwork.data.remote.BeautyApi
@@ -64,6 +65,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             if (profileRef == null) {
 
                 profileRef = firestore.collection("profiles").document(firebaseUser.uid)
+
+                appointmentRef =
+                    firestore.collection("profiles").document(firebaseUser.uid)
+                        .collection("appointment")
 
             }
         }
@@ -170,7 +175,27 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         )
     }
 
+    fun setAppointment(
+        professional: String,
+        date: String,
+        hour: String,
+        service: String,
+        ) {
+
+        val setAppointment = Appointment(
+            professional = professional,
+            date = date,
+            hour = hour,
+            service = service,
+            )
+
+        appointmentRef?.add(setAppointment)
+
+    }
+
+
     //Repository Bereich
+
 
     //Beauty Api
 
@@ -195,6 +220,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     //Beauty Api Endregion
+
 
     //SlidePics
 
@@ -233,6 +259,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     //Services Endregion
 
+
     //Favorites
 
     val favorites = repository.favoriteMakeUp
@@ -257,5 +284,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     //Favorites Endregion
+
+    //Repository Endbereich
 
 }

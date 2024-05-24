@@ -45,13 +45,11 @@ class MainActivity : AppCompatActivity() {
             } else {
                 binding.bottomNavigationView.visibility = View.GONE
             }
-
             if (destination.id == R.id.homeFragment) {
                 binding.floatingActionButton.visibility = View.VISIBLE
         } else {
             binding.floatingActionButton.visibility = View.GONE
         }
-
             binding.floatingActionButton.setOnClickListener {
                 findNavController(R.id.fragmentContainerView).navigate(R.id.profileFragment)
             }

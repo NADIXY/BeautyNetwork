@@ -62,10 +62,6 @@ class FavoriteMakeUpAdapter(
             set.start()
         }
 
-        holder.binding.imageView.setOnClickListener {
-            showDeleteAlertDialog(item, holder.itemView.context)
-
-        }
     }
 
     private fun showDeleteAlertDialog(favoriteMakeUp: FavoriteMakeUp, context: Context) {

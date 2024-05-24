@@ -116,7 +116,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
-                android:text="Choose a professional"
+                android:text="Choose a professional and a service number"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -213,14 +213,80 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:id="@+id/premiumRadioGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:padding="0dp">
+
+                    <RadioButton
+                        android:id="@+id/service1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="8dp"/>
+
+                    <RadioButton
+                        android:id="@+id/service2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="15dp"/>
+
+                    <RadioButton
+                        android:id="@+id/service3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="15dp"/>
+
+                    <RadioButton
+                        android:id="@+id/service4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="4"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="15dp"/>
+
+                    <RadioButton
+                        android:id="@+id/service5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="5"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="15dp"/>
+
+                    <RadioButton
+                        android:id="@+id/service6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="6"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="15dp"/>
+                </RadioGroup>
+
+            </LinearLayout>
+
             <Button
                 android:id="@+id/appointmentBt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="40dp"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:textColor="#F48FB1"
-                app:strokeColor="#F48FB1"
+                android:textColor="@color/white"
+                app:strokeColor="@color/white"
                 android:text="Appointment"
                 android:textSize="18sp"
                 android:textStyle="bold"

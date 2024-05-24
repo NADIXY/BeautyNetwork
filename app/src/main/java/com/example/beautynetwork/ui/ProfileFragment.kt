@@ -120,16 +120,40 @@ class ProfileFragment : Fragment() {
             builder.setMessage("Are you sure you want to save?")
             builder.setPositiveButton("Yes") { dialog, which ->
 
-                if (firstName != "" && lastName != "" && number != "" && email != "" && adress != "" && dateOfBirth != "" && question1 != "" && question2 != "" && question3 != "" && question4 != "" && question5 != "" && question6 != "" && question7 != "" && question8 != "") {
-                    val newProfile = Profile(firstName, lastName, number, email, adress, dateOfBirth,
-                        question1, question2, question3, question4, question5, question6, question7, question8)
+                if (firstName != "" && lastName != "" && number != "" && email != "" && adress != ""
+                    && dateOfBirth != "" && question1 != "" && question2 != "" && question3 != ""
+                    && question4 != "" && question5 != "" && question6 != "" && question7 != "" && question8 != ""
+                ) {
+                    val newProfile = Profile(
+                        firstName,
+                        lastName,
+                        number,
+                        email,
+                        adress,
+                        dateOfBirth,
+                        question1,
+                        question2,
+                        question3,
+                        question4,
+                        question5,
+                        question6,
+                        question7,
+                        question8
+                    )
+
                     viewModel.updateProfile(newProfile)
 
-                }
-                Toast.makeText(requireContext(), "Saved", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Saved", Toast.LENGTH_SHORT).show()
 
-                findNavController().navigate(R.id.schedulerFragment)
+                    findNavController().navigate(R.id.schedulerFragment)
+
+                } else {
+                    Toast.makeText(requireContext(), "Error", Toast.LENGTH_SHORT).show()
+
+                }
+
             }
+
             builder.setNegativeButton("Cancel") { dialog, which -> }
             val dialog: AlertDialog = builder.create()
             dialog.show()
@@ -138,5 +162,4 @@ class ProfileFragment : Fragment() {
         }
 
     }
-
 }
