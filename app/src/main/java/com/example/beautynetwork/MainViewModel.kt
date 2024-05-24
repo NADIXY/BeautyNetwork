@@ -66,9 +66,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
                 profileRef = firestore.collection("profiles").document(firebaseUser.uid)
 
-                appointmentRef =
-                    firestore.collection("profiles").document(firebaseUser.uid)
-                        .collection("appointment")
+                appointmentRef = firestore.collection("appointment")
+                    //.collection("profiles").document(firebaseUser.uid)
+
 
             }
         }
@@ -187,6 +187,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             date = date,
             hour = hour,
             service = service,
+            userId = user.value?.uid ?: ""
             )
 
         appointmentRef?.add(setAppointment)

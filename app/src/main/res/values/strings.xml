@@ -9,6 +9,7 @@
     <string name="services">Services</string>
     <string name="recommended">Recommended</string>
     <string name="home">HOME</string>
+    <string name="item_label">Items</string>
     <string name="search_services">search services</string>
     <string name="info">Dear patient,
 all diseases can have a consequence to your treatment. Please fill this questionnaire very carefully.

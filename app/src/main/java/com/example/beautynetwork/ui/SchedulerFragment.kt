@@ -8,9 +8,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.activityViewModels
+import com.example.beautynetwork.DateUtils
 import com.example.beautynetwork.MainViewModel
+import com.example.beautynetwork.R
 import com.example.beautynetwork.data.model.user.Appointment
 import com.example.beautynetwork.databinding.FragmentSchedulerBinding
 import com.google.android.material.snackbar.Snackbar
@@ -20,6 +25,7 @@ class SchedulerFragment : Fragment() {
     private val viewModel: MainViewModel by activityViewModels()
     private lateinit var binding: FragmentSchedulerBinding
     private val calendar: Calendar = Calendar.getInstance()
+    private var selectedService = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,6 +40,25 @@ class SchedulerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+        viewModel.items.observe(viewLifecycleOwner) { services ->
+            val items = services.map { it.title }
+            val autoComplete = binding.serviceET
+
+            val adapter = ArrayAdapter(requireContext(), R.layout.list_item,items)
+
+            autoComplete.setAdapter(adapter)
+
+            autoComplete.onItemClickListener = AdapterView.OnItemClickListener{
+                    adapterView, view, i, l ->
+
+                selectedService = adapterView.getItemAtPosition(i).toString()
+                Toast.makeText(requireContext(),"Item: $selectedService", Toast.LENGTH_SHORT).show()
+
+            }
+
+        }
+
         viewModel.appointmentRef?.addSnapshotListener { snapshot, error ->
             snapshot?.let {
                 // Umwandeln des Snapshots in eine Klassen-Instanz von der Klasse Appointment und setzen der Felder
@@ -42,7 +67,8 @@ class SchedulerFragment : Fragment() {
                 Log.d(
                     "Appointment", "${
                         myAppointments.map { myAppointments ->
-                            "{${myAppointments.professional} - ${myAppointments.date} - ${myAppointments.hour} - ${myAppointments.service}}"
+                            "{${myAppointments.professional} - ${myAppointments.date} - ${myAppointments.hour} - ${myAppointments.service} -" +
+                            " ${DateUtils.toSimpleString(myAppointments.timestamp.toDate())}}"
                         }
                     }"
                 )
@@ -104,15 +130,6 @@ class SchedulerFragment : Fragment() {
             val azubi2 = binding.azubi2
             val pratikant = binding.pratikant
 
-            /*
-            val service1 = binding.service1
-            val service2 = binding.service2
-            val service3 = binding.service3
-            val service4 = binding.service4
-            val service5 = binding.service5
-            val service6 = binding.service6
-             */
-
             when {
 
                 hour < "9:00" && hour > "21:00" -> {
@@ -122,26 +139,26 @@ class SchedulerFragment : Fragment() {
 
                 nadiaBaptista.isChecked -> {
                     message(it, "An appointment has been scheduled", "#FF03DAC5")
-                    viewModel.setAppointment("nadiaBaptista",date,hour,"service")
+                    viewModel.setAppointment("nadiaBaptista",date,hour,selectedService)
 
 
                 }
 
                 azubi1.isChecked -> {
                     message(it, "An appointment has been scheduled", "#FF03DAC5")
-                    viewModel.setAppointment("azubi1",date,hour,"service")
+                    viewModel.setAppointment("azubi1",date,hour,selectedService)
 
                 }
 
                 azubi2.isChecked -> {
                     message(it, "An appointment has been scheduled", "#FF03DAC5")
-                    viewModel.setAppointment("azubi2",date,hour,"service")
+                    viewModel.setAppointment("azubi2",date,hour,selectedService)
 
                 }
 
                 pratikant.isChecked -> {
                     message(it, "An appointment has been scheduled", "#FF03DAC5")
-                    viewModel.setAppointment("pratikant",date,hour,"service")
+                    viewModel.setAppointment("pratikant",date,hour,selectedService)
 
                 }
 
@@ -161,6 +178,5 @@ class SchedulerFragment : Fragment() {
         snackbar.setTextColor(Color.parseColor("#FFFFFF"))
         snackbar.show()
     }
-
 }
 
