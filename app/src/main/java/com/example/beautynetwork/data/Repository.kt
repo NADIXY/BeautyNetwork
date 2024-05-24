@@ -66,42 +66,42 @@ class Repository(private val api: BeautyApi, private val database: FavoriteMakeU
     )
 
     val myBeautyServices: List<Services> = listOf(
-        Services(
+        Services("1",
             "FIRST TIME TREATMENT",
             "Für Ihren ersten Besuch im Medical Beauty Institut. Gesicht + Hals + Dekolleté *ausführliche computergestützt Hautanalyse mittels Skin Alyzer med7 Pro. \n*aktuelles Hautbedürfnis und Pflegekonzept besprechen *Mikrodermabrasion oder Ultraschall *Wirkstoff Versorgung und Abschlusspflege 120min ",
             R.drawable.proxy,
             "160 EUR",
             "*einmalig buchbar"
         ),
-        Services(
+        Services("2",
             "Hautanalyse by Skin Alyzer med7 pro",
             "Der SkinAlyzermed7 von REVIDERM findet exakt heraus, was Ihrer Haut fehlt und wie Sie ihren Zustand nachhaltig verbessern.\nDafür misst und dokumentiert die computergestützte Hautanalyse jede Partie Ihrer Haut. In Farbbildern zeigt Ihnen die Kamera des Geräts alle Anomalien – und damit Abweichungen von gesunder und schöner Haut.",
             R.drawable.proxy,
             "60 EUR",
             "30min"
         ),
-        Services(
+        Services("3",
             "Anti-Age CARE",
             "Gesicht + Hals + Dekolleté *High Performance Treatment: Eine Premium-Behandlung für die anspruchsvolle Kundin mit Zeichen von Hautalterung und Verzuckerung, Verjüngung auf höchstem Niveau für jeden Hauttyp geeignet 150min\n *Anti Age Treatment: Optimal für regenerationsbedürftige Haut mit moderaten bis deutlich ausgeprägten Zeichen der Hautalterung",
             R.drawable.proxy,
             "280 EUR",
             "*Inkl. Mikrodermabrasion & Ultraschall"
         ),
-        Services(
+        Services("4",
             "Hydration CARE",
             "Gesicht + Hals + Dekolleté 1. Moisture Beauty Break: Intensive Durchfeuchtung und Plumping für glatte Haut. Ohne TECHNOLOGY 45min",
             R.drawable.proxy,
             "75 EUR",
             "Ohne TECHNOLOGY"
         ),
-        Services(
+        Services("5",
             "Lifting Beauty Break",
             "Der Vitamin C-Kick mit Boost-Effekt",
             R.drawable.proxy,
             "75 EUR",
             "Ohne TECHNOLOGY"
         ),
-        Services(
+        Services("6",
             "MICRO NEEDLING",
             "Micro-Needling zählt als Geheimwaffe unter den Anti-Aging Methoden zur Behandlung ästhetischer Hautprobleme wie:\n • Falten/erschlafftes Gewebe • Lichtgeschädigte Haut • bestimmte Narben • Stiae 80min",
             R.drawable.proxy,

@@ -34,6 +34,7 @@ class ServicesAdapter(
 
         binding.imageService.setImageResource(items.imageId)
         binding.textTitleService.text = items.title
+        binding.serviceNumber.text = items.serviceNumber
 
         binding.services.setOnClickListener {
             viewModel.setSelectedServices(items)
