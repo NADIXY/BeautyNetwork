@@ -9,7 +9,7 @@ data class Appointment(
     val service: String = "",
     val userId: String = "",
     val timestamp: Timestamp = Timestamp.now()
-) {
+)
 
-}
+
 

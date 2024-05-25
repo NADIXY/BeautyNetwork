@@ -132,15 +132,19 @@ class SchedulerFragment : Fragment() {
 
             when {
 
+                selectedService == "" -> {
+                    message(it, "Please choose a service", "#FF0000")
+
+                }
+
                 hour < "9:00" && hour > "21:00" -> {
-                    message(it, "Medical Beauty Institut Nadia Baptista is closed", "#FF0000")
+                    message(it, "Medical Beauty Institut Nadia Baptista is closed ", "#FF0000")
 
                 }
 
                 nadiaBaptista.isChecked -> {
                     message(it, "An appointment has been scheduled", "#FF03DAC5")
                     viewModel.setAppointment("nadiaBaptista",date,hour,selectedService)
-
 
                 }
 
