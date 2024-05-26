@@ -28,7 +28,6 @@ class SlidePicsAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val slides = dataset[position]
-
         holder.binding.slideImageView.setImageResource(slides.imageId)
 
     }

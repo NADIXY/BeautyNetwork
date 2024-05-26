@@ -187,7 +187,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             date = date,
             hour = hour,
             service = service,
-            userId = user.value?.uid ?: ""
+            userId = user.value!!.uid //user.value?.uid ?: ""
             )
 
         appointmentRef?.add(setAppointment)

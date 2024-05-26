@@ -36,7 +36,16 @@ class PasswordResetFragment : Fragment() {
 
             if (email != "") {
                 viewModel.sendPasswordReset(email)
+
+                findNavController().navigate(R.id.signInFragment)
+
+            } else {
+                if (email == "") {
+                    binding.tietEmailPasswordReset.error = "Enter your email"
+
+                }
             }
+
         }
 
         // Button um zurück zum SignInFragment zu navigieren
@@ -45,5 +54,4 @@ class PasswordResetFragment : Fragment() {
         }
 
     }
-
 }

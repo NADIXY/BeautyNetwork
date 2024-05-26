@@ -42,7 +42,9 @@ class RegisterFragment : Fragment() {
 
             if (email != "" && password.length >= 12) {
                 viewModel.register(email, password)
+
                 findNavController().navigate(R.id.signInFragment)
+
             } else {
                 if (email == "") {
                     binding.emailRegister.error = "Enter your email"
