@@ -9,6 +9,16 @@
     <string name="services">Services</string>
     <string name="recommended">Recommended</string>
     <string name="home">HOME</string>
+    <string name="about">About Medical Beauty Institut Nadia Baptista</string>
+    <string name="about_text">In der Münchner Leopoldstraße 50 befindet sich im ersten Stock des Hinterhofes beim Hofbräuhaus das Medical Beauty Institut, wo sich eine top-ausgebildete
+        Kosmetikerin rund um deine Schönheit kümmert. Wenn du dir und deiner Haut etwas Gutes tun willst, kannst du deinen persönlichen Wunschtermin noch heute per App buchen.
+In ihrer modernen Praxis im Herzen Schwabings empfängt dich Nadia Baptista liebevoll und herzlich, sodass du dich vom ersten Moment an pudelwohl fühlen kannst.
+        Nadia ist ausgebildete Fachkosmetikerin, Visagistin, Fußpflegerin sowie Spezialistin für apparative Kosmetik. Aus diesem Grund geht sie bei einem ausführlichen
+        Beratungsgespräch individuell auf dich und die Bedürfnisse deiner Haut ein,
+        sodass sie dir die bestmögliche Behandlung garantieren kann. Qualitativ hochwertige und nachhaltige Produkte und Geräte von REVIDERM verhelfen
+        zu seinem sichtbaren Ergebnis der Haut. Worauf wartest du also noch? Komm vorbei und lass dich von ihrer Erfahrung überzeugen!</string>
+    <string name="impressum">Impressum</string>
+    <string name="priceList">Price List</string>
     <string name="item_label">Items</string>
     <string name="search_services">search services</string>
     <string name="info">Dear patient,
