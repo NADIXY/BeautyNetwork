@@ -47,28 +47,14 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     val user: LiveData<FirebaseUser?>
         get() = _user
 
-    /*
-
-    // MainViewModel, in der eine LiveData-Liste von Terminen hinzugefügt wird:
-    private var _appointments = MutableLiveData<List<Appointment>>()
-    val appointments: LiveData<List<Appointment>>
-        get() = _appointments
-
-     */
-
     //Das profile Document enthält ein einzelnes Profil(das des eingeloggten Users)
     //Document ist wie ein Objekt
-
     var profileRef: DocumentReference? = null
     var appointmentRef: CollectionReference? = null
 
     init {
         setupUserEnv()
 
-        /*
-        loadAppointments()
-
-         */
     }
 
     fun setupUserEnv() {
@@ -78,23 +64,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
                 profileRef = firestore.collection("profiles").document(firebaseUser.uid)
                 appointmentRef = firestore.collection("appointment")
-                    //.collection("profiles").document(firebaseUser.uid)
             }
         }
     }
-
-    /*
-    private fun loadAppointments() {
-        appointmentRef?.addSnapshotListener { snapshot, error ->
-            snapshot?.let {
-                val appointmentsList: List<Appointment> =
-                    snapshot.toObjects(Appointment::class.java)
-                _appointments.value = appointmentsList
-            }
-        }
-    }
-
-     */
 
     // Funktion um neuen User zu erstellen
     fun register(email: String, password: String) {
