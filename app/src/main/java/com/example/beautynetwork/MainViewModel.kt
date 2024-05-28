@@ -47,10 +47,14 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     val user: LiveData<FirebaseUser?>
         get() = _user
 
+    /*
+
     // MainViewModel, in der eine LiveData-Liste von Terminen hinzugefügt wird:
     private var _appointments = MutableLiveData<List<Appointment>>()
     val appointments: LiveData<List<Appointment>>
         get() = _appointments
+
+     */
 
     //Das profile Document enthält ein einzelnes Profil(das des eingeloggten Users)
     //Document ist wie ein Objekt
@@ -60,7 +64,11 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     init {
         setupUserEnv()
+
+        /*
         loadAppointments()
+
+         */
     }
 
     fun setupUserEnv() {
@@ -75,6 +83,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
+    /*
     private fun loadAppointments() {
         appointmentRef?.addSnapshotListener { snapshot, error ->
             snapshot?.let {
@@ -84,6 +93,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             }
         }
     }
+
+     */
 
     // Funktion um neuen User zu erstellen
     fun register(email: String, password: String) {

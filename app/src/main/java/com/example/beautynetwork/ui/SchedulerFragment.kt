@@ -76,6 +76,29 @@ class SchedulerFragment : Fragment() {
             }
         }
 
+        viewModel.appointmentRef?.addSnapshotListener { snapshot, error ->
+            snapshot?.let {
+                val appointmentsList: List<Appointment> =
+                    snapshot.toObjects(Appointment::class.java)
+
+                val userId = getCurrentUserId() // Funktion zum Abrufen der aktuellen Benutzer-ID
+
+                //Es wird gefiltert um sicherzustellen, dass nur die Termine des aktuellen Benutzers (userId) im SchedulerFragment anzeigt
+                val userAppointments = appointmentsList.filter { it.userId == userId }
+
+                val appointmentsText = StringBuilder()
+
+                for (appointment in appointmentsList) {
+
+                    appointmentsText.append("Professional: ${appointment.professional},\n Date: ${appointment.date},\n" +
+                            " Hour: ${appointment.hour},\n Service: ${appointment.service},\n\n\n")
+                }
+                binding.appointmentsListTextView.text = appointmentsText.toString()
+
+
+            }
+        }
+
 
         var year = binding.datePicker.year
         var day = binding.datePicker.dayOfMonth
@@ -175,6 +198,8 @@ class SchedulerFragment : Fragment() {
 
         }
 
+        /*
+
         //Hier werden Termine angezeigt
         viewModel.appointments.observe(viewLifecycleOwner) { appointments ->
 
@@ -192,6 +217,8 @@ class SchedulerFragment : Fragment() {
             }
             binding.appointmentsListTextView.text = appointmentsText.toString()
         }
+
+         */
 
     }
 
