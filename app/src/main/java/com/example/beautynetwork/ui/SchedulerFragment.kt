@@ -60,6 +60,8 @@ class SchedulerFragment : Fragment() {
 
         }
 
+        //Hier werden Termine in Firestore angezeigt!
+
         viewModel.appointmentRef?.addSnapshotListener { snapshot, error ->
             snapshot?.let {
                 // Umwandeln des Snapshots in eine Klassen-Instanz von der Klasse Appointment und setzen der Felder
@@ -75,6 +77,8 @@ class SchedulerFragment : Fragment() {
                 )
             }
         }
+
+        //Hier werden Termine in SchedulerFragment angezeigt!
 
         viewModel.appointmentRef?.addSnapshotListener { snapshot, error ->
             snapshot?.let {
@@ -94,7 +98,6 @@ class SchedulerFragment : Fragment() {
                             " Hour: ${appointment.hour},\n Service: ${appointment.service},\n\n\n")
                 }
                 binding.appointmentsListTextView.text = appointmentsText.toString()
-
 
             }
         }
