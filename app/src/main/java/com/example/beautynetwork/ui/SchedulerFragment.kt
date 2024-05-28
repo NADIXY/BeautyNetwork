@@ -19,6 +19,7 @@ import com.example.beautynetwork.R
 import com.example.beautynetwork.data.model.user.Appointment
 import com.example.beautynetwork.databinding.FragmentSchedulerBinding
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
 import java.util.Calendar
 
 class SchedulerFragment : Fragment() {
@@ -173,6 +174,30 @@ class SchedulerFragment : Fragment() {
             }
 
         }
+
+        //Hier werden Termine angezeigt
+        viewModel.appointments.observe(viewLifecycleOwner) { appointments ->
+
+            val userId = getCurrentUserId() // Funktion zum Abrufen der aktuellen Benutzer-ID
+
+            //Es wird gefiltert um sicherzustellen, dass nur die Termine des aktuellen Benutzers (userId) im SchedulerFragment anzeigt
+            val userAppointments = appointments.filter { it.userId == userId }
+
+            val appointmentsText = StringBuilder()
+
+            for (appointment in appointments) {
+
+                appointmentsText.append("Professional: ${appointment.professional},\n Date: ${appointment.date},\n" +
+                        " Hour: ${appointment.hour},\n Service: ${appointment.service},\n\n\n")
+            }
+            binding.appointmentsListTextView.text = appointmentsText.toString()
+        }
+
+    }
+
+    private fun getCurrentUserId(): String {
+        val firebaseUser = FirebaseAuth.getInstance().currentUser
+        return firebaseUser?.uid ?: ""
 
     }
 
