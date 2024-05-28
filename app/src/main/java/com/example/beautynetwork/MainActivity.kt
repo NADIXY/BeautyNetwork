@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 
         navHost.navController.addOnDestinationChangedListener { _, destination, _ ->
             if (destination.id == R.id.homeFragment || destination.id == R.id.profileFragment || destination.id == R.id.makeUpFragment
-                || destination.id == R.id.schedulerFragment || destination.id == R.id.appointmentFragment || destination.id == R.id.favoriteMakeUpFragment
+                || destination.id == R.id.schedulerFragment || destination.id == R.id.favoriteMakeUpFragment
             ) {
                 binding.bottomNavigationView.visibility = View.VISIBLE
                 binding.bottomNavigationView.setupWithNavController(navHost.navController)

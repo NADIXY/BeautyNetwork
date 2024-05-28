@@ -1,18 +1,22 @@
 package com.example.beautynetwork.ui
 
+import android.app.AlertDialog
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.example.beautynetwork.DateUtils
 import com.example.beautynetwork.MainViewModel
 import com.example.beautynetwork.R
@@ -40,6 +44,10 @@ class SchedulerFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.menu.setOnClickListener {
+            showPopupMenu(it)
+        }
 
 
         viewModel.items.observe(viewLifecycleOwner) { services ->
@@ -83,7 +91,7 @@ class SchedulerFragment : Fragment() {
                 val userId = getCurrentUserId() // Funktion zum Abrufen der aktuellen Benutzer-ID
 
                 //Es wird gefiltert um sicherzustellen, dass nur die Termine des aktuellen Benutzers (userId) im SchedulerFragment anzeigt
-                val userAppointments = appointmentsList.filter { it.userId == userId }
+                //val userAppointments = appointmentsList.filter { it.userId == userId }
 
                 val appointmentsText = StringBuilder()
 
@@ -91,8 +99,10 @@ class SchedulerFragment : Fragment() {
 
                     appointmentsText.append("Professional: ${appointment.professional},\n Date: ${appointment.date},\n" +
                             " Hour: ${appointment.hour},\n Service: ${appointment.service},\n\n\n")
+
+                    binding.appointmentsListTextView.text = appointmentsText.toString()
                 }
-                binding.appointmentsListTextView.text = appointmentsText.toString()
+
             }
         }
 
@@ -207,6 +217,26 @@ class SchedulerFragment : Fragment() {
         snackbar.setBackgroundTint(Color.parseColor(color))
         snackbar.setTextColor(Color.parseColor("#FFFFFF"))
         snackbar.show()
+    }
+
+    private fun showPopupMenu(view: View) {
+        val popup = PopupMenu(requireContext(), view)
+        val inflater: MenuInflater = popup.menuInflater
+        inflater.inflate(
+            R.menu.scheduler_menu,
+            popup.menu
+        )
+        popup.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.your_appointment -> {
+                    findNavController().navigate(R.id.schedulerDetailFragment)
+                    true
+
+                }
+                else -> true
+            }
+        }
+        popup.show()
     }
 }
 

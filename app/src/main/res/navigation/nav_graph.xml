@@ -43,25 +43,12 @@
         android:id="@+id/schedulerFragment"
         android:name="com.example.beautynetwork.ui.SchedulerFragment"
         android:label="fragment_scheduler"
-        tools:layout="@layout/fragment_scheduler" />
-    <fragment
-        android:id="@+id/schedulerDetailFragment"
-        android:name="com.example.beautynetwork.ui.SchedulerDetailFragment"
-        android:label="fragment_scheduler_detail"
-        tools:layout="@layout/fragment_scheduler_detail" />
+        tools:layout="@layout/fragment_scheduler" />´
     <fragment
         android:id="@+id/servicesDetailFragment"
         android:name="com.example.beautynetwork.ui.ServicesDetailFragment"
         android:label="fragment_services_detail"
         tools:layout="@layout/fragment_services_detail" />
-    <fragment
-        android:id="@+id/generalQuestionnaire2Fragment"
-        android:name="com.example.beautynetwork.ui.GeneralQuestionnaire2Fragment"
-        android:label="GeneralQuestionnaire2Fragment" />
-    <fragment
-        android:id="@+id/appointmentFragment"
-        android:name="com.example.beautynetwork.ui.AppointmentFragment"
-        android:label="AppointmentFragment" />
     <fragment
         android:id="@+id/priceListFragment"
         android:name="com.example.beautynetwork.ui.PriceListFragment"
@@ -82,4 +69,9 @@
         android:name="com.example.beautynetwork.ui.ImpressumFragment"
         android:label="fragment_impressum"
         tools:layout="@layout/fragment_impressum" />
+    <fragment
+        android:id="@+id/schedulerDetailFragment"
+        android:name="com.example.beautynetwork.ui.SchedulerDetailFragment"
+        android:label="fragment_scheduler_detail"
+        tools:layout="@layout/fragment_scheduler_detail" />
 </navigation>
