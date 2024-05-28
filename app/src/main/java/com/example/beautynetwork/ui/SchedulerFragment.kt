@@ -60,11 +60,11 @@ class SchedulerFragment : Fragment() {
 
         }
 
-        //Hier werden Termine in Firestore angezeigt!
 
         viewModel.appointmentRef?.addSnapshotListener { snapshot, error ->
             snapshot?.let {
                 // Umwandeln des Snapshots in eine Klassen-Instanz von der Klasse Appointment und setzen der Felder
+                //Hier werden Termine in Firestore angezeigt!
                 val myAppointments: List<Appointment> =
                     snapshot.toObjects(Appointment::class.java)
                 Log.d(
@@ -75,13 +75,8 @@ class SchedulerFragment : Fragment() {
                         }
                     }"
                 )
-            }
-        }
 
-        //Hier werden Termine in SchedulerFragment angezeigt!
-
-        viewModel.appointmentRef?.addSnapshotListener { snapshot, error ->
-            snapshot?.let {
+                //Hier werden Termine in SchedulerFragment angezeigt!
                 val appointmentsList: List<Appointment> =
                     snapshot.toObjects(Appointment::class.java)
 
@@ -98,7 +93,6 @@ class SchedulerFragment : Fragment() {
                             " Hour: ${appointment.hour},\n Service: ${appointment.service},\n\n\n")
                 }
                 binding.appointmentsListTextView.text = appointmentsText.toString()
-
             }
         }
 

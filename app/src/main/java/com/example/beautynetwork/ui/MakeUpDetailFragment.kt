@@ -26,7 +26,8 @@ class MakeUpDetailFragment : Fragment() {
         binding = FragmentMakeUpDetailBinding.inflate(layoutInflater)
 
         binding.txtWebsiteLink.setOnClickListener {
-            val urlIntent = Intent("android.intent.action.VIEW", Uri.parse("https://www.clinique.com"))
+            val urlIntent = Intent("android.intent.action.VIEW",
+                Uri.parse("https://www.clinique.com"))
 
             startActivity(urlIntent)
         }

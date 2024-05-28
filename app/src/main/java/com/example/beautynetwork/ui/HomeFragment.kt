@@ -39,13 +39,15 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(layoutInflater)
 
         binding.webBt.setOnClickListener {
-            val urlIntent = Intent("android.intent.action.VIEW", Uri.parse("https://www.ueberdiemanspricht.de/medical_beauty_institut_nadia_baptista-14828.html"))
+            val urlIntent = Intent("android.intent.action.VIEW",
+                Uri.parse("https://www.ueberdiemanspricht.de/medical_beauty_institut_nadia_baptista-14828.html"))
 
             startActivity(urlIntent)
         }
 
         binding.treatwellBt.setOnClickListener {
-            val urlIntent = Intent("android.intent.action.VIEW", Uri.parse("https://www.treatwell.de/ort/medical-beauty-institut-leopoldstrasse/"))
+            val urlIntent = Intent("android.intent.action.VIEW",
+                Uri.parse("https://www.treatwell.de/ort/medical-beauty-institut-leopoldstrasse/"))
 
             startActivity(urlIntent)
         }
@@ -56,7 +58,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.textView14.text= "Welcome" //$name
+        binding.textView14.text= "Welcome"
 
 
         binding.menu.setOnClickListener {
