@@ -98,7 +98,7 @@ class SchedulerFragment : Fragment() {
                 for (appointment in appointmentsList) {
 
                     appointmentsText.append("Professional: ${appointment.professional},\n Date: ${appointment.date},\n" +
-                            " Hour: ${appointment.hour},\n Service: ${appointment.service},\n\n\n")
+                            " Hour: ${appointment.hour},\n Service: ${appointment.service}\n\n\n")
 
 
                 }
