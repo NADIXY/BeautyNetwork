@@ -100,11 +100,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 if (auth.currentUser!!.isEmailVerified) {
                     // Wenn Email verifiziert, wird LiveData mit dem eingeloggten User befüllt
                     // Das triggert dann die Navigation im SignInFragment
-
-                    // Die Profil-Referenz wird jetzt gesetzt, da diese vom aktuellen User abhängt
-                    profileRef = firestore.collection("profiles").document(auth.currentUser!!.uid)
-
-                    _user.value = auth.currentUser
+                    
+                    setupUserEnv()
 
                 } else {
                     // Wenn User zwar exisitiert und Eingaben stimmen aber User seine Email noch nicht bestätigt hat
