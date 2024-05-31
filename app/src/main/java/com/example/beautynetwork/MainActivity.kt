@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
             binding.floatingActionButton.visibility = View.GONE
         }
             binding.floatingActionButton.setOnClickListener {
-                findNavController(R.id.fragmentContainerView).navigate(R.id.profileFragment)
+                findNavController(R.id.fragmentContainerView).navigate(R.id.chatListFragment)
             }
         }
 

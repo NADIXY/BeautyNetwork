@@ -20,6 +20,8 @@ import com.example.beautynetwork.R
 import com.example.beautynetwork.adapter.RecomendedAdapter
 import com.example.beautynetwork.adapter.ServicesAdapter
 import com.example.beautynetwork.adapter.SlidePicsAdapter
+import com.example.beautynetwork.adapter.UserAdapter
+import com.example.beautynetwork.data.model.user.Profile
 import com.example.beautynetwork.databinding.FragmentHomeBinding
 import java.util.Timer
 import java.util.TimerTask
@@ -57,6 +59,7 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupChatList()
 
         binding.textView14.text= "Welcome"
 
@@ -105,6 +108,16 @@ class HomeFragment : Fragment() {
 
         }
 
+    }
+
+    private fun setupChatList() {
+        viewModel.profileCollectionReference?.addSnapshotListener { value, error ->
+            if (error == null && value != null) {
+                val userList = value.map { it.toObject(Profile::class.java) }.toMutableList()
+                userList.removeAll { it.userId == viewModel.user.value!!.uid }
+                binding.rvUsers.adapter = UserAdapter(userList, viewModel)
+            }
+        }
     }
 
     private fun showPopupMenu(view: View) {

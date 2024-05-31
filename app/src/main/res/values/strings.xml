@@ -33,4 +33,10 @@ This questionnaire helps us treat you in the very best way.</string>
     <string name="question_6">Do or did you have one of the following diseases? Heart disease? High blood pressure or low blood pressure? </string>
     <string name="question_7">Do or did you have one of the following diseases? Nerve diseases? Spasm attacks? Thyroid diseases? Diabetes? Blood diseases?</string>
     <string name="question_8">Are you a men or a women: Are you pregnant? If so which month?</string>
+    <string name="username">Username</string>
+    <string name="type_here">Type here …</string>
+    <string name="send">Send</string>
+    <string name="chats">Chats</string>
+    <string name="chat_message_out">Chat Message Out</string>
+    <string name="chat_message_in">Chat Message In</string>
 </resources>

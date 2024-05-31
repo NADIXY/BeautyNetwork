@@ -1,6 +1,5 @@
 package com.example.beautynetwork.ui
 
-import android.app.AlertDialog
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
