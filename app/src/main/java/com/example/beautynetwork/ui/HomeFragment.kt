@@ -59,7 +59,6 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupChatList()
 
         binding.textView14.text= "Welcome"
 
@@ -108,16 +107,6 @@ class HomeFragment : Fragment() {
 
         }
 
-    }
-
-    private fun setupChatList() {
-        viewModel.profileCollectionReference?.addSnapshotListener { value, error ->
-            if (error == null && value != null) {
-                val userList = value.map { it.toObject(Profile::class.java) }.toMutableList()
-                userList.removeAll { it.userId == viewModel.user.value!!.uid }
-                binding.rvUsers.adapter = UserAdapter(userList, viewModel)
-            }
-        }
     }
 
     private fun showPopupMenu(view: View) {
