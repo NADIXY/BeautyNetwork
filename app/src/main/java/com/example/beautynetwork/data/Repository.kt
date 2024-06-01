@@ -23,7 +23,7 @@ class Repository(private val api: BeautyApi, private val database: FavoriteMakeU
     //Diese Funktion ruft Beautydaten von der API ab und aktualisiert den Wert des LiveData-Objekts _beauty
     suspend fun getBeauty() {
         try {
-            _beauty.postValue(api.retrofitService.getBeautyProduct("clinique"))
+            _beauty.postValue(api.retrofitService.getBeautyProduct("maybelline"))
             Log.d(TAG, "${_beauty.value}")
         } catch (e: Exception) {
             Log.e(TAG, "$e")

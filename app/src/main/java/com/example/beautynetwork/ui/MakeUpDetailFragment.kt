@@ -27,7 +27,7 @@ class MakeUpDetailFragment : Fragment() {
 
         binding.txtWebsiteLink.setOnClickListener {
             val urlIntent = Intent("android.intent.action.VIEW",
-                Uri.parse("https://www.clinique.com"))
+                Uri.parse("https://well.ca"))
 
             startActivity(urlIntent)
         }
@@ -49,7 +49,6 @@ class MakeUpDetailFragment : Fragment() {
             binding.txtPrice.text = "$${it.price} USD"
             binding.txtProductType.text = it.product_type
             binding.txtRating.text = "Rating ${it.rating.toString()}"
-            binding.txtProductColorsList.text = it.product_colors.toString()
             binding.txtWebsiteLink.text = it.website_link
         }
 
