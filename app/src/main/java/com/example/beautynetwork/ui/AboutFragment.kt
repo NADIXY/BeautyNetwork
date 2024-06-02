@@ -31,6 +31,27 @@ class AboutFragment : Fragment() {
             findNavController().navigate(R.id.homeFragment)
         }
 
+        binding.imageView3.setOnClickListener {
+
+            binding.imageView3.animate().apply {
+                duration = 500
+                rotationXBy(360f)
+            }.withEndAction {
+                binding.imageView3.animate().apply {
+                    duration = 200
+                    rotationYBy(360f)
+                }.start()
+            }
+        }
+
+        binding.textView15.setOnClickListener {
+            binding.textView15.isSelected =true
+
+        }
+
     }
 
 }
+
+
+

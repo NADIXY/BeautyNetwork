@@ -58,7 +58,11 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.textView14.text= "Welcome"
+        binding.textView14.setOnClickListener {
+
+        binding.textView14.isSelected =true
+
+        }
 
 
         binding.menu.setOnClickListener {
