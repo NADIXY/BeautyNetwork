@@ -10,6 +10,3 @@ data class Appointment(
     val userId: String = "",
     val timestamp: Timestamp = Timestamp.now()
 )
-
-
-

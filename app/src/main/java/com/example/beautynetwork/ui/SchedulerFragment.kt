@@ -90,7 +90,7 @@ class SchedulerFragment : Fragment() {
                 val userId = getCurrentUserId() // Funktion zum Abrufen der aktuellen Benutzer-ID
 
                 //Es wird gefiltert um sicherzustellen, dass nur die Termine des aktuellen Benutzers (userId) im SchedulerFragment anzeigt
-                //val userAppointments = appointmentsList.filter { it.userId == userId }
+                val userAppointments = appointmentsList.filter { it.userId == userId }
 
                 val appointmentsText = StringBuilder()
 
@@ -238,4 +238,3 @@ class SchedulerFragment : Fragment() {
         popup.show()
     }
 }
-

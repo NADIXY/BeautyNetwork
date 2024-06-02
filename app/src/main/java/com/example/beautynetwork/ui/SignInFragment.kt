@@ -11,7 +11,6 @@ import androidx.navigation.fragment.findNavController
 import com.example.beautynetwork.MainViewModel
 import com.example.beautynetwork.R
 import com.example.beautynetwork.databinding.FragmentSignInBinding
-import com.example.beautynetwork.ui.utils.Debug
 
 class SignInFragment : Fragment() {
 
@@ -29,8 +28,6 @@ class SignInFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        addObservers()
 
         // Button um User einzuloggen
         // Erst werden email und passwort aus den Eingabefeldern geholt
@@ -71,20 +68,6 @@ class SignInFragment : Fragment() {
             }
         }
 
-    }
-
-    private fun addObservers() {
-
-        viewModel.toastMessage.observe(viewLifecycleOwner) { message ->
-            if (message != null) {
-                showToast(message)
-                viewModel.resetToastMessage()
-            }
-        }
-    }
-
-    private fun showToast(text: String = Debug.TOAST_EMPTY_MESSAGE_SET.value) {
-        Toast.makeText(context, text, Toast.LENGTH_SHORT).show()
     }
 
 }

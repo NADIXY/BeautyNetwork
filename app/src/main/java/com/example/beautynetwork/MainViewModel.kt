@@ -9,8 +9,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.beautynetwork.data.Repository
 import com.example.beautynetwork.data.local.getDatabase
-import com.example.beautynetwork.data.model.chat.Chat
-import com.example.beautynetwork.data.model.chat.Message
 import com.example.beautynetwork.data.model.management.Services
 import com.example.beautynetwork.data.model.makeupapi.BeautyItem
 import com.example.beautynetwork.data.model.management.SlidePics
@@ -18,13 +16,11 @@ import com.example.beautynetwork.data.model.user.Appointment
 import com.example.beautynetwork.data.model.user.Profile
 import com.example.beautynetwork.data.model.user.favorite.FavoriteMakeUp
 import com.example.beautynetwork.data.remote.BeautyApi
-import com.example.beautynetwork.ui.utils.Debug
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.auth
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.DocumentReference
-import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.firestore
 import com.google.firebase.storage.storage
 import kotlinx.coroutines.Dispatchers
@@ -52,17 +48,11 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     val user: LiveData<FirebaseUser?>
         get() = _user
 
-    private var _toastMessage = MutableLiveData<String?>()
-    val toastMessage: LiveData<String?>
-        get() = _toastMessage
 
     //Das profile Document enthält ein einzelnes Profil(das des eingeloggten Users)
     //Document ist wie ein Objekt
     var profileRef: DocumentReference? = null
     var appointmentRef: CollectionReference? = null
-    var profileCollectionReference: CollectionReference? = null
-
-    lateinit var currentChatDocumentReference: DocumentReference
 
     init {
         setupUserEnv()
@@ -76,15 +66,12 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
                 profileRef = firestore.collection("profiles").document(firebaseUser.uid)
                 appointmentRef = firestore.collection("appointment")
-                profileCollectionReference= firestore.collection("profiles")
             }
         }
     }
 
-    val chatsRef = firestore.collection("chats")
-
     // Funktion um neuen User zu erstellen
-    fun register(email: String, password: String, username: String) {
+    fun register(email: String, password: String) {
         // Firebase-Funktion um neuen User anzulegen
         // CompleteListener sorgt dafür, dass wir anschließend feststellen können, ob das funktioniert hat
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { authResult ->
@@ -94,7 +81,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 // Die Profil-Referenz wird jetzt gesetzt, da diese vom aktuellen User abhängt
                 profileRef = firestore.collection("profiles").document(auth.currentUser!!.uid)
                 // Ein neues, leeres Profil wird für jeden User erstellt der zum ersten mal einen Account für die App anlegt
-                profileRef!!.set(Profile(username = username))
+                profileRef!!.set(Profile())
+
 
                 // Danach führen wir logout Funktion aus, da beim Erstellen eines Users dieser sofort eingeloggt wird
                 logout()
@@ -200,46 +188,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     }
 
-    fun sendMessage(message: String) {
-        val newMessage = Message(message, auth.currentUser!!.uid)
-        currentChatDocumentReference.update("messages", FieldValue.arrayUnion(newMessage))
-    }
-
-    fun setCurrentChat(chatPartnerId: String) {
-        val chatId = createChatId(chatPartnerId, user.value!!.uid)
-        currentChatDocumentReference = firestore.collection("chats").document(chatId)
-        currentChatDocumentReference.get().addOnCompleteListener { task ->
-            if (task.isSuccessful && task.result != null && !task.result.exists()) {
-                currentChatDocumentReference.set(Chat())
-            }
-        }
-    }
-
-    fun resetToastMessage() {
-        _toastMessage.value = null
-    }
-
-    private fun handleError(message: String) {
-        setToastMessage(message)
-        logError(message)
-    }
-
-    private fun setToastMessage(message: String) {
-        _toastMessage.value = message
-    }
-
-    private fun logError(message: String) {
-        Log.e(Debug.AUTH_TAG.value, message)
-    }
-
-    private fun createChatId(id1: String, id2: String): String {
-        val ids = listOf(id1, id2).sorted()
-        return ids.first() + ids.last()
-    }
-
-
-
-
     //Repository Bereich
 
 
@@ -336,3 +284,5 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     //Repository Endbereich
 
 }
+
+

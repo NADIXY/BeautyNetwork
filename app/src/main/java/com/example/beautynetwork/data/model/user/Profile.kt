@@ -2,11 +2,8 @@ package com.example.beautynetwork.data.model.user
 
 import com.google.firebase.firestore.DocumentId
 
-data class Profile(
-    @DocumentId
-    val userId: String = "",
-    val username: String = "",
 
+data class Profile(
     val firstName: String = "",
     val lastName: String = "",
     val number: String = "",
@@ -21,5 +18,5 @@ data class Profile(
     val question5: String = "",
     val question6: String = "",
     val question7: String = "",
-    val question8: String = ""
+    val question8: String = "",
 )
