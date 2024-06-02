@@ -19,6 +19,24 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/profil"
+        android:title="Profil"
+        android:icon="@drawable/baseline_more_horiz_24"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/generalQuestionnaire"
+        android:title="General Questionnaire"
+        android:icon="@drawable/baseline_more_horiz_24"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/schedulerDetails"
+        android:title="Scheduler Details"
+        android:icon="@drawable/baseline_more_horiz_24"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/close"
         android:title="Close"
         android:icon="@drawable/baseline_more_horiz_24"

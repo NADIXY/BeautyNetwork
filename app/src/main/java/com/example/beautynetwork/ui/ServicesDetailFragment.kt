@@ -63,5 +63,18 @@ class ServicesDetailFragment : Fragment() {
             context?.startActivity(shareIntent)
 
         }
+
+        binding.imageDetailService.setOnClickListener {
+
+            binding.imageDetailService.animate().apply {
+                duration = 500
+                rotationXBy(360f)
+            }.withEndAction {
+                binding.imageDetailService.animate().apply {
+                    duration = 200
+                    rotationYBy(360f)
+                }.start()
+            }
+        }
     }
 }

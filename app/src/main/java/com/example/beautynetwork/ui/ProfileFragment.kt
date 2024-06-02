@@ -68,20 +68,13 @@ class ProfileFragment : Fragment() {
             if (error == null && value != null) {
                 // Umwandeln des Snapshots in eine Klassen-Instanz von der Klasse Profil und setzen der Felder
                 val myProfile = value.toObject(Profile::class.java)
-                binding.tiet1.setText(myProfile?.question1)
-                binding.tiet2.setText(myProfile?.question2)
-                binding.tiet3.setText(myProfile?.question3)
-                binding.tiet4.setText(myProfile?.question4)
-                binding.tiet5.setText(myProfile?.question5)
-                binding.tiet6.setText(myProfile?.question8)
-                binding.tiet7.setText(myProfile?.question6)
-                binding.tiet8.setText(myProfile?.question7)
                 binding.tietFirstName.setText(myProfile?.firstName)
                 binding.tietLastName.setText(myProfile?.lastName)
                 binding.tietNumber.setText(myProfile?.number)
                 binding.tietEmail.setText(myProfile?.email)
                 binding.adressTietAdresse.setText(myProfile?.adress)
                 binding.tietDateOfBirth.setText(myProfile?.dateOfBirth)
+                binding.tietProfession.setText(myProfile?.profession)
                 binding.ivProfilePic.load(myProfile?.profilePicture) {
                     error(R.drawable.baseline_account_box_24)
                 }
@@ -106,14 +99,7 @@ class ProfileFragment : Fragment() {
             val email = binding.tietEmail.text.toString()
             val adress = binding.adressTietAdresse.text.toString()
             val dateOfBirth = binding.tietDateOfBirth.text.toString()
-            val question1 = binding.tiet1.text.toString()
-            val question2 = binding.tiet2.text.toString()
-            val question3 = binding.tiet3.text.toString()
-            val question4 = binding.tiet4.text.toString()
-            val question5 = binding.tiet5.text.toString()
-            val question6 = binding.tiet7.text.toString()
-            val question7 = binding.tiet8.text.toString()
-            val question8 = binding.tiet6.text.toString()
+            val profession = binding.tietProfession.text.toString()
 
             val builder = AlertDialog.Builder(requireContext())
             builder.setTitle("Save")
@@ -121,8 +107,7 @@ class ProfileFragment : Fragment() {
             builder.setPositiveButton("Yes") { dialog, which ->
 
                 if (firstName != "" && lastName != "" && number != "" && email != "" && adress != ""
-                    && dateOfBirth != "" && question1 != "" && question2 != "" && question3 != ""
-                    && question4 != "" && question5 != "" && question6 != "" && question7 != "" && question8 != ""
+                    && dateOfBirth != "" && profession != ""
                 ) {
                     val newProfile = Profile(
                         firstName,
@@ -131,21 +116,14 @@ class ProfileFragment : Fragment() {
                         email,
                         adress,
                         dateOfBirth,
-                        question1,
-                        question2,
-                        question3,
-                        question4,
-                        question5,
-                        question6,
-                        question7,
-                        question8
+                        profession
                     )
 
                     viewModel.updateProfile(newProfile)
 
                     Toast.makeText(requireContext(), "Saved", Toast.LENGTH_SHORT).show()
 
-                    findNavController().navigate(R.id.schedulerFragment)
+                    findNavController().navigate(R.id.generalQuestionnaireFragment)
 
                 } else {
                     Toast.makeText(requireContext(), "Error", Toast.LENGTH_SHORT).show()

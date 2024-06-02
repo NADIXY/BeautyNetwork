@@ -42,6 +42,19 @@ class MakeUpAdapter(
             holder.binding.beautyProducts.findNavController().navigate(R.id.makeUpDetailFragment)
         }
 
+        binding.imgProductView.setOnClickListener {
+
+            binding.imgProductView.animate().apply {
+                duration = 500
+                rotationXBy(360f)
+            }.withEndAction {
+                binding.imgProductView.animate().apply {
+                    duration = 200
+                    rotationYBy(360f)
+                }.start()
+            }
+        }
+
         if (holder is MakeUpAdapter.MyViewHolder) {
 
             holder.binding.imgProductView.load(item.image_link)

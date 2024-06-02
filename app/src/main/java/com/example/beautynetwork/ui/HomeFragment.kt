@@ -59,11 +59,9 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.textView14.setOnClickListener {
-
         binding.textView14.isSelected =true
 
         }
-
 
         binding.menu.setOnClickListener {
             showPopupMenu(it)
@@ -135,6 +133,25 @@ class HomeFragment : Fragment() {
                     true
 
                 }
+
+                R.id.profil -> {
+                    findNavController().navigate(R.id.profileFragment)
+                    true
+
+                }
+
+                R.id.generalQuestionnaire -> {
+                    findNavController().navigate(R.id.generalQuestionnaireFragment)
+                    true
+
+                }
+
+                R.id.schedulerDetails -> {
+                    findNavController().navigate(R.id.schedulerDetailFragment)
+                    true
+
+                }
+
                 R.id.close -> {
                     val builder = AlertDialog.Builder(requireContext())
                     builder.setTitle("Close")

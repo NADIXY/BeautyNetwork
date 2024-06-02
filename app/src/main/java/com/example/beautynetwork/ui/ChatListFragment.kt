@@ -9,44 +9,30 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.beautynetwork.MainViewModel
 import com.example.beautynetwork.R
-import com.example.beautynetwork.databinding.FragmentAboutBinding
+import com.example.beautynetwork.databinding.FragmentChatListBinding
 
-class AboutFragment : Fragment() {
+class ChatListFragment : Fragment() {
 
     private val viewModel: MainViewModel by activityViewModels()
-    private lateinit var binding: FragmentAboutBinding
+    private lateinit var binding: FragmentChatListBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentAboutBinding.inflate(layoutInflater)
+        binding = FragmentChatListBinding.inflate(layoutInflater)
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        backOnClickListener()
 
-        binding.backStack.setOnClickListener {
+    }private fun backOnClickListener() {
+        binding.textBack.setOnClickListener {
             findNavController().navigate(R.id.homeFragment)
         }
-
-        binding.imageView3.setOnClickListener {
-
-            binding.imageView3.animate().apply {
-                duration = 500
-                rotationXBy(360f)
-            }.withEndAction {
-                binding.imageView3.animate().apply {
-                    duration = 200
-                    rotationYBy(360f)
-                }.start()
-            }
-        }
-
     }
-
 }
-
-
 

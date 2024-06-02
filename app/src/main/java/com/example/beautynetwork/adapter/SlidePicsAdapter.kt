@@ -3,7 +3,6 @@ package com.example.beautynetwork.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.beautynetwork.MainViewModel
 import com.example.beautynetwork.R

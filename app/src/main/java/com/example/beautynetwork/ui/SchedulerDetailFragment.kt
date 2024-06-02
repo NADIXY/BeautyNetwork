@@ -33,6 +33,19 @@ class SchedulerDetailFragment : Fragment() {
             findNavController().navigate(R.id.schedulerFragment)
         }
 
+        binding.imageView3.setOnClickListener {
+
+            binding.imageView3.animate().apply {
+                duration = 500
+                rotationXBy(360f)
+            }.withEndAction {
+                binding.imageView3.animate().apply {
+                    duration = 200
+                    rotationYBy(360f)
+                }.start()
+            }
+        }
+
         viewModel.appointmentRef?.addSnapshotListener { snapshot, error ->
             snapshot?.let {
 
