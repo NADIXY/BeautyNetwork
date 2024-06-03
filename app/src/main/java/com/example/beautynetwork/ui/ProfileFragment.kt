@@ -129,7 +129,7 @@ class ProfileFragment : Fragment() {
                     findNavController().navigate(R.id.generalQuestionnaireFragment)
 
                 } else {
-                    Toast.makeText(requireContext(), "Error", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Error, input fields must not be empty", Toast.LENGTH_SHORT).show()
 
                 }
 
