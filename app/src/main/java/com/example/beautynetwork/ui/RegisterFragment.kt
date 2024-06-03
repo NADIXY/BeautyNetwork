@@ -39,14 +39,19 @@ class RegisterFragment : Fragment() {
         binding.registerBt.setOnClickListener {
             val email = binding.emailRegister.text.toString()
             val password = binding.passwordRegister.text.toString()
+            val username = binding.usernameRegister.text.toString()
 
 
             if (email != "" && password.length >= 12) {
-                viewModel.register(email, password)
+                viewModel.register(email, password, username)
 
                 findNavController().navigate(R.id.signInFragment)
 
             } else {
+                if (username == "") {
+                    binding.usernameRegister.error = "Enter your username"
+
+                }
                 if (email == "") {
                     binding.emailRegister.error = "Enter your email"
 

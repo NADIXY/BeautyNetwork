@@ -68,6 +68,7 @@ class ProfileFragment : Fragment() {
             if (error == null && value != null) {
                 // Umwandeln des Snapshots in eine Klassen-Instanz von der Klasse Profil und setzen der Felder
                 val myProfile = value.toObject(Profile::class.java)
+                binding.tietUsername.setText(myProfile?.username)
                 binding.tietFirstName.setText(myProfile?.firstName)
                 binding.tietLastName.setText(myProfile?.lastName)
                 binding.tietNumber.setText(myProfile?.number)
@@ -93,6 +94,7 @@ class ProfileFragment : Fragment() {
         // Neue Profil-Daten in Firestore speichern
         binding.btSave1.setOnClickListener {
 
+            val username = binding.tietUsername.text.toString()
             val firstName = binding.tietFirstName.text.toString()
             val lastName = binding.tietLastName.text.toString()
             val number = binding.tietNumber.text.toString()
@@ -107,9 +109,10 @@ class ProfileFragment : Fragment() {
             builder.setPositiveButton("Yes") { dialog, which ->
 
                 if (firstName != "" && lastName != "" && number != "" && email != "" && adress != ""
-                    && dateOfBirth != "" && profession != ""
+                    && dateOfBirth != "" && profession != "" && username != ""
                 ) {
                     val newProfile = Profile(
+                        username,
                         firstName,
                         lastName,
                         number,

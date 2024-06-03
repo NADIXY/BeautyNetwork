@@ -76,7 +76,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     // Funktion um neuen User zu erstellen
-    fun register(email: String, password: String) {
+    fun register(email: String, password: String, username: String) {
         // Firebase-Funktion um neuen User anzulegen
         // CompleteListener sorgt dafür, dass wir anschließend feststellen können, ob das funktioniert hat
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { authResult ->
@@ -86,7 +86,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 // Die Profil-Referenz wird jetzt gesetzt, da diese vom aktuellen User abhängt
                 profileRef = firestore.collection("profiles").document(auth.currentUser!!.uid)
                 // Ein neues, leeres Profil wird für jeden User erstellt der zum ersten mal einen Account für die App anlegt
-                profileRef!!.set(Profile())
+                profileRef!!.set(Profile(username))
 
 
                 // Danach führen wir logout Funktion aus, da beim Erstellen eines Users dieser sofort eingeloggt wird
@@ -156,6 +156,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     fun updateProfile(profile: Profile) {
         profileRef?.update(
             mapOf(
+                "username" to profile.username,
                 "firstName" to profile.firstName,
                 "lastName" to profile.lastName,
                 "number" to profile.number,
