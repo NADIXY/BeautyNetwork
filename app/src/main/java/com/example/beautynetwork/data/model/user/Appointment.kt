@@ -8,5 +8,6 @@ data class Appointment(
     val hour: String = "",
     val service: String = "",
     val userId: String = "",
+    val username: String = "",
     val timestamp: Timestamp = Timestamp.now()
 )

@@ -68,9 +68,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
                 profileRef = firestore.collection("profiles").document(firebaseUser.uid)
                 appointmentRef = firestore.collection("appointment")
-                generalQuestionnaireRef =
-                    firestore.collection("profiles").document(firebaseUser.uid)
-                        .collection("generalQuestionnaire")
+                generalQuestionnaireRef = firestore.collection("generalQuestionnaire")
+
             }
         }
     }
@@ -208,6 +207,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             question6 = question6,
             question7 = question7,
             question8 = question8,
+            userId = user.value!!.uid
         )
         generalQuestionnaireRef?.add(setQuestions)
     }
@@ -308,5 +308,3 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     //Repository Endbereich
 
 }
-
-

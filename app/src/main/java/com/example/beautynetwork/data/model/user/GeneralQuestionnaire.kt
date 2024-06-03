@@ -11,5 +11,7 @@ data class GeneralQuestionnaire(
     val question6: String = "",
     val question7: String = "",
     val question8: String = "",
+    val userId: String = "",
+    val username: String = "",
     val timestamp: Timestamp = Timestamp.now()
 )
