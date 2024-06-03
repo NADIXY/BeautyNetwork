@@ -152,6 +152,12 @@ class HomeFragment : Fragment() {
 
                 }
 
+                R.id.chatList -> {
+                    findNavController().navigate(R.id.chatListFragment)
+                    true
+
+                }
+
                 R.id.close -> {
                     val builder = AlertDialog.Builder(requireContext())
                     builder.setTitle("Close")
