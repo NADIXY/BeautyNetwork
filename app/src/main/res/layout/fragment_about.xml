@@ -99,7 +99,6 @@
                 android:layout_marginEnd="16dp"
                 android:text="@string/about_text"
                 android:textAlignment="center"
-                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -141,12 +140,6 @@
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
 
             </LinearLayout>
-
-            <!-- android:ellipsize="marquee"
-                android:fadingEdge="horizontal"
-                android:marqueeRepeatLimit="marquee_forever"
-                android:scrollHorizontally="true"
-                android:singleLine="true" -->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

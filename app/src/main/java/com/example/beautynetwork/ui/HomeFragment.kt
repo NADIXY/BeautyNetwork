@@ -43,6 +43,8 @@ class HomeFragment : Fragment() {
                 Uri.parse("https://www.ueberdiemanspricht.de/medical_beauty_institut_nadia_baptista-14828.html"))
 
             startActivity(urlIntent)
+
+            Toast.makeText(requireContext(), "Loading medical_beauty_institut_nadia_baptista website", Toast.LENGTH_SHORT).show()
         }
 
         binding.treatwellBt.setOnClickListener {
@@ -50,6 +52,7 @@ class HomeFragment : Fragment() {
                 Uri.parse("https://www.treatwell.de/ort/medical-beauty-institut-leopoldstrasse/"))
 
             startActivity(urlIntent)
+            Toast.makeText(requireContext(), "Loading treatwell website", Toast.LENGTH_SHORT).show()
         }
 
         return binding.root

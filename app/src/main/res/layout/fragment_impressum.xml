@@ -79,7 +79,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/medical_beauty_institut_nadia_baptista"
                 android:textAlignment="center"
-                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -89,7 +88,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/straße"
                 android:textAlignment="center"
-                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -100,7 +98,6 @@
                 android:layout_marginBottom="20dp"
                 android:text="@string/cdp"
                 android:textAlignment="center"
-                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -110,7 +107,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/tel"
                 android:textAlignment="center"
-                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -120,7 +116,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/fax"
                 android:textAlignment="center"
-                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -131,7 +126,6 @@
                 android:layout_marginBottom="20dp"
                 android:text="@string/email..."
                 android:textAlignment="center"
-                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -141,7 +135,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/Geschäftsführer..."
                 android:textAlignment="center"
-                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -152,7 +145,6 @@
                 android:layout_marginTop="20dp"
                 android:text="@string/Amtsgericht"
                 android:textAlignment="center"
-                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -162,7 +154,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/HRB..."
                 android:textAlignment="center"
-                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -173,7 +164,6 @@
                 android:layout_marginBottom="20dp"
                 android:text="@string/USt..."
                 android:textAlignment="center"
-                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 

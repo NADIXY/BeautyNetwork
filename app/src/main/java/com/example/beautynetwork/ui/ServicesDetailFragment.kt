@@ -45,7 +45,8 @@ class ServicesDetailFragment : Fragment() {
 
             val sendIntent = Intent(Intent.ACTION_SEND)
                 .setType("text/plain")
-                .putExtra(Intent.EXTRA_TEXT, "https://www.ueberdiemanspricht.de/medical_beauty_institut_nadia_baptista-14828.html")
+                .putExtra(Intent.EXTRA_TEXT,
+                    "https://www.ueberdiemanspricht.de/medical_beauty_institut_nadia_baptista-14828.html")
             val shareIntent = Intent.createChooser(sendIntent, null)
             val customActions = arrayOf(
                 ChooserAction.Builder(

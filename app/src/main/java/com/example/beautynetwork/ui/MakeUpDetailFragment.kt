@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import coil.load
@@ -30,6 +31,7 @@ class MakeUpDetailFragment : Fragment() {
                 Uri.parse("https://well.ca"))
 
             startActivity(urlIntent)
+            Toast.makeText(requireContext(), "Loading 'well.ca' website", Toast.LENGTH_SHORT).show()
         }
 
         return binding.root

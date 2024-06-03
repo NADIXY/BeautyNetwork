@@ -6,5 +6,4 @@ class Services(
     var imageId: Int,
     var preice: String,
     var info: String
-
 )

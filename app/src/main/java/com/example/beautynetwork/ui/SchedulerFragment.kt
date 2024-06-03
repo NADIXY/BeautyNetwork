@@ -1,5 +1,6 @@
 package com.example.beautynetwork.ui
 
+import android.app.AlertDialog
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
@@ -48,7 +49,6 @@ class SchedulerFragment : Fragment() {
             showPopupMenu(it)
         }
 
-
         viewModel.items.observe(viewLifecycleOwner) { services ->
             val items = services.map { it.title }
             val autoComplete = binding.serviceET
@@ -66,7 +66,6 @@ class SchedulerFragment : Fragment() {
             }
 
         }
-
 
         viewModel.appointmentRef?.addSnapshotListener { snapshot, error ->
             snapshot?.let {
@@ -200,6 +199,17 @@ class SchedulerFragment : Fragment() {
                 }
 
             }
+
+            val builder = AlertDialog.Builder(requireContext())
+            builder.setTitle("PLEASE FILL OUT!")
+            builder.setMessage("Please fill out the profile & general questionnaire")
+            builder.setPositiveButton("Changes?Fill in again!") { dialog, which ->
+                findNavController().navigate(R.id.profileFragment)
+                Toast.makeText(requireContext(), "Profile", Toast.LENGTH_SHORT).show()
+            }
+            builder.setNegativeButton("Filled") { dialog, which -> }
+            val dialog: AlertDialog = builder.create()
+            dialog.show()
 
         }
 

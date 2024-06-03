@@ -35,4 +35,3 @@ class ChatListFragment : Fragment() {
         }
     }
 }
-
