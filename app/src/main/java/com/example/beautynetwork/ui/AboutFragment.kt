@@ -1,6 +1,7 @@
 package com.example.beautynetwork.ui
 
 import android.os.Bundle
+import android.util.TypedValue
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +16,7 @@ class AboutFragment : Fragment() {
 
     private val viewModel: MainViewModel by activityViewModels()
     private lateinit var binding: FragmentAboutBinding
+    private var ourFontSize = 14f
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,6 +44,17 @@ class AboutFragment : Fragment() {
                     rotationYBy(360f)
                 }.start()
             }
+        }
+
+        binding.btIncrease.setOnClickListener {
+            ourFontSize +=4f
+            binding.aboutTextContent.setTextSize(TypedValue.COMPLEX_UNIT_SP, ourFontSize)
+
+        }
+        binding.btDecrease.setOnClickListener {
+            ourFontSize -=4f
+            binding.aboutTextContent.setTextSize(TypedValue.COMPLEX_UNIT_SP, ourFontSize)
+
         }
 
     }
