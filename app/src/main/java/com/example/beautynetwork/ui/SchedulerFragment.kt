@@ -202,10 +202,10 @@ class SchedulerFragment : Fragment() {
 
             val builder = AlertDialog.Builder(requireContext())
             builder.setTitle("PLEASE FILL OUT!")
-            builder.setMessage("Please fill out the profile & general questionnaire")
+            builder.setMessage("Please fill out the general questionnaire")
             builder.setPositiveButton("Changes?Fill in again!") { dialog, which ->
-                findNavController().navigate(R.id.profileFragment)
-                Toast.makeText(requireContext(), "Profile", Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.generalQuestionnaireFragment)
+                Toast.makeText(requireContext(), "General Questionnaire", Toast.LENGTH_SHORT).show()
             }
             builder.setNegativeButton("Filled") { dialog, which -> }
             val dialog: AlertDialog = builder.create()

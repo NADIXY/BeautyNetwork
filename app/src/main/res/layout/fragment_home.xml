@@ -203,7 +203,6 @@
             android:scrollHorizontally="true"
             android:singleLine="true"
             android:text="@string/about_text"
-            android:textColor="@color/verde"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/rv_slide"
             app:layout_constraintEnd_toEndOf="parent"

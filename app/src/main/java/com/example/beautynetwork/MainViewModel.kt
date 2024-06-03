@@ -204,9 +204,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             question3 = question3,
             question4 = question4,
             question5 = question5,
-            question6 = question6,
-            question7 = question7,
-            question8 = question8,
+            question6 = question7,
+            question7 = question8,
+            question8 = question6,
             userId = user.value!!.uid
         )
         generalQuestionnaireRef?.add(setQuestions)
