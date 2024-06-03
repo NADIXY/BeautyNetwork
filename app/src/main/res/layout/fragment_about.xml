@@ -127,14 +127,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Increase"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/white"
+                    android:backgroundTint="#F48FB1"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
 
                 <Button
                     android:id="@+id/bt_decrease"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Decrease"
-                    android:textColor="@color/black" />
+                    android:textColor="#F48FB1"
+                    app:strokeColor="#F48FB1"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
 
             </LinearLayout>
 
