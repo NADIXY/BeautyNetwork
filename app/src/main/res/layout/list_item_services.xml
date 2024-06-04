@@ -42,6 +42,5 @@
                 app:srcCompat="@drawable/proxy" />
 
         </LinearLayout>
-
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

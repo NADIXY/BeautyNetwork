@@ -15,6 +15,9 @@ import com.example.beautynetwork.data.model.management.SlidePics
 import com.example.beautynetwork.data.model.user.Appointment
 import com.example.beautynetwork.data.model.user.GeneralQuestionnaire
 import com.example.beautynetwork.data.model.user.Profile
+import com.example.beautynetwork.data.model.user.chat.Chat
+import com.example.beautynetwork.data.model.user.chat.ChatProfile
+import com.example.beautynetwork.data.model.user.chat.Message
 import com.example.beautynetwork.data.model.user.favorite.FavoriteMakeUp
 import com.example.beautynetwork.data.remote.BeautyApi
 import com.google.firebase.Firebase
@@ -22,6 +25,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.auth
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.firestore
 import com.google.firebase.storage.storage
 import kotlinx.coroutines.Dispatchers
@@ -49,16 +53,22 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     val user: LiveData<FirebaseUser?>
         get() = _user
 
+    private var _toastMessage = MutableLiveData<String?>()
+    val toastMessage: LiveData<String?>
+        get() = _toastMessage
+
 
     //Das profile Document enthält ein einzelnes Profil(das des eingeloggten Users)
     //Document ist wie ein Objekt
     var profileRef: DocumentReference? = null
     var appointmentRef: CollectionReference? = null
     var generalQuestionnaireRef: CollectionReference? = null
+    var profileCollectionReference: CollectionReference? = null
+    lateinit var currentChatDocumentReference: DocumentReference
+    var chatProfileRef: DocumentReference? = null
 
     init {
         setupUserEnv()
-
     }
 
     fun setupUserEnv() {
@@ -69,6 +79,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 profileRef = firestore.collection("profiles").document(firebaseUser.uid)
                 appointmentRef = firestore.collection("appointment")
                 generalQuestionnaireRef = firestore.collection("generalQuestionnaire")
+                profileCollectionReference= firestore.collection("profiles")
+                chatProfileRef = firestore.collection("chat_profiles").document(firebaseUser.uid)
 
             }
         }
@@ -85,8 +97,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 // Die Profil-Referenz wird jetzt gesetzt, da diese vom aktuellen User abhängt
                 profileRef = firestore.collection("profiles").document(auth.currentUser!!.uid)
                 // Ein neues, leeres Profil wird für jeden User erstellt der zum ersten mal einen Account für die App anlegt
-                profileRef!!.set(Profile(username))
+                profileRef!!.set(Profile(username=username))
 
+                chatProfileRef = firestore.collection("chat_profiles").document(auth.currentUser!!.uid)
+                chatProfileRef!!.set(ChatProfile(username=username))
 
                 // Danach führen wir logout Funktion aus, da beim Erstellen eines Users dieser sofort eingeloggt wird
                 logout()
@@ -145,6 +159,15 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             if (it.isSuccessful) {
                 imageRef.downloadUrl.addOnCompleteListener { finalImageUrl ->
                     profileRef?.update("profilePicture", finalImageUrl.result.toString())
+                }
+            }
+        }
+
+        val imageRef2 = storage.reference.child("images/${auth.currentUser!!.uid}/profilePictureChat")
+        imageRef2.putFile(uri).addOnCompleteListener {
+            if (it.isSuccessful) {
+                imageRef2.downloadUrl.addOnCompleteListener { finalImageUrl ->
+                    chatProfileRef?.update("profilePictureChat", finalImageUrl.result.toString())
                 }
             }
         }
@@ -212,6 +235,32 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         generalQuestionnaireRef?.add(setQuestions)
     }
 
+
+    fun sendMessage(message: String) {
+        val newMessage = Message(message, auth.currentUser!!.uid)
+        currentChatDocumentReference.update("messages", FieldValue.arrayUnion(newMessage))
+    }
+
+    fun setCurrentChat(chatPartnerId: String) {
+        val chatId = createChatId(chatPartnerId, user.value!!.uid)
+        currentChatDocumentReference = firestore.collection("chats").document(chatId)
+        currentChatDocumentReference.get().addOnCompleteListener { task ->
+            if (task.isSuccessful && task.result != null && !task.result.exists()) {
+                currentChatDocumentReference.set(Chat())
+            }
+        }
+    }
+
+    fun resetToastMessage() {
+        _toastMessage.value = null
+    }
+
+    private fun createChatId(id1: String, id2: String): String {
+        val ids = listOf(id1, id2).sorted()
+        return ids.first() + ids.last()
+    }
+
+
     //Repository Bereich
 
 
@@ -275,6 +324,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         _setSelectedServices.value = items
 
     }
+
 
     //Services Endregion
 

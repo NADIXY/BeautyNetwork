@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import com.example.beautynetwork.DateUtils
+import com.example.beautynetwork.ui.utils.DateUtils
 import com.example.beautynetwork.MainViewModel
 import com.example.beautynetwork.R
 import com.example.beautynetwork.data.model.user.GeneralQuestionnaire

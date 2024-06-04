@@ -1,4 +1,4 @@
-package com.example.beautynetwork
+package com.example.beautynetwork.ui.utils
 
 import java.text.SimpleDateFormat
 import java.util.Date

@@ -62,8 +62,8 @@ class SchedulerDetailFragment : Fragment() {
 
                 for (appointment in appointmentsList) {
 
-                    appointmentsText.append("Professional: ${appointment.professional},\n Date: ${appointment.date},\n" +
-                            " Hour: ${appointment.hour},\n Service: ${appointment.service}\n\n\n")
+                    appointmentsText.append("Professional: ${appointment.professional},\nDate: ${appointment.date},\n" +
+                            "Hour: ${appointment.hour},\nService: ${appointment.service}\n\n\n")
 
                 }
                 binding.appointmentsListTextView.text = appointmentsText.toString()

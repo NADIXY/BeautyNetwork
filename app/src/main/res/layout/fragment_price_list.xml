@@ -67,7 +67,6 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
         <ImageView
             android:id="@+id/imageView5"
             android:layout_width="399dp"

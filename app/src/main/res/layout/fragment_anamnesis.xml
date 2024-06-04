@@ -6,8 +6,6 @@ android:layout_width="match_parent"
 android:layout_height="match_parent"
 tools:context=".ui.AnamnesisFragment">
 
-
-
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -68,7 +66,6 @@ tools:context=".ui.AnamnesisFragment">
             android:layout_height="wrap_content"
             android:inputType="textShortMessage" />
     </com.google.android.material.textfield.TextInputLayout>
-
 
     <Button
         android:id="@+id/bt_save"

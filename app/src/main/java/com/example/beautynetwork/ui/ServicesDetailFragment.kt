@@ -17,6 +17,7 @@ import com.example.beautynetwork.R
 import com.example.beautynetwork.databinding.FragmentServicesDetailBinding
 
 class ServicesDetailFragment : Fragment() {
+
     private val viewModel: MainViewModel by activityViewModels()
     private lateinit var binding: FragmentServicesDetailBinding
     override fun onCreateView(
@@ -26,6 +27,7 @@ class ServicesDetailFragment : Fragment() {
         binding = FragmentServicesDetailBinding.inflate(layoutInflater)
         return binding.root
     }
+
     @RequiresApi(34)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

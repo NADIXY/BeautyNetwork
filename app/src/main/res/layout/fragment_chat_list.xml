@@ -34,6 +34,17 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.432" />
 
+        <ImageView
+            android:id="@+id/account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:padding="8dp"
+            android:src="@drawable/baseline_person_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -47,26 +58,15 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appbar"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <pl.droidsonroids.gif.GifImageView
-        android:id="@+id/click"
-        android:layout_width="366dp"
-        android:layout_height="487dp"
-        android:src="@drawable/coming_soon"
-        app:layout_constraintBottom_toTopOf="@+id/text_back"
-        app:layout_constraintEnd_toEndOf="@+id/rv_users"
-        app:layout_constraintHorizontal_bias="0.488"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appbar"
-        app:layout_constraintVertical_bias="0.458" />
+        app:layout_constraintVertical_bias="1.0"
+        tools:listitem="@layout/item_chat_user"/>
 
     <TextView
         android:id="@+id/text_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
-        android:text="Back"
+        android:text="BACK"
         android:textColor="#29B6F6"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

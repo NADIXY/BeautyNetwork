@@ -108,8 +108,7 @@ class Repository(private val api: BeautyApi, private val database: FavoriteMakeU
             "210 EUR",
             "Behandlungsempfehlung: 6 Behandlungen als Kur im Abstand von 2 Wochen. 6er KUR Gesicht + Hals 1300 EUR (inkl. Post Needling Kit im Wert von 89 EUR)"
         ),
-
-        )
+    )
 
     fun getItems(): List<Services> {
         return myBeautyServices

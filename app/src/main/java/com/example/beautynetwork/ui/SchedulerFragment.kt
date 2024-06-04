@@ -17,7 +17,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import com.example.beautynetwork.DateUtils
+import com.example.beautynetwork.ui.utils.DateUtils
 import com.example.beautynetwork.MainViewModel
 import com.example.beautynetwork.R
 import com.example.beautynetwork.data.model.user.Appointment
@@ -95,8 +95,8 @@ class SchedulerFragment : Fragment() {
 
                 for (appointment in appointmentsList) {
 
-                    appointmentsText.append("Professional: ${appointment.professional},\n Date: ${appointment.date},\n" +
-                            " Hour: ${appointment.hour},\n Service: ${appointment.service}\n\n\n")
+                    appointmentsText.append("Professional: ${appointment.professional},\nDate: ${appointment.date},\n" +
+                            "Hour: ${appointment.hour},\nService: ${appointment.service}\n\n\n")
 
 
                 }
