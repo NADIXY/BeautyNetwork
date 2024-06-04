@@ -1,7 +1,10 @@
 package com.example.beautynetwork.data.model.user
 
+import com.google.firebase.firestore.DocumentId
+
 data class Profile(
-    val userId: String = "",
+    //@DocumentId
+    //val userId: String = "",
     val username: String = "",
     val firstName: String = "",
     val lastName: String = "",
