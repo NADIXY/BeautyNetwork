@@ -1,6 +1,7 @@
 package com.example.beautynetwork.data.model.user
 
 data class Profile(
+    val userId: String = "",
     val username: String = "",
     val firstName: String = "",
     val lastName: String = "",

@@ -155,6 +155,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     fun updateProfile(profile: Profile) {
         profileRef?.update(
             mapOf(
+                "userId" to profile.userId,
                 "username" to profile.username,
                 "firstName" to profile.firstName,
                 "lastName" to profile.lastName,
