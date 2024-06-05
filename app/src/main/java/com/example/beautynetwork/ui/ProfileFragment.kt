@@ -99,6 +99,7 @@ class ProfileFragment : Fragment() {
             val number = binding.tietNumber.text.toString()
             val email = binding.tietEmail.text.toString()
             val adress = binding.adressTietAdresse.text.toString()
+
             val dateOfBirth = binding.tietDateOfBirth.text.toString()
             val profession = binding.tietProfession.text.toString()
 
@@ -142,4 +143,5 @@ class ProfileFragment : Fragment() {
         }
 
     }
+
 }

@@ -39,20 +39,30 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(layoutInflater)
 
         binding.webBt.setOnClickListener {
-            val urlIntent = Intent("android.intent.action.VIEW",
-                Uri.parse("https://www.ueberdiemanspricht.de/medical_beauty_institut_nadia_baptista-14828.html"))
+            val urlIntent = Intent(
+                "android.intent.action.VIEW",
+                Uri.parse("https://www.ueberdiemanspricht.de/medical_beauty_institut_nadia_baptista-14828.html")
+            )
 
             startActivity(urlIntent)
 
-            Toast.makeText(requireContext(), "Loading medical_beauty_institut_nadia_baptista website", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                requireContext(),
+                "Loading medical_beauty_institut_nadia_baptista website",
+                Toast.LENGTH_SHORT
+            ).show()
         }
 
         binding.treatwellBt.setOnClickListener {
-            val urlIntent = Intent("android.intent.action.VIEW",
-                Uri.parse("https://www.treatwell.de/ort/medical-beauty-institut-leopoldstrasse/"))
+            val urlIntent = Intent(
+                "android.intent.action.VIEW",
+                Uri.parse("https://www.treatwell.de/ort/medical-beauty-institut-leopoldstrasse/")
+            )
 
             startActivity(urlIntent)
-            Toast.makeText(requireContext(), "Loading treatwell website", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(),
+                "Loading treatwell website",
+                Toast.LENGTH_SHORT).show()
         }
 
         return binding.root
@@ -62,7 +72,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.textView14.setOnClickListener {
-        binding.textView14.isSelected =true
+            binding.textView14.isSelected = true
 
         }
 
@@ -76,7 +86,7 @@ class HomeFragment : Fragment() {
 
         viewModel.loadBeauty()
         viewModel.beauty.observe(viewLifecycleOwner) {
-            binding.recyclerView.adapter = RecomendedAdapter(it,viewModel)
+            binding.recyclerView.adapter = RecomendedAdapter(it, viewModel)
 
         }
 
@@ -126,18 +136,50 @@ class HomeFragment : Fragment() {
                     true
 
                 }
+
                 R.id.preicelist -> {
                     findNavController().navigate(R.id.priceListFragment)
                     true
 
                 }
+
+                R.id.treatwell -> {
+                    val intent = Intent(
+                        Intent.ACTION_VIEW, Uri.parse(
+                            "https://www.treatwell.de/ort/medical-beauty-institut-leopoldstrasse/"
+                        )
+                    )
+                    startActivity(intent)
+                    Toast.makeText(
+                        requireContext(),
+                        "Loading medical_beauty_institut_nadia_baptista on treatwell website",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    true
+                }
+
+                R.id.m_b_i_nadia_baptista_website -> {
+                    val intent = Intent(
+                        Intent.ACTION_VIEW, Uri.parse(
+                            "https://www.ueberdiemanspricht.de/medical_beauty_institut_nadia_baptista-14828.html"
+                        )
+                    )
+                    startActivity(intent)
+                    Toast.makeText(
+                        requireContext(),
+                        "Loading medical_beauty_institut_nadia_baptista website",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    true
+                }
+
                 R.id.impressum -> {
                     findNavController().navigate(R.id.impressumFragment)
                     true
 
                 }
 
-                R.id.profil -> {
+                R.id.profile -> {
                     findNavController().navigate(R.id.profileFragment)
                     true
 
@@ -161,6 +203,12 @@ class HomeFragment : Fragment() {
 
                 }
 
+                R.id.chatProfile -> {
+                    findNavController().navigate(R.id.chatProfileFragment)
+                    true
+
+                }
+
                 R.id.close -> {
                     val builder = AlertDialog.Builder(requireContext())
                     builder.setTitle("Close")
@@ -175,6 +223,7 @@ class HomeFragment : Fragment() {
 
                     true
                 }
+
                 else -> true
             }
         }
@@ -184,7 +233,8 @@ class HomeFragment : Fragment() {
     //Die Funktion startet einen Timer, der alle 5 Sekunden das RecyclerView automatisch scrollt.
     private fun startAutoScrollCurrency() {
         timerCurrency = Timer() //Erstellt einen neuen Timer
-        timerCurrency?.schedule(object : TimerTask() { //Der Timer wird gestartet und führt alle 5 sec. aus.
+        timerCurrency?.schedule(object :
+            TimerTask() { //Der Timer wird gestartet und führt alle 5 sec. aus.
             override fun run() {//Definiert die Aktion, die alle 5 Sekunden ausgeführt werden soll.
                 activity?.runOnUiThread { // Führt den Code auf dem UI-Thread aus.
                     //Überprüft, ob die aktuelle Seite gleich der Anzahl der slidePics ist und setzt sie gegebenenfalls auf 0 zurück

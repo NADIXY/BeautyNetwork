@@ -4,23 +4,31 @@
 
     <item
         android:id="@+id/about"
-        android:title="About Medical Beauty Institut Nadia Baptista"
-        android:icon="@drawable/baseline_more_horiz_24"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/preicelist"
-        android:title="Preicelist"
-        android:icon="@drawable/baseline_more_horiz_24"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/impressum"
-        android:title="Impressum"
+        android:title="About Medical B. I. Nadia Baptista"
         android:icon="@drawable/baseline_more_horiz_24"
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/profil"
-        android:title="Profil"
+        android:id="@+id/preicelist"
+        android:title="Preice list"
+        android:icon="@drawable/baseline_more_horiz_24"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/treatwell"
+        android:title="treatwell"
+        android:icon="@drawable/baseline_more_horiz_24"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/m.b.i_nadia_baptista_website"
+        android:title="M. B. I. Nadia Baptista website"
+        android:icon="@drawable/baseline_more_horiz_24"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/profile"
+        android:title="Profile"
         android:icon="@drawable/baseline_more_horiz_24"
         app:showAsAction="never" />
 
@@ -43,8 +51,21 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/chatProfile"
+        android:title="Chat Profile"
+        android:icon="@drawable/baseline_more_horiz_24"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/impressum"
+        android:title="Impressum"
+        android:icon="@drawable/baseline_more_horiz_24"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/close"
         android:title="Close"
         android:icon="@drawable/baseline_more_horiz_24"
         app:showAsAction="never" />
+
 </menu>
