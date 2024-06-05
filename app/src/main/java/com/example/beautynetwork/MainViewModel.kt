@@ -67,6 +67,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     lateinit var currentChatDocumentReference: DocumentReference
     var chatProfileRef: DocumentReference? = null
 
+
     init {
         setupUserEnv()
     }
