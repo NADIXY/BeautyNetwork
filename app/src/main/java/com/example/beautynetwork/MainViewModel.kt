@@ -45,7 +45,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     val storage = Firebase.storage
 
     // LiveData um den aktuellen User zu halten
-    // Initialwert ist in diesem Fall firebaseAuth.currentUser
+    // Initialwert ist in diesem Fall auth.currentUser
     // Das gewährleistet, dass der User sofort wieder eingeloggt ist sollte
     // er sich bereits einmal eingeloggt haben
     // LiveData kann auch "null" sein (Wenn der User nicht eingeloggt ist)
@@ -66,7 +66,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     var profileCollectionReference: CollectionReference? = null
     lateinit var currentChatDocumentReference: DocumentReference
     var chatProfileRef: DocumentReference? = null
-
 
     init {
         setupUserEnv()
@@ -120,8 +119,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
                 // Überprüfung, ob User bereits Email verifiziert hat
                 if (auth.currentUser!!.isEmailVerified) {
-                    // Wenn Email verifiziert, wird LiveData mit dem eingeloggten User befüllt
-                    // Das triggert dann die Navigation im SignInFragment
                     
                     setupUserEnv()
 
@@ -147,9 +144,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     fun logout() {
         auth.signOut()
 
-        // Danach wird der Wert der currentUser LiveData auf den aktuellen Wert des Firebase-CurrentUser gesetzt
-        // Nach Logout ist dieser Wert null, also ist auch in der LiveData danach der Wert null gespeichert
-        // Dies triggert die Navigation aus dem HomeFragment zurück zum SignInFragment
         _user.value = auth.currentUser
     }
 
@@ -160,15 +154,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             if (it.isSuccessful) {
                 imageRef.downloadUrl.addOnCompleteListener { finalImageUrl ->
                     profileRef?.update("profilePicture", finalImageUrl.result.toString())
-                }
-            }
-        }
-
-        val imageRef2 = storage.reference.child("images/${auth.currentUser!!.uid}/profilePictureChat")
-        imageRef2.putFile(uri).addOnCompleteListener {
-            if (it.isSuccessful) {
-                imageRef2.downloadUrl.addOnCompleteListener { finalImageUrl ->
-                    chatProfileRef?.update("profilePictureChat", finalImageUrl.result.toString())
                 }
             }
         }

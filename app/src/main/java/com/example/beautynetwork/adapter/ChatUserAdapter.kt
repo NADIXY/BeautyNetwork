@@ -29,13 +29,6 @@ class ChatUserAdapter(
         val userItem = dataset[position]
 
         holder.binding.tvUsername.text = userItem.username
-        /*holder.binding.imageView2.load(userItem.profilePictureChat){
-        error(R.drawable.baseline_account_box_24)
-        }
-         */
-
-        //val imageUrl = ""
-        //holder.binding.imageView2.load(imageUrl)
 
         holder.binding.cvUser.setOnClickListener {
             viewModel.setCurrentChat(userItem.userId)

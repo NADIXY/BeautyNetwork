@@ -47,7 +47,6 @@ class GeneralQuestionnaireFragment : Fragment() {
             }
         }
 
-
         binding.btSave.setOnClickListener {
             viewModel.setGeneralQuestionnaire(
                 binding.tiet1.text.toString(),

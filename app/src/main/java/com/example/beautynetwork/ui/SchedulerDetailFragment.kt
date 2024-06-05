@@ -12,7 +12,6 @@ import com.example.beautynetwork.MainViewModel
 import com.example.beautynetwork.R
 import com.example.beautynetwork.data.model.user.Appointment
 import com.example.beautynetwork.databinding.FragmentSchedulerDetailBinding
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.Filter
 
 class SchedulerDetailFragment : Fragment() {
@@ -53,14 +52,10 @@ class SchedulerDetailFragment : Fragment() {
              )?.addSnapshotListener { snapshot, error ->
             snapshot?.let {
 
-                //Hier werden Termine in SchedulerFragment angezeigt!
+                //Termine in SchedulerFragment werden angezeigt!
+
                 val appointmentsList: List<Appointment> =
                     snapshot.toObjects(Appointment::class.java)
-
-               // val userId = getCurrentUserId() // Funktion zum Abrufen der aktuellen Benutzer-ID
-
-                //Es wird gefiltert um sicherzustellen, dass nur die Termine des aktuellen Benutzers (userId) im SchedulerFragment anzeigt
-                //val userAppointments = appointmentsList.filter { it.userId == userId }
 
                 val appointmentsText = StringBuilder()
 
@@ -73,14 +68,6 @@ class SchedulerDetailFragment : Fragment() {
                 binding.appointmentsListTextView.text = appointmentsText.toString()
             }
         }
-
-
-
-    }
-
-    private fun getCurrentUserId(): String {
-        val firebaseUser = FirebaseAuth.getInstance().currentUser
-        return firebaseUser?.uid ?: ""
 
     }
 
