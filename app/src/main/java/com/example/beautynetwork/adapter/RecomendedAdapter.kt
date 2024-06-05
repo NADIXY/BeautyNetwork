@@ -32,7 +32,9 @@ class RecomendedAdapter(
         val item = dataset[position]
         val binding = holder.binding
 
-        binding.recomendedImageView.load(item.image_link)
+        binding.recomendedImageView.load(item.image_link){
+            error(R.drawable.spinner)
+        }
 
         binding.recomendedCardView.setOnClickListener {
             viewModel.setSelectedProduct(item)

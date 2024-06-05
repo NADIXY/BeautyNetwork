@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.beautynetwork.MainViewModel
+import com.example.beautynetwork.R
 import com.example.beautynetwork.data.model.user.favorite.FavoriteMakeUp
 import com.example.beautynetwork.databinding.ListItemFavoriteMakeUpBinding
 
@@ -40,7 +41,9 @@ class FavoriteMakeUpAdapter(
 
         holder.binding.title.text = item.name
         holder.binding.description.text = item.description
-        holder.binding.imageView.load(item.image_link)
+        holder.binding.imageView.load(item.image_link){
+            error(R.drawable.spinner)
+        }
 
         val hCard = holder.binding.cardView
 

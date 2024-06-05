@@ -46,7 +46,9 @@ class MakeUpDetailFragment : Fragment() {
 
             binding.txtTitle.text = it.name
             binding.txtDescription.text = it.description
-            binding.imgProductView.load(it.image_link)
+            binding.imgProductView.load(it.image_link){
+                error(R.drawable.spinner)
+            }
             binding.txtCategory.text = it.category
             binding.txtPrice.text = "$${it.price} USD"
             binding.txtProductType.text = it.product_type

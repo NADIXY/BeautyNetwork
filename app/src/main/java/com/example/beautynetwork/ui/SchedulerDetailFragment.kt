@@ -60,7 +60,7 @@ class SchedulerDetailFragment : Fragment() {
 
                 val appointmentsText = StringBuilder()
 
-                for (appointment in appointmentsList) {
+                for (appointment in userAppointments) {
 
                     appointmentsText.append("Professional: ${appointment.professional},\nDate: ${appointment.date},\n" +
                             "Hour: ${appointment.hour},\nService: ${appointment.service}\n\n\n")

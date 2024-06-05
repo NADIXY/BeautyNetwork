@@ -35,7 +35,9 @@ class MakeUpAdapter(
 
         binding.txtTitle.text = item.name
         binding.txtDescription.text = item.description
-        binding.imgProductView.load(item.image_link)
+        binding.imgProductView.load(item.image_link){
+            error(R.drawable.spinner)
+        }
 
         binding.beautyProducts.setOnClickListener {
             viewModel.setSelectedProduct(item)
@@ -44,7 +46,9 @@ class MakeUpAdapter(
 
         if (holder is MakeUpAdapter.MyViewHolder) {
 
-            holder.binding.imgProductView.load(item.image_link)
+            holder.binding.imgProductView.load(item.image_link){
+                error(R.drawable.spinner)
+            }
             holder.binding.txtTitle.text = item.name
             holder.binding.txtDescription.text = item.description
         }
