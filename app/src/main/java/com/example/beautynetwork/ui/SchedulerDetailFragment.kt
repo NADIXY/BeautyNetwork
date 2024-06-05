@@ -1,6 +1,7 @@
 package com.example.beautynetwork.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -47,8 +48,8 @@ class SchedulerDetailFragment : Fragment() {
             }
         }
 
-        viewModel.appointmentRef?.where(
-            Filter.equalTo("userId",viewModel.user.value?.uid )
+
+        viewModel.appointmentRef?.where(Filter.equalTo("userId",viewModel.user.value?.uid )
              )?.addSnapshotListener { snapshot, error ->
             snapshot?.let {
 
@@ -56,15 +57,15 @@ class SchedulerDetailFragment : Fragment() {
                 val appointmentsList: List<Appointment> =
                     snapshot.toObjects(Appointment::class.java)
 
-                val userId = getCurrentUserId() // Funktion zum Abrufen der aktuellen Benutzer-ID
+               // val userId = getCurrentUserId() // Funktion zum Abrufen der aktuellen Benutzer-ID
 
                 //Es wird gefiltert um sicherzustellen, dass nur die Termine des aktuellen Benutzers (userId) im SchedulerFragment anzeigt
-                val userAppointments = appointmentsList.filter { it.userId == userId }
+                //val userAppointments = appointmentsList.filter { it.userId == userId }
 
                 val appointmentsText = StringBuilder()
 
-                for (appointment in userAppointments) {
-
+                for (appointment in appointmentsList) {
+                    Log.d("APP_DEBUG", "appointment.userID:: ${appointment.userId}")
                     appointmentsText.append("Professional: ${appointment.professional},\nDate: ${appointment.date},\n" +
                             "Hour: ${appointment.hour},\nService: ${appointment.service}\n\n\n")
 
@@ -72,6 +73,8 @@ class SchedulerDetailFragment : Fragment() {
                 binding.appointmentsListTextView.text = appointmentsText.toString()
             }
         }
+
+
 
     }
 

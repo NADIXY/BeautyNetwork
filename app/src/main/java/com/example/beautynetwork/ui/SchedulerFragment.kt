@@ -24,6 +24,7 @@ import com.example.beautynetwork.data.model.user.Appointment
 import com.example.beautynetwork.databinding.FragmentSchedulerBinding
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.Filter
 import java.util.Calendar
 
 class SchedulerFragment : Fragment() {
@@ -67,12 +68,12 @@ class SchedulerFragment : Fragment() {
 
         }
 
-        viewModel.appointmentRef?.addSnapshotListener { snapshot, error ->
+        viewModel.appointmentRef?.where(Filter.equalTo("userId",viewModel.user.value?.uid )
+        )?.addSnapshotListener { snapshot, error ->
             snapshot?.let {
                 // Umwandeln des Snapshots in eine Klassen-Instanz von der Klasse Appointment und setzen der Felder
                 //Hier werden Termine in Firestore angezeigt!
-                val myAppointments: List<Appointment> =
-                    snapshot.toObjects(Appointment::class.java)
+                val myAppointments: List<Appointment> = snapshot.toObjects(Appointment::class.java)
                 Log.d(
                     "Appointment", "${
                         myAppointments.map { myAppointments ->
@@ -83,18 +84,17 @@ class SchedulerFragment : Fragment() {
                 )
 
                 //Hier werden Termine in SchedulerFragment angezeigt!
-                val appointmentsList: List<Appointment> =
-                    snapshot.toObjects(Appointment::class.java)
+                //val appointmentsList: List<Appointment> = snapshot.toObjects(Appointment::class.java)
 
                 val userId = getCurrentUserId() // Funktion zum Abrufen der aktuellen Benutzer-ID
 
                 //Es wird gefiltert um sicherzustellen, dass nur die Termine des aktuellen Benutzers (userId) im SchedulerFragment anzeigt
-                val userAppointments = appointmentsList.filter { it.userId == userId }
+               // val userAppointments = appointmentsList.filter { it.userId == userId }
 
                 val appointmentsText = StringBuilder()
 
-                for (appointment in appointmentsList) {
-
+                for (appointment in myAppointments) {
+                    Log.d("APP_DEBUG", "appointment.userID:: ${appointment.userId}")
                     appointmentsText.append("Professional: ${appointment.professional},\nDate: ${appointment.date},\n" +
                             "Hour: ${appointment.hour},\nService: ${appointment.service}\n\n\n")
 
