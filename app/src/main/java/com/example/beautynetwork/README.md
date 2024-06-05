@@ -1,6 +1,4 @@
 # BEAUTY NETWORK APP
 
 
-<p align = "center" >
-  <img width="750" height="750" src="foto.png">
-</p>
+<img width="1162" alt="Bildschirmfoto 2024-06-05 um 23 47 39" src="https://github.com/SI-Classroom-Batch-014/batch14-abschlussprojekt-android-NADIXY/assets/147023164/c3fa22b6-d15b-4389-9bda-e3f27b3b6336">
