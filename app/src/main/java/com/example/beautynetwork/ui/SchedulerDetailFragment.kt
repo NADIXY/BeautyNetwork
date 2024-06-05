@@ -12,6 +12,7 @@ import com.example.beautynetwork.R
 import com.example.beautynetwork.data.model.user.Appointment
 import com.example.beautynetwork.databinding.FragmentSchedulerDetailBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.Filter
 
 class SchedulerDetailFragment : Fragment() {
 
@@ -46,7 +47,9 @@ class SchedulerDetailFragment : Fragment() {
             }
         }
 
-        viewModel.appointmentRef?.addSnapshotListener { snapshot, error ->
+        viewModel.appointmentRef?.where(
+            Filter.equalTo("userId",viewModel.user.value?.uid )
+             )?.addSnapshotListener { snapshot, error ->
             snapshot?.let {
 
                 //Hier werden Termine in SchedulerFragment angezeigt!
