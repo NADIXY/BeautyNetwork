@@ -1,5 +1,5 @@
 
-![Deckblatt](https://github.com/user-attachments/assets/ae9c471b-8dd6-4adc-9f71-fdd644b78a6d)
+
 
 
 
